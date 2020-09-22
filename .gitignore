@@ -3,23 +3,19 @@
 .LSOverride
 Icon
 
-
 # Thumbnails
 ._*
 
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
-
 node_modules/
 npm-debug.log*
 
 # Ignore built assets
 build
 .cache
-
 .env
-
 newrelic_agent.log
 .idea
 
