@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Publish docker image to Registry
-      uses: HurricanKai/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: jimmylevell/streetmix/streetmixdocker
         registry: docker.pkg.github.com
