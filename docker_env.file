@@ -1,0 +1,6 @@
+# required configuration for postgres
+# https://streetmix.readthedocs.io/en/latest/technical/installing-streetmix/?highlight=environment#optional-database-configuration-postgres
+PGHOST=128.130.232.10
+PGPORT=5432
+PGUSER=postgres
+PGPASSWORD=SECRET
