@@ -18,6 +18,6 @@ jobs:
       with:
         name: jimmylevell/streetmix/streetmixdocker
         registry: docker.pkg.github.com
-        username: ${{ secrets.DOCKER_USERNAME }}
+        username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: Dockerfile
