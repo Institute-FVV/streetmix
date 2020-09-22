@@ -6,13 +6,13 @@ on:
   push:
     branches:
       - master
-        - 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: Publish docker image to Registry
       uses: HurricanKai/Publish-Docker-Github-Action@master
       with:
