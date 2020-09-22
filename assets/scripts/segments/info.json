@@ -29,6 +29,13 @@
           "repeat": "ground--concrete"
         }
       },
+      "mixed": {
+        "elevation": 1,
+        "minWidth": 6,
+        "graphics": {
+          "repeat": "ground--concrete"
+        }
+      },
       "empty": {
         "elevation": 1,
         "minWidth": 6,
@@ -1776,6 +1783,137 @@
         "graphics": {
           "center": "secret--inception-train",
           "repeat": "ground--asphalt"
+        }
+      }
+    }
+  },
+  "wurstel": {
+    "name": "Wurstel",
+    "nameKey": "wurstel",
+    "owner": "FLEX",
+    "zIndex": 20,
+    "defaultWidth": 10,
+    "variants": [""],
+    "details": {
+      "": {
+        "elevation": 0,
+        "minWidth": 10,
+        "graphics": {
+          "center": "objects--wurstel",
+          "repeat": "ground--asphalt"
+        }
+      }
+    }
+  },
+  "statue": {
+    "name": "Statue",
+    "nameKey": "statue",
+    "owner": "FLEX",
+    "zIndex": 20,
+    "defaultWidth": 10,
+    "variants": [""],
+    "details": {
+      "": {
+        "elevation": 0,
+        "minWidth": 10,
+        "graphics": {
+          "center": "objects--statue",
+          "repeat": "ground--asphalt"
+        }
+      }
+    }
+  },
+  "box": {
+    "name": "Box",
+    "nameKey": "box",
+    "owner": "FLEX",
+    "zIndex": 20,
+    "defaultWidth": 10,
+    "variants": [""],
+    "details": {
+      "": {
+        "elevation": 0,
+        "minWidth": 10,
+        "graphics": {
+          "center": "objects--box",
+          "repeat": "ground--asphalt"
+        }
+      }
+    }
+  },
+  "waste": {
+    "name": "Waste",
+    "nameKey": "waste",
+    "owner": "FLEX",
+    "zIndex": 20,
+    "defaultWidth": 10,
+    "variants": ["direction"],
+    "details": {
+      "inbound": {
+        "elevation": 0,
+        "minWidth": 10,
+        "graphics": {
+          "center": "objects--waste-front",
+          "repeat": "ground--asphalt"
+        }
+      },
+      "outbound": {
+        "elevation": 0,
+        "minWidth": 10,
+        "graphics": {
+          "center": "objects--waste-side",
+          "repeat": "ground--asphalt"
+        }
+      }
+    }
+  },
+  "trolley-bus": {
+    "name": "Trolley-bus",
+    "nameKey": "trolley-bus",
+    "owner": "TRANSIT",
+    "zIndex": 10,
+    "defaultWidth": 14,
+    "variants": ["direction"],
+    "details": {
+      "inbound": {
+        "elevation": 0,
+        "minWidth": 10,
+        "graphics": {
+          "center": "vehicles--trolley-bus-inbound",
+          "repeat": "ground--asphalt"
+        }
+      },
+      "outbound": {
+        "elevation": 0,
+        "minWidth": 10,
+        "graphics": {
+          "center": "vehicles--trolley-bus-outbound",
+          "repeat": "ground--asphalt"
+        }
+      }
+    }
+  },
+  "sidewalk-sloped": {
+    "name": "Sidewalk-Sloped",
+    "nameKey": "sidewalk-sloped",
+    "owner": "PEDESTRIAN",
+    "zIndex": 30,
+    "defaultWidth": 6,
+    "needRandSeed": true,
+    "variants": ["orientation"],
+    "details": {
+      "left": {
+        "elevation": 0,
+        "minWidth": 6,
+        "graphics": {
+          "repeat": "ground--concrete-raised-down-left"
+        }
+      },
+      "right": {
+        "elevation": 0,
+        "minWidth": 6,
+        "graphics": {
+          "repeat": "ground--concrete-raised-down-right"
         }
       }
     }

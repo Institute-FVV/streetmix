@@ -77,6 +77,23 @@
           }
         }
       }
+    },
+    "sidewalk-sloped": {
+      "elevation": 1,
+      "variants": {
+        "orientation": {
+          "left": {
+            "graphics": {
+              "repeat": "ground--concrete-raised-down-left"
+            }
+          },
+          "right": {
+            "graphics": {
+              "repeat": "ground--concrete-raised-down-right"
+            }
+          }
+        }
+      }
     }
   },
   "markings": {
@@ -716,6 +733,71 @@
           }
         }
       }
+    },
+    "wurstel": {
+      "name": "Wurstel",
+      "nameKey": "wurstel",
+      "owner": "FLEX",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--wurstel"
+            }
+          }
+        }
+      }
+    },
+    "statue": {
+      "name": "Statue",
+      "nameKey": "statue",
+      "owner": "FLEX",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--statue"
+            }
+          }
+        }
+      }
+    },
+    "box": {
+      "name": "Box",
+      "nameKey": "box",
+      "owner": "FLEX",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--box"
+            }
+          }
+        }
+      }
+    },
+    "waste": {
+      "name": "Waste",
+      "nameKey": "waste",
+      "owner": "FLEX",
+      "zIndex": 20,
+      "variants": {
+        "direction": {
+          "inbound": {
+            "graphics": {
+              "center": "objects--waste-front"
+            }
+          },
+          "outbound": {
+            "graphics": {
+              "center": "objects--waste-side"
+            }
+          }
+        }
+      }
     }
   },
   "vehicles": {
@@ -912,6 +994,18 @@
             "outbound": {
               "graphics": {
                 "center": "bikes--biker-02-outbound"
+              }
+            }
+          },
+          "biker-03": {
+            "inbound": {
+              "graphics": {
+                "right": "bikes--biker-02-inbound"
+              }
+            },
+            "outbound": {
+              "graphics": {
+                "right": "bikes--biker-02-outbound"
               }
             }
           }
@@ -1226,6 +1320,26 @@
                 "id": "vehicles--magic-carpet-jasmine-aladdin",
                 "originY": -256
               }
+            }
+          }
+        }
+      }
+    },
+    "trolley-bus": {
+      "name": "Trolley-Bus",
+      "nameKey": "trolley-bus",
+      "owner": "TRANSIT",
+      "zIndex": 15,
+      "variants": {
+        "direction": {
+          "inbound": {
+            "graphics": {
+              "center": "vehicles--trolley-bus-inbound"
+            }
+          },
+          "outbound": {
+            "graphics": {
+              "center": "vehicles--trolley-bus-outbound"
             }
           }
         }
