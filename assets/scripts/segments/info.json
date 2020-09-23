@@ -65,6 +65,24 @@
         "graphics": {
           "center": "trees--palm-tree",
           "repeat": "ground--concrete"
+        },
+        "mixed-bike": {
+          "elevation": 1,
+          "graphics": {
+            "center": "trees--palm-tree",
+            "left": "bikes--biker-03-inbound",
+            "repeat": "ground--concrete"
+          }
+        },
+        "mixed-car": {
+          "elevation": 1,
+          "graphics": {
+            "center": "trees--palm-tree",
+            "right": {
+              "id": "vehicles--car-inbound"
+            },
+            "repeat": "ground--concrete"
+          }
         }
       }
     }
