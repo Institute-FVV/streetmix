@@ -326,6 +326,10 @@
       "id": "sidewalk-density-sparse",
       "title": "Sparse"
     },
+    "mixed": {
+      "id": "sidewalk-density-mixed",
+      "title": "Mixed"
+    },
     "empty": {
       "id": "",
       "title": "Empty"
