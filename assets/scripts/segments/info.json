@@ -1792,12 +1792,12 @@
     "nameKey": "wurstel",
     "owner": "FLEX",
     "zIndex": 20,
-    "defaultWidth": 10,
+    "defaultWidth": 12,
     "variants": [""],
     "details": {
       "": {
         "elevation": 0,
-        "minWidth": 10,
+        "minWidth": 11,
         "graphics": {
           "center": "objects--wurstel",
           "repeat": "ground--asphalt"
@@ -1828,12 +1828,12 @@
     "nameKey": "box",
     "owner": "FLEX",
     "zIndex": 20,
-    "defaultWidth": 10,
+    "defaultWidth": 7,
     "variants": [""],
     "details": {
       "": {
         "elevation": 0,
-        "minWidth": 10,
+        "minWidth": 4,
         "graphics": {
           "center": "objects--box",
           "repeat": "ground--asphalt"
@@ -1845,30 +1845,30 @@
     "name": "Waste",
     "nameKey": "waste",
     "owner": "FLEX",
-    "zIndex": 20,
-    "defaultWidth": 10,
+    "zIndex": 30,
+    "defaultWidth": 11,
     "variants": ["direction"],
     "details": {
       "inbound": {
         "elevation": 0,
-        "minWidth": 10,
+        "minWidth": 7,
         "graphics": {
-          "center": "objects--waste-front",
+          "center": "vehicles--foodtruck-left",
           "repeat": "ground--asphalt"
         }
       },
       "outbound": {
         "elevation": 0,
-        "minWidth": 10,
+        "minWidth": 7,
         "graphics": {
-          "center": "objects--waste-side",
+          "center": "vehicles--foodtruck-left",
           "repeat": "ground--asphalt"
         }
       }
     }
   },
   "trolley-bus": {
-    "name": "Trolley-bus",
+    "name": "Trolley bus",
     "nameKey": "trolley-bus",
     "owner": "TRANSIT",
     "zIndex": 10,
@@ -1894,24 +1894,24 @@
     }
   },
   "sidewalk-sloped": {
-    "name": "Sidewalk-Sloped",
+    "name": "Sidewalk Sloped",
     "nameKey": "sidewalk-sloped",
     "owner": "PEDESTRIAN",
     "zIndex": 30,
-    "defaultWidth": 6,
+    "defaultWidth": 10,
     "needRandSeed": true,
     "variants": ["orientation"],
     "details": {
       "left": {
-        "elevation": 0,
-        "minWidth": 6,
+        "elevation": 1,
+        "minWidth": 8,
         "graphics": {
           "repeat": "ground--concrete-raised-down-left"
         }
       },
       "right": {
-        "elevation": 0,
-        "minWidth": 6,
+        "elevation": 1,
+        "minWidth": 8,
         "graphics": {
           "repeat": "ground--concrete-raised-down-right"
         }

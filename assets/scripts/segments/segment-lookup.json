@@ -4501,9 +4501,9 @@
     "nameKey": "wurstel",
     "owner": "FLEX",
     "zIndex": 20,
-    "defaultWidth": 10,
+    "defaultWidth": 12,
     "rules": {
-      "minWidth": 10
+      "minWidth": 11
     },
     "variants": [""],
     "details": {
@@ -4567,9 +4567,9 @@
     "nameKey": "box",
     "owner": "FLEX",
     "zIndex": 20,
-    "defaultWidth": 10,
+    "defaultWidth": 7,
     "rules": {
-      "minWidth": 10
+      "minWidth": 4
     },
     "variants": [""],
     "details": {
@@ -4599,10 +4599,10 @@
     "name": "Waste",
     "nameKey": "waste",
     "owner": "FLEX",
-    "zIndex": 20,
-    "defaultWidth": 10,
+    "zIndex": 30,
+    "defaultWidth": 11,
     "rules": {
-      "minWidth": 10
+      "minWidth": 7
     },
     "variants": ["direction"],
     "details": {
@@ -4857,10 +4857,9 @@
     "nameKey": "sidewalk-sloped",
     "owner": "PEDESTRIAN",
     "zIndex": 30,
-    "defaultWidth": 6,
-    "needRandSeed": true,
+    "defaultWidth": 5,
     "rules": {
-      "minWidth": 6
+      "minWidth": 8
     },
     "variants": ["orientation"],
     "details": {

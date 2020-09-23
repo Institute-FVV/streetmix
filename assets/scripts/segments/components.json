@@ -783,7 +783,7 @@
       "name": "Waste",
       "nameKey": "waste",
       "owner": "FLEX",
-      "zIndex": 20,
+      "zIndex": 30,
       "variants": {
         "direction": {
           "inbound": {
