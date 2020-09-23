@@ -158,6 +158,62 @@
             }
           ]
         }
+      },
+      "mixed-bike": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "objects": [
+            {
+              "id": "tree",
+              "variants": {
+                "type": "palm-tree"
+              }
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "bike",
+              "variants": {
+                "type|direction": ["biker-03", "inbound"]
+              }
+            }
+          ]
+        }
+      },
+      "mixed-car": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "objects": [
+            {
+              "id": "tree",
+              "variants": {
+                "type": "palm-tree"
+              }
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction|orientation": ["angled-front-right", "right"]
+              }
+            }
+          ]
+        }
       }
     }
   },

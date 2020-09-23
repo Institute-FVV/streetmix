@@ -81,6 +81,14 @@
     "palm-tree": {
       "id": "palm-tree",
       "title": "Palm tree"
+    },
+    "mixed-bike": {
+      "id": "mixed-bike",
+      "title": "mixed-bike"
+    },
+    "mixed-car": {
+      "id": "mixed-car",
+      "title": "mixed-car"
     }
   },
   "lamp-orientation": {
