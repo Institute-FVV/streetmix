@@ -880,6 +880,29 @@ routes.get('/api/v1/votes', cors(), jwtCheck, resources.v1.votes.get)
 routes.post('/api/v1/votes', cors(), jwtCheck, resources.v1.votes.post)
 routes.put('/api/v1/votes', cors(), jwtCheck, resources.v1.votes.put)
 
+/**
+ * @swagger
+ * /api/v1/creatorMetadata:
+ *   get:
+ *     description: Returns creator Metadata
+ *     tags:
+ *       - metadata
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: creatorMetadata
+ *         schema:
+ *           type: array
+ *           items:
+ *             $ref: '#/definitions/CreatorMetadata'
+ */
+routes.get(
+  '/api/v1/creatorMetadata',
+  jwtCheck,
+  resources.v1.creatorMetadata.get
+)
+
 // Catch all for all broken api paths, direct to 404 response.
 routes.all('/api/*', (req, res) => {
   res

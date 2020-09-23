@@ -15,6 +15,8 @@ import UpgradeDialog from './UpgradeDialog'
 import SentimentSurveyDialog from './SentimentSurveyDialog'
 import ErrorDialog from './ErrorDialog'
 
+import SubmitDialog from './SubmitDialog'
+
 const DIALOG_COMPONENTS = {
   ABOUT: {
     id: AboutDialog
@@ -45,6 +47,9 @@ const DIALOG_COMPONENTS = {
   },
   SENTIMENT_SURVEY: {
     id: SentimentSurveyDialog
+  },
+  SUBMIT: {
+    id: SubmitDialog
   }
 }
 

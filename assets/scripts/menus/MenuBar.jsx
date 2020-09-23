@@ -87,7 +87,7 @@ function MenuBar (props) {
       <ul className="menu-bar-left">
         <li className="menu-bar-title">
           <img src={logo} alt="Streemix" className="menu-bar-logo" />
-          <h1>Streetmix</h1>
+          <h1>Streetmix - TU-Wien</h1>
         </li>
         <MenuBarItem
           label="Help"
@@ -139,6 +139,15 @@ function MenuBar (props) {
           translation="menu.item.settings"
           onClick={handleClickMenuButton('settings')}
         />
+
+        {/* additional menu item for submitting current streetmix */}
+        <MenuBarItem
+          label="Submit"
+          translation="menu.item.submit"
+          url="#"
+          onClick={() => dispatch(showDialog('SUBMIT'))}
+        />
+
         <MenuBarItem
           label="Share"
           translation="menu.item.share"
