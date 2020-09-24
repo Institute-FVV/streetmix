@@ -263,6 +263,8 @@
       "name-label": "Full name",
       "matrikelNummer-label": "matrikelNummer",
       "email-label": "Email",
+      "projectName-label": "Projectname",
+      "directionOfView-label": "Direction of view",
       "note": "We will send you a confirmation of the submission and a link to this project to your email.",
       "submit-invalid": "Oops! Seems the submission of your work did not work, please try again or contact local support",
       "loading-message": "Submitting your data…",

@@ -12,6 +12,10 @@ export default class SubmitDialog extends React.Component {
       name: '',
       matrikelNummer: '',
       email: '',
+      projectName: '',
+      status: '',
+      submissionDate: '',
+      directionOfView: '',
       submitting: false,
       submitted: false
     }
@@ -19,10 +23,13 @@ export default class SubmitDialog extends React.Component {
     this.nameInputEl = React.createRef()
     this.martikelNummerInputEl = React.createRef()
     this.emailInputEl = React.createRef()
+    this.projectNamenInputEl = React.createRef()
+    this.statusInputEl = React.createRef()
+    this.directionOfViewInputEl = React.createRef()
   }
 
   componentDidMount = () => {
-    this.emailInputEl.current.focus()
+    this.nameInputEl.current.focus()
   }
 
   goStoreData = (event) => {
@@ -128,7 +135,7 @@ export default class SubmitDialog extends React.Component {
 
   render () {
     const { submitting, submitted } = this.state
-    console.log(this.state)
+
     if (submitting) {
       return this.renderSubmitWaiting()
     } else if (submitted) {
@@ -201,10 +208,7 @@ export default class SubmitDialog extends React.Component {
                   required={true}
                 />
 
-                <label
-                  htmlFor="submit-email-input"
-                  className="submit-email-label"
-                >
+                <label htmlFor="submit-email-input" className="submit-label">
                   <FormattedMessage
                     id="dialogs.submit.email-label"
                     defaultMessage="Email"
@@ -224,6 +228,74 @@ export default class SubmitDialog extends React.Component {
                   placeholder="studentname@tuwien.ac.at"
                   required={true}
                 />
+
+                <label
+                  htmlFor="submit-projectName-input"
+                  className="submit-label"
+                >
+                  <FormattedMessage
+                    id="dialogs.submit.projectName-label"
+                    defaultMessage="Projectname"
+                  />
+                </label>
+                <input
+                  type="text"
+                  id="submit-projectName-input"
+                  ref={this.projectNameInputEl}
+                  value={this.state.projectName}
+                  className={
+                    'submit-input ' +
+                    (this.state.error ? 'submit-input-error' : '')
+                  }
+                  name="projectName"
+                  onChange={this.handleChange}
+                  placeholder="Project 1"
+                  required={true}
+                />
+
+                <label
+                  htmlFor="submit-projectStatus-input"
+                  className="submit-label"
+                >
+                  <FormattedMessage
+                    id="dialogs.submit.projectStatus-label"
+                    defaultMessage="Projectstatus"
+                  />
+                </label>
+
+                <select
+                  className="submit-input"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                >
+                  <option selected={true} value="current">
+                    Current
+                  </option>
+                  <option value="planned">Planned</option>
+                </select>
+
+                <label
+                  htmlFor="submit-directionOfView-input"
+                  className="submit-label"
+                >
+                  <FormattedMessage
+                    id="dialogs.submit.directionOfView-label"
+                    defaultMessage="Direction of view"
+                  />
+                </label>
+
+                <select
+                  className="submit-input"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                >
+                  <option selected={true} value="north">
+                    North
+                  </option>
+                  <option value="east">East</option>
+                  <option value="south">South</option>
+                  <option value="west">West</option>
+                </select>
 
                 {this.state.error && this.renderErrorMessage()}
 
