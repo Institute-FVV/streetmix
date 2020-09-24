@@ -4627,13 +4627,13 @@
     "rules": {
       "minWidth": 4
     },
-    "variants": [""],
+    "variants": ["orientation"],
     "details": {
-      "": {
+      "left": {
         "components": {
           "lanes": [
             {
-              "id": "asphalt",
+              "id": "sidewalk",
               "variants": {
                 "color": "regular"
               }
@@ -4643,7 +4643,27 @@
             {
               "id": "box",
               "variants": {
-                "type": "default"
+                "orientation": "left"
+              }
+            }
+          ]
+        }
+      },
+      "right": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "objects": [
+            {
+              "id": "box",
+              "variants": {
+                "orientation": "right"
               }
             }
           ]
@@ -4666,7 +4686,7 @@
         "components": {
           "lanes": [
             {
-              "id": "asphalt",
+              "id": "sidewalk",
               "variants": {
                 "color": "regular"
               }
@@ -4686,7 +4706,7 @@
         "components": {
           "lanes": [
             {
-              "id": "asphalt",
+              "id": "sidewalk",
               "variants": {
                 "color": "regular"
               }

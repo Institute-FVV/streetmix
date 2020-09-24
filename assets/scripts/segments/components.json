@@ -79,7 +79,7 @@
       }
     },
     "sidewalk-sloped": {
-      "elevation": 1,
+      "elevation": 0,
       "variants": {
         "orientation": {
           "left": {
@@ -770,10 +770,15 @@
       "owner": "FLEX",
       "zIndex": 20,
       "variants": {
-        "type": {
-          "default": {
+        "orientation": {
+          "left": {
             "graphics": {
-              "center": "objects--box"
+              "left": "objects--box"
+            }
+          },
+          "right": {
+            "graphics": {
+              "right": "objects--box"
             }
           }
         }
