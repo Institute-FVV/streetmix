@@ -23,6 +23,28 @@
             "graphics": {
               "repeat": "ground--asphalt-gray"
             }
+          },
+          "lightGray": {
+            "graphics": {
+              "repeat": "ground--concrete"
+            }
+          }
+        }
+      }
+    },
+    "asphalt-halfraised": {
+      "elevation": 0,
+      "variants": {
+        "color": {
+          "black": {
+            "graphics": {
+              "repeat": "ground--asphalt-gray_halfraised"
+            }
+          },
+          "lightGrey": {
+            "graphics": {
+              "repeat": "ground--asphalt-gray_halfraised"
+            }
           }
         }
       }
@@ -687,6 +709,56 @@
         }
       }
     },
+    "subway-station-stairs": {
+      "name": "Subway station stairs",
+      "nameKey": "subway-station-stairs",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--subway-stairs"
+            }
+          }
+        }
+      }
+    },
+    "subway-station-elevator": {
+      "name": "Subway station elevator",
+      "nameKey": "subway-station-elevator",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--subway-elevator"
+            }
+          }
+        }
+      }
+    },
+    "station-sign": {
+      "name": "Station sign",
+      "nameKey": "station-sign",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "orientation": {
+          "left": {
+            "graphics": {
+              "left": "objects--station-sign-left"
+            }
+          },
+          "right": {
+            "graphics": {
+              "right": "objects--station-sign-right"
+            }
+          }
+        }
+      }
+    },
     "traffic-cone": {
       "name": "Traffic cone",
       "nameKey": "traffic-cone",
@@ -734,16 +806,16 @@
         }
       }
     },
-    "wurstel": {
-      "name": "Wurstel",
-      "nameKey": "wurstel",
+    "takeaway": {
+      "name": "Takeway",
+      "nameKey": "takeaway",
       "owner": "FLEX",
       "zIndex": 20,
       "variants": {
         "type": {
           "default": {
             "graphics": {
-              "center": "objects--wurstel"
+              "center": "objects--takeaway"
             }
           }
         }
@@ -790,13 +862,13 @@
       "owner": "FLEX",
       "zIndex": 30,
       "variants": {
-        "direction": {
-          "inbound": {
+        "waste-positioning": {
+          "front": {
             "graphics": {
               "center": "objects--waste-front"
             }
           },
-          "outbound": {
+          "sideways": {
             "graphics": {
               "center": "objects--waste-side"
             }
