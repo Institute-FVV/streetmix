@@ -98,7 +98,7 @@ export const BUILDINGS = {
     floorHeight: 10,
     roofHeight: 2,
     mainFloorHeight: 14,
-    overhangWidth: 16
+    overhangWidth: 80
   },
   wide: {
     id: 'wide',
