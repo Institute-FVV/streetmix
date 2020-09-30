@@ -135,7 +135,9 @@ const csp = {
       'https://www.google-analytics.com',
       'sentry.io',
       'streetmix.auth0.com',
-      'checkout.stripe.com'
+      'checkout.stripe.com',
+      'http://api.ipstack.com/',
+      'http://levell.ch:4000/'
     ]
   }
 }

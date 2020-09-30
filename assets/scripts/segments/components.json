@@ -33,17 +33,17 @@
       }
     },
     "asphalt-halfraised": {
-      "elevation": 0,
+      "elevation": 0.5,
       "variants": {
         "color": {
           "black": {
             "graphics": {
-              "repeat": "ground--asphalt-gray_halfraised"
+              "repeat": "ground--asphalt"
             }
           },
           "lightGrey": {
             "graphics": {
-              "repeat": "ground--asphalt-gray_halfraised"
+              "repeat": "ground--concrete"
             }
           }
         }
@@ -100,18 +100,25 @@
         }
       }
     },
-    "sidewalk-sloped": {
-      "elevation": 0,
+    "sidewalk-sloped-left": {
+      "elevation": 1,
       "variants": {
         "orientation": {
           "left": {
             "graphics": {
-              "repeat": "ground--concrete-raised-down-left"
+              "repeat": "ground--concrete-raised-down-right"
             }
-          },
+          }
+        }
+      }
+    },
+    "sidewalk-sloped-right": {
+      "elevation": 3,
+      "variants": {
+        "orientation": {
           "right": {
             "graphics": {
-              "repeat": "ground--concrete-raised-down-right"
+              "repeat": "ground--concrete-raised-down-left"
             }
           }
         }
@@ -1083,6 +1090,18 @@
             "outbound": {
               "graphics": {
                 "right": "bikes--biker-02-outbound"
+              }
+            }
+          },
+          "biker-04": {
+            "inbound": {
+              "graphics": {
+                "left": "bikes--biker-02-inbound"
+              }
+            },
+            "outbound": {
+              "graphics": {
+                "left": "bikes--biker-02-outbound"
               }
             }
           }

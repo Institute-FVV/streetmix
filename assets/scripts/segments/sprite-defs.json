@@ -159,9 +159,6 @@
     "offsetX": -60,
     "originY": -423
   },
-  "ground--concrete-raised-down-right": {
-    "originY": -423
-  },
   "missing": {
     "id": "missing"
   }
