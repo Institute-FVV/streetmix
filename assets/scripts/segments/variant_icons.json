@@ -24,6 +24,10 @@
       "id": "building-thin",
       "title": "Narrow building"
     },
+    "narrowSubway": {
+      "id": "building-thin",
+      "title": "Narrow building subway"
+    },
     "wide": {
       "id": "building-wide",
       "title": "Wide building"
@@ -81,14 +85,6 @@
     "palm-tree": {
       "id": "palm-tree",
       "title": "Palm tree"
-    },
-    "mixed-bike": {
-      "id": "mixed-bike",
-      "title": "mixed-bike"
-    },
-    "mixed-car": {
-      "id": "mixed-car",
-      "title": "mixed-car"
     }
   },
   "lamp-orientation": {
@@ -252,20 +248,29 @@
     }
   },
   "bike-asphalt": {
-    "regular": {
+    "black": {
       "id": "asphalt",
       "color": "#292a29",
-      "title": "Asphalt"
+      "title": "Black"
     },
-    "green": {
+    "lightGrey": {
       "id": "asphalt",
-      "color": "#2b6750",
-      "title": "Green lane"
+      "color": "#D8D3CB",
+      "title": "Sidewalk"
+    }
+  },
+  "bike-elevation": {
+    "higher": {
+      "id": "elevation-higher",
+      "title": "Sidewalk level"
     },
-    "red": {
-      "id": "asphalt",
-      "color": "#9b1f22",
-      "title": "Red lane "
+    "lower": {
+      "id": "elevation-lower",
+      "title": "Street level"
+    },
+    "halfraised": {
+      "id": "elevation-lower",
+      "title": "Middle level"
     }
   },
   "transit-shelter-elevation": {
@@ -462,6 +467,62 @@
       "id": "jersey-barrier",
       "color": "#ef9c74",
       "title": "Jersey barrier (plastic)"
+    }
+  },
+  "vegation": {
+    "none": {
+      "id": "barricade",
+      "title": "Barricade"
+    },
+    "tree": {
+      "id": "barricade",
+      "title": "Barricade"
+    }
+  },
+  "waste-positioning": {
+    "front": {
+      "id": "direction-inbound",
+      "title": "sideways"
+    },
+    "sideways": {
+      "id": "direction-both",
+      "title": "sideways"
+    }
+  },
+  "street-type": {
+    "asphalt": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Asphalt"
+    },
+    "sidewalk": {
+      "id": "asphalt",
+      "color": "#D8D3CB",
+      "title": "Sidewalk"
+    }
+  },
+  "station-type": {
+    "simple": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Simple"
+    },
+    "covered": {
+      "id": "asphalt",
+      "color": "#D8D3CB",
+      "title": "Covered"
+    }
+  },
+  "subway-station-type": {
+    "stairs": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Stairs"
+    },
+    "elevator": {
+      "id": "asphalt",
+      "color": "#D8D3CB",
+      "title": "Elevator"
     }
   }
 }

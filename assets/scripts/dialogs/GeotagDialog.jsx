@@ -5,7 +5,11 @@ import { useSelector, useDispatch, batch } from 'react-redux'
 import { useIntl } from 'react-intl'
 import { Map, TileLayer, ZoomControl, Marker } from 'react-leaflet'
 import Dialog from './Dialog'
-import { PELIAS_HOST_NAME, PELIAS_API_KEY } from '../app/config'
+import {
+  PELIAS_HOST_NAME,
+  PELIAS_PROTOCOL,
+  PELIAS_API_KEY
+} from '../app/config'
 import { trackEvent } from '../app/event_tracking'
 import ErrorBanner from './Geotag/ErrorBanner'
 import GeoSearch from './Geotag/GeoSearch'
@@ -19,7 +23,7 @@ import {
 } from '../store/slices/street'
 import './GeotagDialog.scss'
 
-const REVERSE_GEOCODE_API = `https://${PELIAS_HOST_NAME}/v1/reverse`
+const REVERSE_GEOCODE_API = `${PELIAS_PROTOCOL}${PELIAS_HOST_NAME}/v1/reverse`
 const REVERSE_GEOCODE_ENDPOINT = `${REVERSE_GEOCODE_API}?api_key=${PELIAS_API_KEY}`
 const MAP_TILES =
   'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png'
@@ -141,7 +145,7 @@ function GeotagDialog () {
   const [renderPopup, setRenderPopup] = useState(!!initialState.markerLocation)
   const intl = useIntl()
 
-  const geocodeAvailable = !!PELIAS_API_KEY
+  const geocodeAvailable = 'not-required'
 
   // `dpi` is a bad name for what is supposed to be referring to the devicePixelRatio
   // value. A devicePixelRatio higher than 1 (e.g. Retina or 4k monitors) will load

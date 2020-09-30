@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 import { useIntl } from 'react-intl'
 import DownshiftPelias from 'downshift-pelias'
 import Pelias from 'pelias-js'
-import { PELIAS_HOST_NAME, PELIAS_API_KEY } from '../../app/config'
+import {
+  PELIAS_HOST_NAME,
+  PELIAS_PROTOCOL,
+  PELIAS_API_KEY
+} from '../../app/config'
 
 GeoSearch.propTypes = {
   handleSearchResults: PropTypes.func,
@@ -13,10 +17,7 @@ GeoSearch.propTypes = {
   })
 }
 
-function GeoSearch ({
-  handleSearchResults,
-  focus = { lat: 0, lng: 0 }
-}) {
+function GeoSearch ({ handleSearchResults, focus = { lat: 0, lng: 0 } }) {
   const intl = useIntl()
   const inputEl = useRef()
 
@@ -63,7 +64,7 @@ function GeoSearch ({
   }
 
   const pelias = new Pelias({
-    peliasUrl: `https://${PELIAS_HOST_NAME}`,
+    peliasUrl: `${PELIAS_PROTOCOL}${PELIAS_HOST_NAME}`,
     apiKey: PELIAS_API_KEY
   })
 

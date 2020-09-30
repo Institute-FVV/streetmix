@@ -23,6 +23,28 @@
             "graphics": {
               "repeat": "ground--asphalt-gray"
             }
+          },
+          "lightGray": {
+            "graphics": {
+              "repeat": "ground--concrete"
+            }
+          }
+        }
+      }
+    },
+    "asphalt-halfraised": {
+      "elevation": 0.5,
+      "variants": {
+        "color": {
+          "black": {
+            "graphics": {
+              "repeat": "ground--asphalt"
+            }
+          },
+          "lightGrey": {
+            "graphics": {
+              "repeat": "ground--concrete"
+            }
           }
         }
       }
@@ -78,18 +100,25 @@
         }
       }
     },
-    "sidewalk-sloped": {
+    "sidewalk-sloped-left": {
       "elevation": 1,
       "variants": {
         "orientation": {
           "left": {
             "graphics": {
-              "repeat": "ground--concrete-raised-down-left"
+              "repeat": "ground--concrete-raised-down-right"
             }
-          },
+          }
+        }
+      }
+    },
+    "sidewalk-sloped-right": {
+      "elevation": 3,
+      "variants": {
+        "orientation": {
           "right": {
             "graphics": {
-              "repeat": "ground--concrete-raised-down-right"
+              "repeat": "ground--concrete-raised-down-left"
             }
           }
         }
@@ -687,6 +716,56 @@
         }
       }
     },
+    "subway-station-stairs": {
+      "name": "Subway station stairs",
+      "nameKey": "subway-station-stairs",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--subway-stairs"
+            }
+          }
+        }
+      }
+    },
+    "subway-station-elevator": {
+      "name": "Subway station elevator",
+      "nameKey": "subway-station-elevator",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--subway-elevator"
+            }
+          }
+        }
+      }
+    },
+    "station-sign": {
+      "name": "Station sign",
+      "nameKey": "station-sign",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "orientation": {
+          "left": {
+            "graphics": {
+              "left": "objects--station-sign-left"
+            }
+          },
+          "right": {
+            "graphics": {
+              "right": "objects--station-sign-right"
+            }
+          }
+        }
+      }
+    },
     "traffic-cone": {
       "name": "Traffic cone",
       "nameKey": "traffic-cone",
@@ -734,16 +813,16 @@
         }
       }
     },
-    "wurstel": {
-      "name": "Wurstel",
-      "nameKey": "wurstel",
+    "takeaway": {
+      "name": "Takeway",
+      "nameKey": "takeaway",
       "owner": "FLEX",
       "zIndex": 20,
       "variants": {
         "type": {
           "default": {
             "graphics": {
-              "center": "objects--wurstel"
+              "center": "objects--takeaway"
             }
           }
         }
@@ -770,10 +849,15 @@
       "owner": "FLEX",
       "zIndex": 20,
       "variants": {
-        "type": {
-          "default": {
+        "orientation": {
+          "left": {
             "graphics": {
-              "center": "objects--box"
+              "left": "objects--box"
+            }
+          },
+          "right": {
+            "graphics": {
+              "right": "objects--box"
             }
           }
         }
@@ -785,13 +869,13 @@
       "owner": "FLEX",
       "zIndex": 30,
       "variants": {
-        "direction": {
-          "inbound": {
+        "waste-positioning": {
+          "front": {
             "graphics": {
               "center": "objects--waste-front"
             }
           },
-          "outbound": {
+          "sideways": {
             "graphics": {
               "center": "objects--waste-side"
             }
@@ -1006,6 +1090,18 @@
             "outbound": {
               "graphics": {
                 "right": "bikes--biker-02-outbound"
+              }
+            }
+          },
+          "biker-04": {
+            "inbound": {
+              "graphics": {
+                "left": "bikes--biker-02-inbound"
+              }
+            },
+            "outbound": {
+              "graphics": {
+                "left": "bikes--biker-02-outbound"
               }
             }
           }

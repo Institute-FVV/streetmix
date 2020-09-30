@@ -221,6 +221,7 @@ export function getVariantInfoDimensions (variantInfo, actualWidth = 0) {
 
 const GROUND_LEVEL_OFFSETY = {
   ASPHALT: 0,
+  HALFRAISED: 7,
   CURB: 14,
   RAISED_CURB: 74
 }
@@ -243,10 +244,18 @@ function getGroundLevelOffset (elevation) {
   switch (elevation) {
     case 0:
       return GROUND_LEVEL_OFFSETY.ASPHALT
+    case 0.5:
+      return GROUND_LEVEL_OFFSETY.HALFRAISED
     case 1:
       return GROUND_LEVEL_OFFSETY.CURB
     case 2:
       return GROUND_LEVEL_OFFSETY.RAISED_CURB
+    case 3:
+      return (
+        GROUND_LEVEL_OFFSETY.HALFRAISED +
+        GROUND_LEVEL_OFFSETY.RAISED_CURB +
+        GROUND_LEVEL_OFFSETY.CURB
+      )
     default:
       return null
   }

@@ -7,6 +7,7 @@ process.env.APP_HOST_PORT = config.get('app_host_port')
 process.env.FACEBOOK_APP_ID = config.get('facebook_app_id')
 process.env.API_URL = config.get('restapi_proxy_baseuri_rel')
 process.env.PELIAS_HOST_NAME = config.get('geocode.pelias.host')
+process.env.PELIAS_PROTOCOL = config.get('geocode.pelias.protocol')
 process.env.PELIAS_API_KEY = config.get('geocode.pelias.api_key')
 process.env.TWITTER_CALLBACK_PATH = config.get('twitter.oauth_callback_path')
 process.env.AUTH0_CALLBACK_PATH = config.get('auth0.callback_path')
@@ -18,11 +19,14 @@ process.env.ENV = config.get('env')
 process.env.NO_INTERNET_MODE = config.get('no_internet_mode')
 
 async function runBundle (app) {
-  const bundler = new Bundler(path.join(process.cwd(), '/assets/scripts/main.js'), {
-    outDir: './build',
-    publicUrl: '/assets'
-    // scopeHoist: true // Turns on experimental tree-shaking (broken)
-  })
+  const bundler = new Bundler(
+    path.join(process.cwd(), '/assets/scripts/main.js'),
+    {
+      outDir: './build',
+      publicUrl: '/assets'
+      // scopeHoist: true // Turns on experimental tree-shaking (broken)
+    }
+  )
 
   if (config.env === 'production') {
     await bundler.bundle()
