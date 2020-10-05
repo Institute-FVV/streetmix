@@ -16,7 +16,7 @@ jobs:
     - name: Publish docker image to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: jimmylevell/streetmix/streetmixdocker
+        name: Institute-FVV/streetmix/streetmixdocker
         registry: docker.pkg.github.com
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}

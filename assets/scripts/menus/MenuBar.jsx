@@ -87,7 +87,7 @@ function MenuBar (props) {
       <ul className="menu-bar-left">
         <li className="menu-bar-title">
           <img src={logo} alt="Streemix" className="menu-bar-logo" />
-          <h1>Streetmix - TU-Wien</h1>
+          <h1>Streetmix - @TU-Wien</h1>
         </li>
         <MenuBarItem
           label="Help"
