@@ -221,6 +221,7 @@ const streetSlice = createSlice({
 
     addLocation (state, action) {
       state.location = action.payload
+      console.log(state.location)
     },
 
     clearLocation (state, action) {

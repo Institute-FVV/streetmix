@@ -142,10 +142,10 @@ function MenuBar (props) {
 
         {/* additional menu item for submitting current streetmix */}
         <MenuBarItem
-          label="Submit"
-          translation="menu.item.submit"
+          label="Metadata"
+          translation="menu.item.metadata"
           url="#"
-          onClick={() => dispatch(showDialog('SUBMIT'))}
+          onClick={() => dispatch(showDialog('METADATA'))}
         />
 
         <MenuBarItem

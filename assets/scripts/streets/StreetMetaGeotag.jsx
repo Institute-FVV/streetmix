@@ -41,7 +41,9 @@ function StreetMetaGeotag (props) {
         ? hierarchy.region
         : hierarchy.neighbourhood
           ? hierarchy.neighbourhood
-          : null
+          : hierarchy.street
+            ? hierarchy.street
+            : null
 
     if (text && hierarchy.country) {
       text = text + ', ' + hierarchy.country

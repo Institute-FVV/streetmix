@@ -2,9 +2,9 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import Dialog from './Dialog'
 import LoadingSpinner from '../ui/LoadingSpinner'
-import './SubmitDialog.scss'
+import './MetadataDialog.scss'
 
-export default class SubmitDialog extends React.Component {
+export default class MetadataDialog extends React.Component {
   constructor (props) {
     super(props)
 
