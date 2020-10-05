@@ -256,7 +256,7 @@
       "email-unreceived": "Didn’t receive it?",
       "resend-email": "Resend email"
     },
-    "submit": {
+    "metadata": {
       "heading": "Submit your work",
       "heading-submitted": "Submitted your work",
       "description": "Hand in your design",

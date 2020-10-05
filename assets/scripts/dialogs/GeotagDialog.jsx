@@ -210,8 +210,6 @@ function GeotagDialog () {
       intersectionId: null
     }
 
-    console.log(location)
-
     trackEvent(
       'Interaction',
       'Geotag dialog: confirm chosen location',

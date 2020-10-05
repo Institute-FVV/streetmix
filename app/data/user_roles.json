@@ -4,7 +4,7 @@
     "text": "User",
     "value": "USER",
     "flags": {
-      "ANALYTICS": true,
+      "ANALYTICS": false,
       "SEGMENT_AV": true,
       "SEGMENT_KRZ": true,
       "SEGMENT_PED_LANES": true,

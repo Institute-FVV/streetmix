@@ -1,25 +1,27 @@
 @import "../../styles/variables.scss";
 
-.submit-dialog {
+.metadata-dialog {
   width: 450px;
   min-height: 250px;
 }
 
-.submit-loading {
+.metadata-loading {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.submit-label {
+.metadata-label {
   display: block;
   font-weight: 700;
   font-size: 1.2em;
   margin-bottom: 0.25em;
 }
 
-.submit-input,
-input[type="text"] {
+.metadata-input,
+input[type="text"],
+select,
+textarea {
   border-radius: 3px;
   padding: 0.75em;
   width: 100%;
@@ -35,39 +37,39 @@ input[type="text"] {
       0 0 8px opacify(darken($button-border-colour, 10%), 0.15);
   }
 
-  &.submit-input-error {
+  &.metadata-input-error {
     border: 1px solid red !important;
   }
 }
 
-.submit-note {
+.metadata-note {
   color: rgb(120, 120, 120); /* todo: standardize small colors */
   margin-top: 0.25em;
   margin-bottom: 0.25em;
   line-height: 1.3;
 }
 
-.submit-loading-message {
+.metadata-loading-message {
   text-align: center;
   font-weight: normal;
   font-size: 1.25em;
 }
 
-.submit-button {
+.metadata-button {
   position: relative;
   width: 100%;
   display: flex !important;
   align-items: center !important;
 }
 
-.submit-disclaimer {
+.metadata-disclaimer {
   text-align: center;
   margin-top: 2em;
   margin-left: 5em;
   margin-right: 5em;
 }
 
-.submit-email-sent {
+.metadata-email-sent {
   text-align: center;
   margin-left: 2em;
   margin-right: 2em;
@@ -75,21 +77,21 @@ input[type="text"] {
   margin-bottom: 2em;
 }
 
-.submit-email {
+.metadata-email {
   font-weight: 700;
 }
 
-.submit-resend {
+.metadata-resend {
   margin-top: 2em;
 }
 
-.submit-error-message {
+.metadata-error-message {
   color: red;
   font-weight: bold;
   margin-top: 0.25em;
   margin-bottom: 0.25em;
 }
 
-.submit-email-button {
+.metadata-email-button {
   justify-content: center;
 }
