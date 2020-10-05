@@ -104,7 +104,7 @@ const csp = {
       'platform.twitter.com',
       'https://www.google-analytics.com',
       'cdn.mxpnl.com',
-      'streetmix.auth0.com',
+      'jimmy2.eu.auth0.com',
       '*.basemaps.cartocdn.com',
       'api.geocode.earth',
       'downloads.mailchimp.com.s3.amazonaws.com',
@@ -134,7 +134,7 @@ const csp = {
       'syndication.twitter.com',
       'https://www.google-analytics.com',
       'sentry.io',
-      'streetmix.auth0.com',
+      'jimmy2.eu.auth0.com',
       'checkout.stripe.com',
       'http://api.ipstack.com/',
       'http://levell.ch:4000/'

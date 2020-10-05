@@ -261,6 +261,28 @@
       "title": "Middle level"
     }
   },
+  "bike-asphalt": {
+    "black": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Asphalt"
+    },
+    "red": {
+      "id": "asphalt",
+      "color": "#9b1f22",
+      "title": "Sidewalk"
+    }
+  },
+  "bike-road-elevation": {
+    "higher": {
+      "id": "elevation-higher",
+      "title": "Sidewalk level"
+    },
+    "lower": {
+      "id": "elevation-lower",
+      "title": "Street level"
+    }
+  },
   "bike-turn": {
     "left": {
       "id": "turn-lane-left",
@@ -273,6 +295,18 @@
     "right": {
       "id": "turn-lane-right",
       "title": "Right"
+    }
+  },
+  "zone-type": {
+    "no-bikes": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Asphalt"
+    },
+    "bikes": {
+      "id": "asphalt",
+      "color": "#9b1f22",
+      "title": "Sidewalk"
     }
   },
   "transit-shelter-elevation": {
