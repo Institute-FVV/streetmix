@@ -8,7 +8,7 @@ EnvironmentBadge.propTypes = {
   env: PropTypes.string
 }
 
-function EnvironmentBadge (props) {
+function EnvironmentBadge(props) {
   const classNames = ['environment-badge']
   const { label, className } = getDetails(props)
 
@@ -18,24 +18,20 @@ function EnvironmentBadge (props) {
 
   // Displays a label. Nothing happens if there isn't one.
   if (label) {
-    return (
-      <div className={classNames.join(' ')}>
-        {label}
-      </div>
-    )
+    return <div className={classNames.join(' ')}>{label}</div>
   } else {
     return null
   }
 }
 
-function getDetails (props) {
+function getDetails(props) {
   // If a label is not provided, determine one using ENV
   if (!props.label) {
-    switch (props.env || ENV) {
+    switch (ENV) {
       case 'development':
         return {
-          label: 'Dev',
-          className: 'environment-label-development'
+          label: '@TU-Wien',
+          className: 'environment-label-tu-wien'
         }
       case 'staging':
         return {
@@ -53,7 +49,10 @@ function getDetails (props) {
           className: 'environment-label-demo'
         }
       default:
-        return {}
+        return {
+          label: '@TU-Wien',
+          className: 'environment-label-tu-wien'
+        }
     }
   }
 

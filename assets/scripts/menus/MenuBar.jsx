@@ -14,7 +14,7 @@ MenuBar.propTypes = {
   onMenuDropdownClick: PropTypes.func.isRequired
 }
 
-function MenuBar (props) {
+function MenuBar(props) {
   const user = useSelector((state) => state.user.signInData?.details || null)
   const offline = useSelector((state) => state.system.noInternet)
   const upgradeFunnel = useSelector(
@@ -45,19 +45,19 @@ function MenuBar (props) {
    * Pass in the name of this menu, and it returns (curries) a function
    * that handles the event.
    */
-  function handleClickMenuButton (menu) {
+  function handleClickMenuButton(menu) {
     return (event) => {
       const el = event.target.closest('button')
       props.onMenuDropdownClick(menu, el)
     }
   }
 
-  function handleClickUpgrade (event) {
+  function handleClickUpgrade(event) {
     event.preventDefault()
     dispatch(showDialog('UPGRADE'))
   }
 
-  function handleWindowResize () {
+  function handleWindowResize() {
     // Throw this event so that the StreetName can figure out if it needs
     // to push itself lower than the menubar
     window.dispatchEvent(
@@ -70,7 +70,7 @@ function MenuBar (props) {
     )
   }
 
-  function renderUserAvatar (user) {
+  function renderUserAvatar(user) {
     return user ? (
       <li>
         <AvatarMenu user={user} onClick={handleClickMenuButton('identity')} />
@@ -87,7 +87,7 @@ function MenuBar (props) {
       <ul className="menu-bar-left">
         <li className="menu-bar-title">
           <img src={logo} alt="Streemix" className="menu-bar-logo" />
-          <h1>Streetmix</h1>
+          <h1>Streetmix - @TU-Wien</h1>
         </li>
         <MenuBarItem
           label="Help"

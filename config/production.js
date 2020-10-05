@@ -1,6 +1,6 @@
 module.exports = {
-  app_host_port: 'streetmix.net',
-  header_host_port: 'streetmix.net',
+  app_host_port: 'streetmix.tuwien.ac.at',
+  header_host_port: 'streetmix.tuwien.ac.at',
   restapi: {
     protocol: 'https://',
     baseuri: '/api'
@@ -12,8 +12,6 @@ module.exports = {
   pinterest: '0175a0c658a16a45e7c1f6b7cefaa34f',
   db: {
     sequelize: {
-      // The `url` property is documented in sequelize-cli readme but not in Sequelize core
-      url: process.env.DATABASE_URL,
       logging: false,
       pool: {
         max: 12,

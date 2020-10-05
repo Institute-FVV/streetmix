@@ -6,10 +6,13 @@ import { t } from '../locales/locale'
  * This is called whenever the name of the street changes and it affects
  * the document title.
  */
-export function updatePageTitle (street) {
+export function updatePageTitle(street) {
   let title = ''
 
-  if (street.creatorId && (!isSignedIn() || (getSignInData().userId !== street.creatorId))) {
+  if (
+    street.creatorId &&
+    (!isSignedIn() || getSignInData().userId !== street.creatorId)
+  ) {
     title = getPageTitleWithAuthor(street)
   } else {
     title = getPageTitle(street)
@@ -24,16 +27,16 @@ export function updatePageTitle (street) {
  * current user, and for uses where displaying an author name is not needed,
  * e.g. Facebook sharing
  */
-export function getPageTitle (street) {
+export function getPageTitle(street) {
   const streetName = street.name || t('street.default-name', 'Unnamed St')
-  return `${streetName} – Streetmix`
+  return `${streetName} – Streetmix - @TU-Wien`
 }
 
 /**
  * Gets page title with author name.
  * Displayed when a street has an creator
  */
-export function getPageTitleWithAuthor (street) {
+export function getPageTitleWithAuthor(street) {
   const streetName = street.name || t('street.default-name', 'Unnamed St')
-  return `${streetName} (by ${street.creatorId}) – Streetmix`
+  return `${streetName} (by ${street.creatorId}) – Streetmix - @TU-Wien`
 }
