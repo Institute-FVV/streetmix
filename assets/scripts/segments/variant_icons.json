@@ -24,6 +24,10 @@
       "id": "building-thin",
       "title": "Narrow building"
     },
+    "narrowSubway": {
+      "id": "building-thin",
+      "title": "Narrow building subway"
+    },
     "wide": {
       "id": "building-wide",
       "title": "Wide building"
@@ -81,14 +85,6 @@
     "palm-tree": {
       "id": "palm-tree",
       "title": "Palm tree"
-    },
-    "mixed-bike": {
-      "id": "mixed-bike",
-      "title": "mixed-bike"
-    },
-    "mixed-car": {
-      "id": "mixed-car",
-      "title": "mixed-car"
     }
   },
   "lamp-orientation": {
@@ -251,21 +247,66 @@
       "title": "Shared bus/bike lane"
     }
   },
+  "bike-elevation": {
+    "higher": {
+      "id": "elevation-higher",
+      "title": "Sidewalk level"
+    },
+    "lower": {
+      "id": "elevation-lower",
+      "title": "Street level"
+    },
+    "halfraised": {
+      "id": "elevation-lower",
+      "title": "Middle level"
+    }
+  },
   "bike-asphalt": {
-    "regular": {
+    "black": {
       "id": "asphalt",
       "color": "#292a29",
       "title": "Asphalt"
     },
-    "green": {
-      "id": "asphalt",
-      "color": "#2b6750",
-      "title": "Green lane"
-    },
     "red": {
       "id": "asphalt",
       "color": "#9b1f22",
-      "title": "Red lane "
+      "title": "Sidewalk"
+    }
+  },
+  "bike-road-elevation": {
+    "higher": {
+      "id": "elevation-higher",
+      "title": "Sidewalk level"
+    },
+    "lower": {
+      "id": "elevation-lower",
+      "title": "Street level"
+    }
+  },
+  "bike-turn": {
+    "left": {
+      "id": "turn-lane-left",
+      "title": "Left"
+    },
+    "straight": {
+      "id": "turn-lane-straight",
+      "title": "Straight"
+    },
+    "right": {
+      "id": "turn-lane-right",
+      "title": "Right"
+    }
+  },
+  "zone-type": {
+    "no-bikes": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Asphalt"
+    },
+    "bikes": {
+      "id": "asphalt",
+      "color": "#9b1f22",
+      "title": "Sidewalk"
     }
   },
   "transit-shelter-elevation": {
@@ -462,6 +503,62 @@
       "id": "jersey-barrier",
       "color": "#ef9c74",
       "title": "Jersey barrier (plastic)"
+    }
+  },
+  "vegation": {
+    "none": {
+      "id": "",
+      "title": "empty"
+    },
+    "tree": {
+      "id": "tree",
+      "title": "Tree"
+    }
+  },
+  "waste-positioning": {
+    "front": {
+      "id": "direction-inbound",
+      "title": "sideways"
+    },
+    "sideways": {
+      "id": "direction-both",
+      "title": "sideways"
+    }
+  },
+  "street-type": {
+    "asphalt": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Asphalt"
+    },
+    "sidewalk": {
+      "id": "asphalt",
+      "color": "#D8D3CB",
+      "title": "Sidewalk"
+    }
+  },
+  "station-type": {
+    "simple": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Simple"
+    },
+    "covered": {
+      "id": "asphalt",
+      "color": "#D8D3CB",
+      "title": "Covered"
+    }
+  },
+  "subway-station-type": {
+    "stairs": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Stairs"
+    },
+    "elevator": {
+      "id": "asphalt",
+      "color": "#D8D3CB",
+      "title": "Elevator"
     }
   }
 }

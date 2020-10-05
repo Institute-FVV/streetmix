@@ -19,11 +19,11 @@ module.exports = {
   },
   auth0: {
     use_auth0: true,
-    domain: 'streetmix.auth0.com',
+    domain: 'jimmy2.eu.auth0.com',
     client_id: process.env.AUTH0_CLIENT_ID || null,
     client_secret: process.env.AUTH0_CLIENT_SECRET,
-    token_api_url: 'https://streetmix.auth0.com/oauth/token',
-    audience: 'https://streetmix.auth0.com/api/v2/',
+    token_api_url: 'https://jimmy2.eu.auth0.com/oauth/token',
+    audience: 'https://jimmy2.eu.auth0.com/api/v2/',
     screen_name_custom_claim: 'https://twitter.com/screen_name',
     management_scope: 'read:users write:users',
     callback_path: '/services/auth/sign-in-callback'
@@ -64,8 +64,9 @@ module.exports = {
   },
   geocode: {
     pelias: {
-      host: 'api.geocode.earth',
-      api_key: process.env.PELIAS_API_KEY || null
+      host: process.env.PELIAS_HOST_NAME || 'api.geocode.earth',
+      api_key: process.env.PELIAS_API_KEY || null,
+      protocol: 'http://'
     }
   },
   geoip: {

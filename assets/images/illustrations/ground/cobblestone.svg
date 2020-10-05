@@ -1,0 +1,30 @@
+<svg width="598.693" height="291.43" xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="293.43" width="600.693" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="cobblestone_raised">
+   <g transform="matrix(0.994299,-2.56702e-18,-1.39637e-18,1.83836,0.464871,-1.07022) " id="concrete_base">
+    <rect id="svg_1" fill="rgb(216,211,203)" height="291.43" width="598.693" y="1.16361" x="0.5382"/>
+   </g>
+   <g id="pattern">
+    <rect id="svg_2" fill="rgb(244,242,237)" height="535.708" width="13" y="0.779" x="58.14146"/>
+    <rect id="svg_3" fill="rgb(244,242,237)" height="535.708" width="13" y="0.779" x="528.80846"/>
+    <rect id="svg_4" fill="rgb(244,242,237)" height="535.708" width="13" y="0.779" x="371.91946"/>
+    <rect id="svg_5" fill="rgb(244,242,237)" height="535.708" width="13.001" y="0.779" x="293.47446"/>
+    <rect id="svg_6" fill="rgb(244,242,237)" height="535.709" width="13" y="0.779" x="215.03046"/>
+    <rect id="svg_7" fill="rgb(244,242,237)" height="535.709" width="13" y="0.779" x="450.36446"/>
+    <rect id="svg_8" fill="rgb(244,242,237)" height="535.709" width="13" y="0.779" x="136.58546"/>
+    <rect id="svg_9" fill="rgb(244,242,237)" height="12.99" width="595.28" y="66.112" x="1.00246"/>
+    <rect id="svg_10" fill="rgb(244,242,237)" height="12.99" width="595.28" y="379.648" x="1.00246"/>
+    <rect id="svg_11" fill="rgb(244,242,237)" height="12.991" width="595.28" y="301.263" x="1.00246"/>
+    <rect id="svg_12" fill="rgb(244,242,237)" height="12.99" width="595.281" y="222.881" x="1.00146"/>
+    <rect id="svg_13" fill="rgb(244,242,237)" height="12.99" width="595.281" y="458.032" x="1.00146"/>
+    <rect id="svg_14" fill="rgb(244,242,237)" height="12.99" width="595.281" y="144.496" x="1.00146"/>
+   </g>
+  </g>
+ </g>
+</svg>

@@ -89,6 +89,17 @@ export const BUILDINGS = {
     mainFloorHeight: 14,
     overhangWidth: 16
   },
+  narrowSubway: {
+    id: 'narrowSubway',
+    label: 'BuildingSubway',
+    spriteId: 'buildings--apartments-narrow-subway',
+    hasFloors: true,
+    variantsCount: 1,
+    floorHeight: 10,
+    roofHeight: 2,
+    mainFloorHeight: 14,
+    overhangWidth: 80
+  },
   wide: {
     id: 'wide',
     label: 'Building',

@@ -7,7 +7,8 @@ export const DEFAULT_SEGMENTS = {
       type: 'transit-shelter',
       variant: {
         orientation: 'left',
-        'transit-shelter-elevation': 'street-level'
+        'transit-shelter-elevation': 'street-level',
+        'station-type': 'covered'
       },
       width: 9
     },
@@ -39,7 +40,8 @@ export const DEFAULT_SEGMENTS = {
       type: 'parking-lane',
       variant: {
         'parking-lane-direction': 'outbound',
-        'parking-lane-orientation': 'right'
+        'parking-lane-orientation': 'right',
+        vegation: 'none'
       },
       width: 7
     },
@@ -48,8 +50,9 @@ export const DEFAULT_SEGMENTS = {
       type: 'bike-lane',
       variant: {
         direction: 'outbound',
-        'bike-asphalt': 'green',
-        elevation: 'road'
+        'bike-turn': 'straight',
+        'street-type': 'asphalt',
+        'bike-evaluation': 'lower'
       },
       width: 6
     },
@@ -74,8 +77,9 @@ export const DEFAULT_SEGMENTS = {
       type: 'bike-lane',
       variant: {
         direction: 'outbound',
-        'bike-asphalt': 'green',
-        elevation: 'road'
+        'bike-turn': 'straight',
+        'street-type': 'asphalt',
+        'bike-evaluation': 'lower'
       },
       width: 6
     },
@@ -116,7 +120,8 @@ export const DEFAULT_SEGMENTS = {
       type: 'transit-shelter',
       variant: {
         orientation: 'right',
-        'transit-shelter-elevation': 'street-level'
+        'transit-shelter-elevation': 'street-level',
+        'station-type': 'covered'
       },
       width: 9
     },

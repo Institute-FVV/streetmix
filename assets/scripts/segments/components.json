@@ -23,6 +23,28 @@
             "graphics": {
               "repeat": "ground--asphalt-gray"
             }
+          },
+          "lightGray": {
+            "graphics": {
+              "repeat": "ground--concrete"
+            }
+          }
+        }
+      }
+    },
+    "asphalt-halfraised": {
+      "elevation": 0.5,
+      "variants": {
+        "color": {
+          "black": {
+            "graphics": {
+              "repeat": "ground--asphalt"
+            }
+          },
+          "lightGrey": {
+            "graphics": {
+              "repeat": "ground--concrete"
+            }
           }
         }
       }
@@ -78,18 +100,49 @@
         }
       }
     },
-    "sidewalk-sloped": {
+    "sidewalk-sloped-left": {
       "elevation": 1,
       "variants": {
         "orientation": {
           "left": {
             "graphics": {
-              "repeat": "ground--concrete-raised-down-left"
+              "repeat": "ground--concrete-down-right"
             }
-          },
+          }
+        }
+      }
+    },
+    "sidewalk-sloped-right": {
+      "elevation": 3,
+      "variants": {
+        "orientation": {
           "right": {
             "graphics": {
-              "repeat": "ground--concrete-raised-down-right"
+              "repeat": "ground--concrete-down-left"
+            }
+          }
+        }
+      }
+    },
+    "paved": {
+      "elevation": 1,
+      "variants": {
+        "color": {
+          "regular": {
+            "graphics": {
+              "repeat": "ground--cobblestone"
+            }
+          }
+        }
+      }
+    },
+    "paved-halfraised": {
+      "elevation": 0.5,
+      "variants": {
+        "color": {
+          "regular": {
+            "graphics": {
+              "repeat": "ground--cobblestone"
             }
           }
         }
@@ -322,7 +375,7 @@
       "name": "Tree",
       "nameKey": "tree",
       "owner": "NATURE",
-      "zIndex": 22,
+      "zIndex": 15,
       "variants": {
         "type": {
           "big": {
@@ -687,6 +740,56 @@
         }
       }
     },
+    "subway-station-stairs": {
+      "name": "Subway station stairs",
+      "nameKey": "subway-station-stairs",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--subway-stairs"
+            }
+          }
+        }
+      }
+    },
+    "subway-station-elevator": {
+      "name": "Subway station elevator",
+      "nameKey": "subway-station-elevator",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "type": {
+          "default": {
+            "graphics": {
+              "center": "objects--subway-elevator"
+            }
+          }
+        }
+      }
+    },
+    "station-sign": {
+      "name": "Station sign",
+      "nameKey": "station-sign",
+      "owner": "TRANSIT",
+      "zIndex": 20,
+      "variants": {
+        "orientation": {
+          "left": {
+            "graphics": {
+              "left": "objects--station-sign-left"
+            }
+          },
+          "right": {
+            "graphics": {
+              "right": "objects--station-sign-right"
+            }
+          }
+        }
+      }
+    },
     "traffic-cone": {
       "name": "Traffic cone",
       "nameKey": "traffic-cone",
@@ -734,16 +837,16 @@
         }
       }
     },
-    "wurstel": {
-      "name": "Wurstel",
-      "nameKey": "wurstel",
+    "takeaway": {
+      "name": "Takeway",
+      "nameKey": "takeaway",
       "owner": "FLEX",
       "zIndex": 20,
       "variants": {
         "type": {
           "default": {
             "graphics": {
-              "center": "objects--wurstel"
+              "center": "objects--takeaway"
             }
           }
         }
@@ -770,10 +873,15 @@
       "owner": "FLEX",
       "zIndex": 20,
       "variants": {
-        "type": {
-          "default": {
+        "orientation": {
+          "left": {
             "graphics": {
-              "center": "objects--box"
+              "left": "objects--box"
+            }
+          },
+          "right": {
+            "graphics": {
+              "right": "objects--box"
             }
           }
         }
@@ -785,13 +893,13 @@
       "owner": "FLEX",
       "zIndex": 30,
       "variants": {
-        "direction": {
-          "inbound": {
+        "waste-positioning": {
+          "front": {
             "graphics": {
               "center": "objects--waste-front"
             }
           },
-          "outbound": {
+          "sideways": {
             "graphics": {
               "center": "objects--waste-side"
             }
@@ -1000,12 +1108,26 @@
           "biker-03": {
             "inbound": {
               "graphics": {
-                "right": "bikes--biker-02-inbound"
+                "scatter": {
+                  "sprites": [
+                    "bikes--biker-01-inbound",
+                    "bikes--biker-02-inbound"
+                  ],
+                  "minSpacing": 0,
+                  "maxSpacing": 5
+                }
               }
             },
             "outbound": {
               "graphics": {
-                "right": "bikes--biker-02-outbound"
+                "scatter": {
+                  "sprites": [
+                    "bikes--biker-01-outbound",
+                    "bikes--biker-02-outbound"
+                  ],
+                  "minSpacing": 0,
+                  "maxSpacing": 5
+                }
               }
             }
           }
@@ -1016,7 +1138,7 @@
       "name": "Car",
       "nameKey": "car",
       "owner": "CAR",
-      "zIndex": 14,
+      "zIndex": 16,
       "variants": {
         "direction": {
           "inbound": {
