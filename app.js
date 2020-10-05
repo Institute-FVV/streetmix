@@ -124,7 +124,8 @@ const csp = {
       'https://www.google-analytics.com',
       '*.basemaps.cartocdn.com',
       'https://res.cloudinary.com/',
-      '*.stripe.com'
+      '*.stripe.com',
+      'i1.wp.com/cdn.auth0.com'
     ],
     fontSrc: ["'self'", 'fonts.gstatic.com', '*.typekit.net'],
     connectSrc: [
