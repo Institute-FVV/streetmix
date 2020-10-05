@@ -106,7 +106,7 @@
         "orientation": {
           "left": {
             "graphics": {
-              "repeat": "ground--concrete-raised-down-right"
+              "repeat": "ground--concrete-down-right"
             }
           }
         }
@@ -118,7 +118,31 @@
         "orientation": {
           "right": {
             "graphics": {
-              "repeat": "ground--concrete-raised-down-left"
+              "repeat": "ground--concrete-down-left"
+            }
+          }
+        }
+      }
+    },
+    "paved": {
+      "elevation": 1,
+      "variants": {
+        "color": {
+          "regular": {
+            "graphics": {
+              "repeat": "ground--cobblestone"
+            }
+          }
+        }
+      }
+    },
+    "paved-halfraised": {
+      "elevation": 0.5,
+      "variants": {
+        "color": {
+          "regular": {
+            "graphics": {
+              "repeat": "ground--cobblestone"
             }
           }
         }
@@ -351,7 +375,7 @@
       "name": "Tree",
       "nameKey": "tree",
       "owner": "NATURE",
-      "zIndex": 22,
+      "zIndex": 15,
       "variants": {
         "type": {
           "big": {
@@ -1084,24 +1108,26 @@
           "biker-03": {
             "inbound": {
               "graphics": {
-                "right": "bikes--biker-02-inbound"
+                "scatter": {
+                  "sprites": [
+                    "bikes--biker-01-inbound",
+                    "bikes--biker-02-inbound"
+                  ],
+                  "minSpacing": 0,
+                  "maxSpacing": 5
+                }
               }
             },
             "outbound": {
               "graphics": {
-                "right": "bikes--biker-02-outbound"
-              }
-            }
-          },
-          "biker-04": {
-            "inbound": {
-              "graphics": {
-                "left": "bikes--biker-02-inbound"
-              }
-            },
-            "outbound": {
-              "graphics": {
-                "left": "bikes--biker-02-outbound"
+                "scatter": {
+                  "sprites": [
+                    "bikes--biker-01-outbound",
+                    "bikes--biker-02-outbound"
+                  ],
+                  "minSpacing": 0,
+                  "maxSpacing": 5
+                }
               }
             }
           }
@@ -1112,7 +1138,7 @@
       "name": "Car",
       "nameKey": "car",
       "owner": "CAR",
-      "zIndex": 14,
+      "zIndex": 16,
       "variants": {
         "direction": {
           "inbound": {

@@ -247,18 +247,6 @@
       "title": "Shared bus/bike lane"
     }
   },
-  "bike-asphalt": {
-    "black": {
-      "id": "asphalt",
-      "color": "#292a29",
-      "title": "Black"
-    },
-    "lightGrey": {
-      "id": "asphalt",
-      "color": "#D8D3CB",
-      "title": "Sidewalk"
-    }
-  },
   "bike-elevation": {
     "higher": {
       "id": "elevation-higher",
@@ -271,6 +259,54 @@
     "halfraised": {
       "id": "elevation-lower",
       "title": "Middle level"
+    }
+  },
+  "bike-asphalt": {
+    "black": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Asphalt"
+    },
+    "red": {
+      "id": "asphalt",
+      "color": "#9b1f22",
+      "title": "Sidewalk"
+    }
+  },
+  "bike-road-elevation": {
+    "higher": {
+      "id": "elevation-higher",
+      "title": "Sidewalk level"
+    },
+    "lower": {
+      "id": "elevation-lower",
+      "title": "Street level"
+    }
+  },
+  "bike-turn": {
+    "left": {
+      "id": "turn-lane-left",
+      "title": "Left"
+    },
+    "straight": {
+      "id": "turn-lane-straight",
+      "title": "Straight"
+    },
+    "right": {
+      "id": "turn-lane-right",
+      "title": "Right"
+    }
+  },
+  "zone-type": {
+    "no-bikes": {
+      "id": "asphalt",
+      "color": "#292a29",
+      "title": "Asphalt"
+    },
+    "bikes": {
+      "id": "asphalt",
+      "color": "#9b1f22",
+      "title": "Sidewalk"
     }
   },
   "transit-shelter-elevation": {
@@ -471,12 +507,12 @@
   },
   "vegation": {
     "none": {
-      "id": "barricade",
-      "title": "Barricade"
+      "id": "",
+      "title": "empty"
     },
     "tree": {
-      "id": "barricade",
-      "title": "Barricade"
+      "id": "tree",
+      "title": "Tree"
     }
   },
   "waste-positioning": {
