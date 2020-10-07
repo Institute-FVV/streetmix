@@ -8,6 +8,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
+import ExternalLink from '../ui/ExternalLink'
 import Avatar from '../users/Avatar'
 import { goReload, goHome, goNewStreet, goExampleStreet } from './routing'
 import { goReloadClearSignIn, doSignIn } from '../users/authentication'
@@ -70,39 +71,27 @@ function BlockingError (props) {
       id="error.please-try-again"
       defaultMessage="Please try again later or let us know via <email_link>email</email_link> or <tweet_link>Twitter</tweet_link>."
       values={{
-        email_link: (...chunks) => (
-          <a
-            href="mailto:hello@streetmix.net"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        email_link: (chunks) => (
+          <ExternalLink href="mailto:hello@streetmix.net">
             {chunks}
-          </a>
+          </ExternalLink>
         ),
-        tweet_link: (...chunks) => (
-          <a
-            href="https://twitter.com/intent/tweet?text=@streetmix"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        tweet_link: (chunks) => (
+          <ExternalLink href="https://twitter.com/intent/tweet?text=@streetmix">
             {chunks}
-          </a>
+          </ExternalLink>
         )
       }}
     />
   )
   const needHelpLink = (
     <p className="error-help-link">
-      <a
-        href="https://streetmix.readthedocs.io/en/latest/support/troubleshooting/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <ExternalLink href="https://streetmix.readthedocs.io/en/latest/support/troubleshooting/">
         <FormattedMessage
           id="error.need-help-link"
           defaultMessage="Need help?"
         />
-      </a>
+      </ExternalLink>
     </p>
   )
 
@@ -479,32 +468,20 @@ function BlockingError (props) {
               id="error.unsupported-browser-description"
               defaultMessage="Sorry about that. You might want to try <chrome_link>Chrome</chrome_link>, <firefox_link>Firefox</firefox_link>, <edge_link>Microsoft Edge</edge_link>, or Safari."
               values={{
-                chrome_link: (...chunks) => (
-                  <a
-                    href="https://www.google.com/chrome"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                chrome_link: (chunks) => (
+                  <ExternalLink href="https://www.google.com/chrome">
                     {chunks}
-                  </a>
+                  </ExternalLink>
                 ),
-                firefox_link: (...chunks) => (
-                  <a
-                    href="https://www.mozilla.org/firefox"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                firefox_link: (chunks) => (
+                  <ExternalLink href="https://www.mozilla.org/firefox">
                     {chunks}
-                  </a>
+                  </ExternalLink>
                 ),
-                edge_link: (...chunks) => (
-                  <a
-                    href="https://www.microsoft.com/en-us/windows/microsoft-edge"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                edge_link: (chunks) => (
+                  <ExternalLink href="https://www.microsoft.com/en-us/windows/microsoft-edge">
                     {chunks}
-                  </a>
+                  </ExternalLink>
                 )
               }}
             />
@@ -514,14 +491,10 @@ function BlockingError (props) {
               id="error.unsupported-browser-internet-explorer"
               defaultMessage="Are you on Internet Explorer? <a>Find out more.</a>"
               values={{
-                a: (...chunks) => (
-                  <a
-                    href="https://streetmix.readthedocs.io/en/latest/support/faq/#does-streetmix-support-internet-explorer"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                a: (chunks) => (
+                  <ExternalLink href="https://streetmix.readthedocs.io/en/latest/support/faq/#does-streetmix-support-internet-explorer">
                     {chunks}
-                  </a>
+                  </ExternalLink>
                 )
               }}
             />
@@ -531,14 +504,10 @@ function BlockingError (props) {
               id="error.unsupported-browser-contact-us"
               defaultMessage="If you think your browser should be supported, please contact us via <a>email</a>."
               values={{
-                a: (...chunks) => (
-                  <a
-                    href="'mailto:hello@streetmix.net"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                a: (chunks) => (
+                  <ExternalLink href="mailto:hello@streetmix.net">
                     {chunks}
-                  </a>
+                  </ExternalLink>
                 )
               }}
             />

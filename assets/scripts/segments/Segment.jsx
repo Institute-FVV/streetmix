@@ -36,7 +36,7 @@ import {
 import { infoBubble } from '../info_bubble/info_bubble'
 import { INFO_BUBBLE_TYPE_SEGMENT } from '../info_bubble/constants'
 import { trackEvent } from '../app/event_tracking'
-import { t } from '../locales/locale'
+import { formatMessage } from '../locales/locale'
 import { setActiveSegment } from '../store/slices/ui'
 import {
   incrementSegmentWidth,
@@ -189,8 +189,9 @@ export class Segment extends React.Component {
     const isOldVariant = variantType === 'old'
     const { segment, connectDragSource, connectDropTarget } = this.props
 
-    // uses the segment UUID as seed if a randseed isn't available
-    const randSeed = segment.randSeed ?? segment.id
+    // The segment ID is a string that uniquely identifies the segment
+    // and can be used as a consistent and reliable seed for a PRNG
+    const randSeed = segment.id
 
     return connectDragSource(
       connectDropTarget(
@@ -270,7 +271,7 @@ export class Segment extends React.Component {
           this.props.clearSegmentsAction()
           infoBubble.hide()
           this.props.addToast({
-            message: t(
+            message: formatMessage(
               'toast.all-segments-deleted',
               'All segments have been removed.'
             ),
@@ -287,7 +288,7 @@ export class Segment extends React.Component {
           infoBubble.hide()
           infoBubble.hideSegment()
           this.props.addToast({
-            message: t(
+            message: formatMessage(
               'toast.segment-deleted',
               'The segment has been removed.'
             ),
@@ -402,9 +403,7 @@ function mapStateToProps (state) {
     locale: state.locale.locale,
     descriptionVisible: state.infoBubble.descriptionVisible,
     activeSegment:
-      typeof state.ui.activeSegment === 'number'
-        ? state.ui.activeSegment
-        : null
+      typeof state.ui.activeSegment === 'number' ? state.ui.activeSegment : null
   }
 }
 

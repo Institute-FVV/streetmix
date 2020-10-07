@@ -1,7 +1,7 @@
 /**
  * The Palette is the UI element at the bottom of the screen that shows all the
  * available street segments. Users can drag and drop segments from the palette
- * onto the sleep.
+ * onto the street.
  */
 import React, { useRef, useEffect } from 'react'
 import { IntlProvider } from 'react-intl'
@@ -11,9 +11,9 @@ import Tooltip, { useSingleton } from '../ui/Tooltip'
 import SegmentForPalette from '../segments/SegmentForPalette'
 import { getAllSegmentInfoArray } from '../segments/info'
 import { generateRandSeed } from '../util/random'
-import './Palette.scss'
+import './PaletteItems.scss'
 
-function Palette (props) {
+function PaletteItems (props) {
   const flags = useSelector((state) => state.flags)
   const locale = useSelector((state) => state.locale)
   const [source, target] = useSingleton()
@@ -41,7 +41,8 @@ function Palette (props) {
       // Accept segments with the `enableWithFlag` property, but only if
       // the flags have that value set to true.
       const enabledByFlag =
-        segment.enableWithFlag && flags[segment.enableWithFlag].value
+        (segment.enableWithFlag && flags[segment.enableWithFlag]?.value) ||
+        false
 
       return {
         ...segment,
@@ -70,13 +71,13 @@ function Palette (props) {
   return (
     <>
       <Tooltip source={source} />
-      <Scrollable className="palette" ref={scrollable}>
+      <Scrollable className="palette-items" ref={scrollable}>
         <IntlProvider locale={locale.locale} messages={locale.segmentInfo}>
-          {displayedSegments}
+          <ul>{displayedSegments}</ul>
         </IntlProvider>
       </Scrollable>
     </>
   )
 }
 
-export default React.memo(Palette)
+export default React.memo(PaletteItems)

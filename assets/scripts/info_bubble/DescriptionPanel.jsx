@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
+import ReactMarkdown from 'react-markdown'
 import Transition from 'react-transition-group/Transition'
 import Triangle from './Triangle'
 import { getStreetSectionTop } from '../app/window_resize'
@@ -24,144 +25,108 @@ const TRANSITION_STYLES = {
   }
 }
 
-export default class DescriptionPanel extends React.Component {
-  static propTypes = {
-    visible: PropTypes.bool,
-    image: PropTypes.string,
-    lede: PropTypes.string,
-    text: PropTypes.arrayOf(PropTypes.string),
-    caption: PropTypes.string,
-    onClickHide: PropTypes.func,
-    bubbleY: PropTypes.number
-  }
+DescriptionPanel.propTypes = {
+  visible: PropTypes.bool,
+  image: PropTypes.string,
+  content: PropTypes.string,
+  caption: PropTypes.string,
+  onClickHide: PropTypes.func,
+  bubbleY: PropTypes.number,
+  noInternet: PropTypes.bool
+}
 
-  static defaultProps = {
-    visible: false,
-    onClickHide: () => {}
-  }
+function DescriptionPanel ({
+  visible = false,
+  image,
+  content,
+  caption,
+  onClickHide = () => {},
+  bubbleY,
+  noInternet = false
+}) {
+  const [highlightTriangle, setHighlightTriangle] = useState(false)
 
-  constructor (props) {
-    super(props)
-
-    this.text = null
-
-    this.state = {
-      highlightTriangle: false
-    }
-  }
-
-  componentDidMount () {
-    this.retargetAnchors()
-  }
-
-  componentDidUpdate () {
-    this.retargetAnchors()
-  }
-
-  unhighlightTriangleDelayed = () => {
+  function unhighlightTriangleDelayed () {
     window.setTimeout(() => {
-      this.setState({ highlightTriangle: false })
+      setHighlightTriangle(false)
     }, 200)
   }
 
-  handleToggleHighlightTriangle = () => {
-    this.setState({ highlightTriangle: !this.state.highlightTriangle })
+  function handleToggleHighlightTriangle () {
+    setHighlightTriangle(!highlightTriangle)
   }
 
-  /**
-   * After rendering, modify DOM output to ensure all links inside of
-   * description text opens in a new window
-   */
-  retargetAnchors = () => {
-    if (!this.text) return
-    const links = this.text.querySelectorAll('a')
-    for (const link of links) {
-      link.target = '_blank'
-      link.rel = 'noopener noreferrer'
-    }
+  function handleClickHide (event) {
+    onClickHide()
+    unhighlightTriangleDelayed()
   }
 
-  handleClickHide = (event) => {
-    this.props.onClickHide()
-    this.unhighlightTriangleDelayed()
-  }
+  // TODO document magic numbers
+  const height = getStreetSectionTop() + 300 - bubbleY + 'px'
 
-  /**
-   * Renders description text
-   *
-   * @param {Array} text - array of paragraphs (as strings)
-   */
-  renderText (text) {
-    if (!text) return null
-    return text.map((paragraph, index) => {
-      const html = {
-        __html: paragraph
-      }
-      return <p key={index} dangerouslySetInnerHTML={html} />
-    })
-  }
-
-  render () {
-    // TODO document magic numbers
-    const height = getStreetSectionTop() + 300 - this.props.bubbleY + 'px'
-
-    return (
-      <Transition in={this.props.visible} timeout={TRANSITION_DURATION}>
-        {(state) => (
-          <div
-            className="description-canvas"
-            style={{
-              ...DEFAULT_STYLE,
-              ...TRANSITION_STYLES[state],
-              height
-            }}
-          >
-            <div
-              className="description"
-              ref={(ref) => {
-                this.text = ref
-              }}
-            >
-              <div className="description-content">
-                {/* TODO: add alt text and requisite a11y attributes */}
-                {this.props.image && (
-                  <img
-                    src={`/images/info-bubble-examples/${this.props.image}`}
-                  />
-                )}
-                <div className="description-text">
-                  {this.props.lede && (
-                    <p
-                      className="description-lede"
-                      dangerouslySetInnerHTML={{ __html: this.props.lede }}
+  return (
+    <Transition in={visible} timeout={TRANSITION_DURATION}>
+      {(state) => (
+        <div
+          className="description-canvas"
+          style={{
+            ...DEFAULT_STYLE,
+            ...TRANSITION_STYLES[state],
+            height
+          }}
+        >
+          <div className="description">
+            <div className="description-content">
+              {image && (
+                <img
+                  src={`/images/info-bubble-examples/${image}`}
+                  alt={caption || ''}
+                />
+              )}
+              <div className="description-text">
+                <ReactMarkdown
+                  source={content}
+                  allowedTypes={[
+                    'root',
+                    'text',
+                    'paragraph',
+                    'emphasis',
+                    'strong',
+                    'list',
+                    'listItem',
+                    'blockquote',
+                    'heading',
+                    !noInternet && 'link'
+                  ]}
+                  unwrapDisallowed={true}
+                  linkTarget="_blank"
+                />
+                {caption && (
+                  <footer>
+                    <FormattedMessage
+                      id="segments.description.photo-credit"
+                      defaultMessage="Photo:"
                     />
-                  )}
-                  {this.renderText(this.props.text)}
-                  {this.props.caption && (
-                    <footer>
-                      <FormattedMessage
-                        id="segments.description.photo-credit"
-                        defaultMessage="Photo:"
-                      />
-                      &nbsp;
-                      {this.props.caption}
-                    </footer>
-                  )}
-                </div>
+                    &nbsp;
+                    {caption}
+                  </footer>
+                )}
               </div>
             </div>
-            <div
-              className="description-close"
-              onClick={this.handleClickHide}
-              onMouseOver={this.handleToggleHighlightTriangle}
-              onMouseOut={this.handleToggleHighlightTriangle}
-            >
-              <FormattedMessage id="btn.close" defaultMessage="Close" />
-            </div>
-            <Triangle highlight={this.state.highlightTriangle} />
           </div>
-        )}
-      </Transition>
-    )
-  }
+          <div
+            className="description-close"
+            onClick={handleClickHide}
+            onMouseOver={handleToggleHighlightTriangle}
+            onMouseOut={handleToggleHighlightTriangle}
+          >
+            <FormattedMessage id="btn.close" defaultMessage="Close" />
+          </div>
+          <Triangle highlight={highlightTriangle} />
+        </div>
+      )}
+    </Transition>
+  )
 }
+
+export default DescriptionPanel

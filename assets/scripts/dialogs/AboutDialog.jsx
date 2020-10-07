@@ -6,8 +6,10 @@
  */
 import React, { useEffect } from 'react'
 import { FormattedMessage } from 'react-intl'
+import { useSelector } from 'react-redux'
 import Dialog from './Dialog'
 import Credits from './About/Credits.jsx' // Without extension, test will erroneously import .json instead
+import ExternalLink from '../ui/ExternalLink'
 import { trackEvent } from '../app/event_tracking'
 import logo from '../../images/logo_horizontal.svg'
 import numoLogo from '../../images/sponsors/numo.svg'
@@ -16,6 +18,8 @@ import mozlogo from '../../images/sponsors/mozilla.svg'
 import './AboutDialog.scss'
 
 function AboutDialog (props) {
+  const noInternet = useSelector((state) => state.system.noInternet)
+
   useEffect(() => {
     trackEvent('Interaction', 'Open about dialog box', null, null, false)
   }, [])
@@ -54,22 +58,14 @@ function AboutDialog (props) {
                 </h3>
                 <ul className="about-dialog-sponsors">
                   <li>
-                    <a
-                      href="https://numo.global/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <ExternalLink href="https://numo.global/">
                       <img src={numoLogo} alt="New Urban Mobility Alliance" />
-                    </a>
+                    </ExternalLink>
                   </li>
                   <li>
-                    <a
-                      href="https://codeforamerica.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <ExternalLink href="https://codeforamerica.org/">
                       <img src={cfalogo} alt="Code for America" />
-                    </a>
+                    </ExternalLink>
                   </li>
                 </ul>
                 <h3>
@@ -80,83 +76,67 @@ function AboutDialog (props) {
                 </h3>
                 <ul className="about-dialog-sponsors">
                   <li>
-                    <a
-                      href="https://www.mozilla.org/en-US/moss/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <ExternalLink href="https://www.mozilla.org/en-US/moss/">
                       <img src={mozlogo} alt="Mozilla Open Source Support" />
-                    </a>
+                    </ExternalLink>
                   </li>
                 </ul>
-                <p>
-                  <a
-                    href="https://opencollective.com/streetmix/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FormattedMessage
-                      id="dialogs.about.donate-link"
-                      defaultMessage="Support us financially"
-                    />
-                  </a>
-                  <br />
-                  <a
-                    href="https://github.com/streetmix/streetmix/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FormattedMessage
-                      id="dialogs.about.open-source-link"
-                      defaultMessage="We’re open source!&lrm;"
-                    />
-                  </a>
-                  <br />
-                  <a
-                    href="https://medium.com/streetmixology"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FormattedMessage
-                      id="menu.contact.blog"
-                      defaultMessage="Visit Streetmix blog"
-                    />
-                  </a>
-                  <br />
-                  <a
-                    href="https://streetmix.readthedocs.io/en/latest/guidebook/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FormattedMessage
-                      id="dialogs.about.guidebook-link"
-                      defaultMessage="Guidebook"
-                    />
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="https://streetmix.net/terms-of-service/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FormattedMessage
-                      id="dialogs.about.tos-link"
-                      defaultMessage="Terms of service"
-                    />
-                  </a>
-                  <br />
-                  <a
-                    href="https://streetmix.net/privacy-policy/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FormattedMessage
-                      id="dialogs.about.privacy-link"
-                      defaultMessage="Privacy policy"
-                    />
-                  </a>
-                </p>
+                {!noInternet && (
+                  <>
+                    <p>
+                      <ExternalLink href="https://opencollective.com/streetmix/">
+                        <FormattedMessage
+                          id="dialogs.about.donate-link"
+                          defaultMessage="Support us financially"
+                        />
+                      </ExternalLink>
+                      <br />
+                      <ExternalLink href="https://github.com/streetmix/streetmix/">
+                        <FormattedMessage
+                          id="dialogs.about.open-source-link"
+                          defaultMessage="We’re open source!&lrm;"
+                        />
+                      </ExternalLink>
+                      <br />
+                      <ExternalLink href="https://medium.com/streetmixology">
+                        <FormattedMessage
+                          id="menu.contact.blog"
+                          defaultMessage="Visit Streetmix blog"
+                        />
+                      </ExternalLink>
+                      <br />
+                      <ExternalLink href="https://streetmix.readthedocs.io/en/latest/guidebook/">
+                        <FormattedMessage
+                          id="dialogs.about.guidebook-link"
+                          defaultMessage="Guidebook"
+                        />
+                      </ExternalLink>
+                    </p>
+                    <p>
+                      <a
+                        href="https://streetmix.net/terms-of-service/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FormattedMessage
+                          id="dialogs.about.tos-link"
+                          defaultMessage="Terms of service"
+                        />
+                      </a>
+                      <br />
+                      <a
+                        href="https://streetmix.net/privacy-policy/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FormattedMessage
+                          id="dialogs.about.privacy-link"
+                          defaultMessage="Privacy policy"
+                        />
+                      </a>
+                    </p>
+                  </>
+                )}
               </div>
               <div className="about-dialog-right">
                 <Credits />
@@ -175,22 +155,14 @@ function AboutDialog (props) {
                           defaultMessage="{fontName} font designed by {fontAuthor}."
                           values={{
                             fontName: (
-                              <a
-                                href="https://manropefont.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
+                              <ExternalLink href="https://manropefont.com/">
                                 Manrope
-                              </a>
+                              </ExternalLink>
                             ),
                             fontAuthor: (
-                              <a
-                                href="https://gent.media/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
+                              <ExternalLink href="https://gent.media/">
                                 Mikhail Shiranda
-                              </a>
+                              </ExternalLink>
                             )
                           }}
                         />{' '}
@@ -198,15 +170,13 @@ function AboutDialog (props) {
                           id="dialogs.about.license-label"
                           defaultMessage="(<a>License</a>)"
                           values={{
-                            a: (...chunks) => (
-                              <a
+                            a: (chunks) => (
+                              <ExternalLink
                                 href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 title="SIL Open Font License, Version 1.1"
                               >
                                 {chunks}
-                              </a>
+                              </ExternalLink>
                             )
                           }}
                         />
@@ -217,22 +187,14 @@ function AboutDialog (props) {
                           defaultMessage="{fontName} font designed by {fontAuthor}."
                           values={{
                             fontName: (
-                              <a
-                                href="https://hubertfischer.com/work/type-rubik"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
+                              <ExternalLink href="https://hubertfischer.com/work/type-rubik">
                                 Rubik
-                              </a>
+                              </ExternalLink>
                             ),
                             fontAuthor: (
-                              <a
-                                href="https://hubertfischer.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
+                              <ExternalLink href="https://hubertfischer.com/">
                                 Hubert & Fischer
-                              </a>
+                              </ExternalLink>
                             )
                           }}
                         />{' '}
@@ -240,15 +202,13 @@ function AboutDialog (props) {
                           id="dialogs.about.license-label"
                           defaultMessage="(<a>License</a>)"
                           values={{
-                            a: (...chunks) => (
-                              <a
+                            a: (chunks) => (
+                              <ExternalLink
                                 href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 title="SIL Open Font License, Version 1.1"
                               >
                                 {chunks}
-                              </a>
+                              </ExternalLink>
                             )
                           }}
                         />
@@ -259,13 +219,9 @@ function AboutDialog (props) {
                           defaultMessage="Emoji by {author}."
                           values={{
                             author: (
-                              <a
-                                href="https://openmoji.org/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
+                              <ExternalLink href="https://openmoji.org/">
                                 OpenMoji
-                              </a>
+                              </ExternalLink>
                             )
                           }}
                         />{' '}
@@ -273,15 +229,13 @@ function AboutDialog (props) {
                           id="dialogs.about.license-label"
                           defaultMessage="(<a>License</a>)"
                           values={{
-                            a: (...chunks) => (
-                              <a
+                            a: (chunks) => (
+                              <ExternalLink
                                 href="https://creativecommons.org/licenses/by-sa/4.0/#"
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 title="Creative Commons Share Alike License 4.0 (CC BY-SA 4.0)"
                               >
                                 {chunks}
-                              </a>
+                              </ExternalLink>
                             )
                           }}
                         />
@@ -292,13 +246,9 @@ function AboutDialog (props) {
                           defaultMessage="Icons by {author}."
                           values={{
                             author: (
-                              <a
-                                href="https://fontawesome.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
+                              <ExternalLink href="https://fontawesome.com/">
                                 Font Awesome
-                              </a>
+                              </ExternalLink>
                             )
                           }}
                         />{' '}
@@ -306,15 +256,13 @@ function AboutDialog (props) {
                           id="dialogs.about.license-label"
                           defaultMessage="(<a>License</a>)"
                           values={{
-                            a: (...chunks) => (
-                              <a
+                            a: (chunks) => (
+                              <ExternalLink
                                 href="https://fontawesome.com/license/free"
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 title="Creative Commons Share Alike License 4.0 (CC BY-SA 4.0)"
                               >
                                 {chunks}
-                              </a>
+                              </ExternalLink>
                             )
                           }}
                         />

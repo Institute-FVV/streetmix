@@ -9,10 +9,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { FormattedMessage, useIntl } from 'react-intl'
 import Dialog from './Dialog'
 import SegmentAnalytics from './Analytics/SegmentAnalytics'
+import Checkbox from '../ui/Checkbox'
+import ExternalLink from '../ui/ExternalLink'
 import { FormatNumber } from '../util/formatting'
 import { trackEvent } from '../app/event_tracking'
 import { updateStreetAnalytics } from '../store/actions/street'
-import Checkbox from '../ui/Checkbox'
 
 import Terms from '../app/Terms'
 import {
@@ -161,18 +162,10 @@ function AnalyticsDialog (props) {
                   />
                   :
                 </strong>{' '}
-                <em>
-                  <a
-                    href="http://www.uncrd.or.jp/content/documents/5594Presentation%203%20-%20Module%201%20-%20Mr.%20Breithaupt.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Environmentally Sustainable Transport - Main Principles and
-                    Impacts
-                  </a>
-                </em>
-                , Manfred Breithaupt, Deutsche Gesellschaft für Internationale
-                Zusammenarbeit (GIZ)
+                <ExternalLink href="https://www.transformative-mobility.org/publications/passenger-capacity-of-different-transport-modes">
+                  Passenger capacity of different transport modes
+                </ExternalLink>
+                , Transformative Urban Mobility Initiative (TUMI)
               </p>
             </div>
             <div className="dialog-actions">

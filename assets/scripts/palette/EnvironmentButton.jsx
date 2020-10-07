@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useIntl } from 'react-intl'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Tooltip from '../ui/Tooltip'
 import CloseButton from '../ui/CloseButton'
 import { ICON_TOOLS } from '../ui/icons'
 import { toggleToolbox } from '../store/slices/ui'
-import './PaletteCommandsLeft.scss'
+import './EnvironmentButton.scss'
 
-function PaletteCommandsLeft (props) {
+function EnvironmentButton (props) {
   const enable = useSelector((state) => state.flags.ENVIRONMENT_EDITOR.value)
   const dispatch = useDispatch()
   const intl = useIntl()
@@ -40,19 +41,24 @@ function PaletteCommandsLeft (props) {
 
   if (!enable) return null
 
+  const label = intl.formatMessage({
+    id: 'tools.tooltip',
+    defaultMessage: 'Toggle tools'
+  })
+
   const Button = (
-    <button
-      onClick={handleClickTools}
-      title={intl.formatMessage({
-        id: 'tools.tooltip',
-        defaultMessage: 'Toggle tools'
-      })}
-    >
-      <FontAwesomeIcon icon={ICON_TOOLS} />
-    </button>
+    <Tooltip label={label}>
+      {/* Keep title on button to be queryable by test */}
+      <button onClick={handleClickTools} title={label}>
+        <FontAwesomeIcon icon={ICON_TOOLS} />
+      </button>
+    </Tooltip>
   )
 
-  const Tooltip = tooltip ? (
+  // TODO: This was created and named before we had generalized <Tooltip>
+  // UI elements. The "tooltip" variable and class naming is deprecated. If
+  // we want to reuse this UI, let's name it something else ("popup"?) later.
+  const TutorialPopup = tooltip ? (
     <div className="supermoon-tooltip">
       <CloseButton onClick={handleDismissTooltip} />
       <p>
@@ -66,11 +72,11 @@ function PaletteCommandsLeft (props) {
   ) : null
 
   return (
-    <div className="palette-commands-left">
+    <>
       {Button}
-      {Tooltip}
-    </div>
+      {TutorialPopup}
+    </>
   )
 }
 
-export default React.memo(PaletteCommandsLeft)
+export default React.memo(EnvironmentButton)

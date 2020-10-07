@@ -7,13 +7,17 @@ export function getStreetSectionTop () {
   return streetSectionTop
 }
 
-// TODO: less stop relying on querying other DOM elements
+// TODO: less reliance on querying other DOM elements, if possible
+// TODO: document all magic numbers
 export function setStreetSectionTop () {
   const viewportHeight = window.innerHeight
   const streetSectionHeight = document.querySelector('#street-section-inner')
     .offsetHeight
+  // Find the top of the palette element. If element is not present (it
+  // not be rendered in some cases, e.g. when the app is in read-only mode),
+  // use the viewport height.
   const paletteTop =
-    document.querySelector('.palette-container').offsetTop || viewportHeight
+    document.querySelector('.palette-container')?.offsetTop || viewportHeight
 
   // TODO const
   if (viewportHeight - streetSectionHeight > 450) {
@@ -28,11 +32,7 @@ export function setStreetSectionTop () {
   }
 
   // TODO const
-  if (
-    streetSectionTop +
-      document.querySelector('#street-section-inner').offsetHeight >
-    paletteTop - 20 + 180
-  ) {
+  if (streetSectionTop + streetSectionHeight > paletteTop - 20 + 180) {
     // gallery height
     streetSectionTop = paletteTop - 20 - streetSectionHeight + 180
   }

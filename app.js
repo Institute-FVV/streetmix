@@ -109,6 +109,7 @@ const csp = {
       'api.geocode.earth',
       'downloads.mailchimp.com.s3.amazonaws.com',
       'checkout.stripe.com',
+      'plausible.io',
       (req, res) => "'nonce-" + res.locals.nonce.google_analytics + "'",
       (req, res) => "'nonce-" + res.locals.nonce.mixpanel + "'"
     ],
@@ -135,6 +136,7 @@ const csp = {
       'syndication.twitter.com',
       'https://www.google-analytics.com',
       'sentry.io',
+      'plausible.io',
       'jimmy2.eu.auth0.com',
       'checkout.stripe.com',
       'http://api.ipstack.com/',

@@ -32,7 +32,7 @@ SegmentForPalette.propTypes = {
   type: PropTypes.string.isRequired,
   variantString: PropTypes.string.isRequired,
   onPointerOver: PropTypes.func,
-  randSeed: PropTypes.number,
+  randSeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
   tooltipTarget: PropTypes.object
 }
@@ -91,12 +91,11 @@ function SegmentForPalette (props) {
 
   if (props.disabled) {
     return (
-      <div
+      <li
         style={{
           width: actualWidth * TILE_SIZE * PALETTE_SEGMENT_MULTIPLIER + 'px'
         }}
         className="segment segment-in-palette segment-disabled"
-        data-testid="segment-for-palette"
       >
         <Tooltip
           target={props.tooltipTarget}
@@ -111,7 +110,7 @@ function SegmentForPalette (props) {
         >
           {/* Wrapper element necessary for <Tooltip /> (alternate solution is
               to forward ref) */}
-          <div style={{ height: '80px' }}>
+          <div style={{ height: '80px' }} tabIndex="0">
             <SegmentCanvas
               actualWidth={actualWidth}
               type={props.type}
@@ -123,22 +122,23 @@ function SegmentForPalette (props) {
           </div>
         </Tooltip>
         <FontAwesomeIcon icon={ICON_LOCK} />
-      </div>
+      </li>
     )
   }
 
   return props.connectDragSource(
-    <div
+    <li
       style={{
         width: actualWidth * TILE_SIZE * PALETTE_SEGMENT_MULTIPLIER + 'px'
       }}
       className="segment segment-in-palette"
-      data-testid="segment-for-palette"
     >
       <Tooltip target={props.tooltipTarget} label={getLabel(props)}>
         {/* Wrapper element necessary for <Tooltip /> (alternate solution is
-            to forward ref) */}
-        <div style={{ height: '80px' }}>
+            to forward ref)
+            This wrapper element is also the target for hover / focus
+            in order the activate the tooltip. */}
+        <div style={{ height: '80px' }} tabIndex="0">
           <SegmentCanvas
             actualWidth={actualWidth}
             type={props.type}
@@ -149,7 +149,7 @@ function SegmentForPalette (props) {
           />
         </div>
       </Tooltip>
-    </div>
+    </li>
   )
 }
 

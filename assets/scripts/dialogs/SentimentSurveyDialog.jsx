@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { FormattedMessage } from 'react-intl'
 import Dialog from './Dialog'
+import ExternalLink from '../ui/ExternalLink'
 import { trackEvent } from '../app/event_tracking'
 import './SentimentSurveyDialog.scss'
 
@@ -31,14 +32,10 @@ function SentimentSurveyDialog (props) {
                 id="sentiment.about-article.paragraph-1"
                 defaultMessage="Many streets are designed by civil engineers, but we believe that design should include everyone’s point of view. In partnership with the <a>New Urban Mobility Alliance</a> (NUMO), we’re conducting this one-question survey to do just that."
                 values={{
-                  a: (...chunks) => (
-                    <a
-                      href="https://www.numo.global/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                  a: (chunks) => (
+                    <ExternalLink href="https://www.numo.global/">
                       {chunks}
-                    </a>
+                    </ExternalLink>
                   )
                 }}
               />
@@ -54,7 +51,7 @@ function SentimentSurveyDialog (props) {
                 id="sentiment.about-article.paragraph-3"
                 defaultMessage="You can only vote once per street, but you can encourage others to cast their own vote by sharing your streets or a random street with the link <a>https://streetmix.net/survey/</a>."
                 values={{
-                  a: (...chunks) => (
+                  a: (chunks) => (
                     <a
                       href="https://streetmix.net/survey/"
                       target="_blank"

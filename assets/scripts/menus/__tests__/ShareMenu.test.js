@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import copy from 'copy-to-clipboard'
 import { renderWithReduxAndIntl } from '../../../../test/helpers/render'
 import ShareMenu from '../ShareMenu'
@@ -22,22 +23,22 @@ describe('ShareMenu', () => {
   })
 
   it('renders (user not signed in, anonymous user’s street, no street name)', () => {
-    const wrapper = renderWithReduxAndIntl(<ShareMenu />, {
+    const { asFragment } = renderWithReduxAndIntl(<ShareMenu />, {
       initialState: { user: { signedIn: false } }
     })
 
     // Check for proper sharing messages
     const message = 'Check out this street on Streetmix!'
-    const twitterLink = wrapper.getByText('Twitter', { exact: false }).href
-    const facebookLink = wrapper.getByText('Facebook', { exact: false }).href
+    const twitterLink = screen.getByText('Twitter', { exact: false }).href
+    const facebookLink = screen.getByText('Facebook', { exact: false }).href
     expect(twitterLink.replace(/%20/g, ' ')).toMatch(message)
     expect(facebookLink.replace(/%20/g, ' ')).toMatch(message)
 
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders (user signed in, own street, with name)', () => {
-    const wrapper = renderWithReduxAndIntl(<ShareMenu />, {
+    const { asFragment } = renderWithReduxAndIntl(<ShareMenu />, {
       initialState: {
         user: {
           signedIn: true,
@@ -54,8 +55,8 @@ describe('ShareMenu', () => {
 
     // Check for proper sharing messages
     const message = 'Check out my street, bar, on Streetmix!'
-    const twitterLink = wrapper.getByText('Twitter', { exact: false }).href
-    const facebookLink = wrapper.getByText('Facebook', { exact: false }).href
+    const twitterLink = screen.getByText('Twitter', { exact: false }).href
+    const facebookLink = screen.getByText('Facebook', { exact: false }).href
     expect(twitterLink.replace(/%20/g, ' ').replace(/%2C/g, ',')).toMatch(
       message
     )
@@ -63,13 +64,13 @@ describe('ShareMenu', () => {
       message
     )
 
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   // Test other share messages; no snapshots rendered
   describe('other share messages', () => {
     it('user signed in, own street, no street name', () => {
-      const wrapper = renderWithReduxAndIntl(<ShareMenu />, {
+      renderWithReduxAndIntl(<ShareMenu />, {
         initialState: {
           user: {
             signedIn: true,
@@ -84,15 +85,15 @@ describe('ShareMenu', () => {
       })
 
       const message = 'Check out my street on Streetmix!'
-      const twitterLink = wrapper.getByText('Twitter', { exact: false }).href
-      const facebookLink = wrapper.getByText('Facebook', { exact: false }).href
+      const twitterLink = screen.getByText('Twitter', { exact: false }).href
+      const facebookLink = screen.getByText('Facebook', { exact: false }).href
 
       expect(twitterLink.replace(/%20/g, ' ')).toMatch(message)
       expect(facebookLink.replace(/%20/g, ' ')).toMatch(message)
     })
 
     it('another user’s street, with street name', () => {
-      const wrapper = renderWithReduxAndIntl(<ShareMenu />, {
+      renderWithReduxAndIntl(<ShareMenu />, {
         initialState: {
           user: {
             signedIn: true,
@@ -108,8 +109,8 @@ describe('ShareMenu', () => {
       })
 
       const message = 'Check out bar by @qux on Streetmix!'
-      const twitterLink = wrapper.getByText('Twitter', { exact: false }).href
-      const facebookLink = wrapper.getByText('Facebook', { exact: false }).href
+      const twitterLink = screen.getByText('Twitter', { exact: false }).href
+      const facebookLink = screen.getByText('Facebook', { exact: false }).href
 
       expect(twitterLink.replace(/%20/g, ' ').replace(/%40/g, '@')).toMatch(
         message
@@ -120,7 +121,7 @@ describe('ShareMenu', () => {
     })
 
     it('another user’s street, no street name', () => {
-      const wrapper = renderWithReduxAndIntl(<ShareMenu />, {
+      renderWithReduxAndIntl(<ShareMenu />, {
         initialState: {
           user: {
             signedIn: true,
@@ -135,8 +136,8 @@ describe('ShareMenu', () => {
       })
 
       const message = 'Check out this street by @qux on Streetmix!'
-      const twitterLink = wrapper.getByText('Twitter', { exact: false }).href
-      const facebookLink = wrapper.getByText('Facebook', { exact: false }).href
+      const twitterLink = screen.getByText('Twitter', { exact: false }).href
+      const facebookLink = screen.getByText('Facebook', { exact: false }).href
 
       expect(twitterLink.replace(/%20/g, ' ').replace(/%40/g, '@')).toMatch(
         message
@@ -147,7 +148,7 @@ describe('ShareMenu', () => {
     })
 
     it('anonymous user’s street, with street name', () => {
-      const wrapper = renderWithReduxAndIntl(<ShareMenu />, {
+      renderWithReduxAndIntl(<ShareMenu />, {
         initialState: {
           user: {
             signedIn: true,
@@ -162,8 +163,8 @@ describe('ShareMenu', () => {
       })
 
       const message = 'Check out bar on Streetmix!'
-      const twitterLink = wrapper.getByText('Twitter', { exact: false }).href
-      const facebookLink = wrapper.getByText('Facebook', { exact: false }).href
+      const twitterLink = screen.getByText('Twitter', { exact: false }).href
+      const facebookLink = screen.getByText('Facebook', { exact: false }).href
 
       expect(twitterLink.replace(/%20/g, ' ').replace(/%40/g, '@')).toMatch(
         message
@@ -175,42 +176,50 @@ describe('ShareMenu', () => {
   })
 
   it('handles clicking sign in link', () => {
-    const wrapper = renderWithReduxAndIntl(<ShareMenu />, {
+    renderWithReduxAndIntl(<ShareMenu />, {
       initialState: { user: { signedIn: false } }
     })
-    fireEvent.click(wrapper.getByText('Sign in'))
+    userEvent.click(screen.getByText('Sign in'))
     expect(showDialog).toBeCalledTimes(1)
     expect(showDialog).toBeCalledWith('SIGN_IN')
   })
 
   it('handles clicking Twitter', () => {
-    const wrapper = renderWithReduxAndIntl(<ShareMenu />)
-    fireEvent.click(wrapper.getByText('Twitter', { exact: false }))
+    renderWithReduxAndIntl(<ShareMenu />)
+    userEvent.click(screen.getByText('Twitter', { exact: false }))
     expect(trackEvent).toBeCalledTimes(1)
   })
 
   it('handles clicking Facebook', () => {
-    const wrapper = renderWithReduxAndIntl(<ShareMenu />)
-    fireEvent.click(wrapper.getByText('Facebook', { exact: false }))
+    renderWithReduxAndIntl(<ShareMenu />)
+    userEvent.click(screen.getByText('Facebook', { exact: false }))
     expect(trackEvent).toBeCalledTimes(1)
   })
 
   it('handles clicking save as image', () => {
-    const wrapper = renderWithReduxAndIntl(<ShareMenu />)
-    fireEvent.click(wrapper.getByText('Save as image', { exact: false }))
+    renderWithReduxAndIntl(<ShareMenu />)
+    userEvent.click(screen.getByText('Save as image', { exact: false }))
     expect(showDialog).toBeCalledTimes(1)
     expect(showDialog).toBeCalledWith('SAVE_AS_IMAGE')
   })
 
   it('handles clicking print', () => {
-    const wrapper = renderWithReduxAndIntl(<ShareMenu />)
-    fireEvent.click(wrapper.getByText('Print', { exact: false }))
-    expect(wrapper.store.getState().app.printing).toBe(true)
+    const { store } = renderWithReduxAndIntl(<ShareMenu />)
+    userEvent.click(screen.getByText('Print', { exact: false }))
+    expect(store.getState().app.printing).toBe(true)
   })
 
   it('handles clicking copy to clipboard', () => {
-    const wrapper = renderWithReduxAndIntl(<ShareMenu />)
-    fireEvent.click(wrapper.getByTitle('Copy to clipboard'))
+    renderWithReduxAndIntl(<ShareMenu />)
+    userEvent.click(screen.getByTitle('Copy to clipboard'))
     expect(copy).toBeCalledTimes(1)
+  })
+
+  it('does not render external share links in no internet mode', () => {
+    const { asFragment } = renderWithReduxAndIntl(<ShareMenu />, {
+      initialState: { system: { noInternet: true } }
+    })
+
+    expect(asFragment()).toMatchSnapshot()
   })
 })

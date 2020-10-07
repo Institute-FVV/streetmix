@@ -5,7 +5,6 @@
     "owner": "PEDESTRIAN",
     "zIndex": 30,
     "defaultWidth": 6,
-    "needRandSeed": true,
     "rules": {
       "minWidth": 6
     },
@@ -3046,6 +3045,355 @@
       }
     }
   },
+  "drive-lane": {
+    "name": "Drive lane",
+    "nameKey": "drive-lane",
+    "owner": "CAR",
+    "zIndex": 14,
+    "defaultWidth": 10,
+    "needRandSeed": true,
+    "rules": {
+      "minWidth": 8,
+      "maxWidth": 11.9
+    },
+    "variants": ["direction", "car-type"],
+    "details": {
+      "inbound|car": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-inbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction": "inbound"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|car": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-outbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction": "outbound"
+              }
+            }
+          ]
+        }
+      },
+      "inbound|sharrow": {
+        "name": "Sharrow",
+        "nameKey": "sharrow",
+        "rules": {
+          "minWidth": 12,
+          "maxWidth": 14
+        },
+        "defaultWidth": 14,
+        "description": {
+          "key": "sharrow",
+          "image": "sharrow-01.jpg"
+        },
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--sharrow-inbound"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction": "inbound"
+              }
+            },
+            {
+              "id": "bike",
+              "variants": {
+                "type|direction": ["biker-02", "inbound"]
+              }
+            }
+          ]
+        }
+      },
+      "outbound|sharrow": {
+        "name": "Sharrow",
+        "nameKey": "sharrow",
+        "rules": {
+          "minWidth": 12,
+          "maxWidth": 14
+        },
+        "defaultWidth": 14,
+        "description": {
+          "key": "sharrow",
+          "image": "sharrow-01.jpg"
+        },
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--sharrow-outbound"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction": "outbound"
+              }
+            },
+            {
+              "id": "bike",
+              "variants": {
+                "type|direction": ["biker-02", "outbound"]
+              }
+            }
+          ]
+        }
+      },
+      "inbound|truck": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-inbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "truck",
+              "variants": {
+                "direction": "inbound"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|truck": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-outbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "truck",
+              "variants": {
+                "direction": "outbound"
+              }
+            }
+          ]
+        }
+      },
+      "inbound|av": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-inbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "av",
+              "variants": {
+                "direction": "inbound"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|av": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-outbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "av",
+              "variants": {
+                "direction": "outbound"
+              }
+            }
+          ]
+        }
+      },
+      "inbound|motorcycle-sidecar": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-inbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "motorcycle-sidecar",
+              "variants": {
+                "direction": "inbound"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|motorcycle-sidecar": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-outbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "motorcycle-sidecar",
+              "variants": {
+                "direction": "outbound"
+              }
+            }
+          ]
+        }
+      },
+      "inbound|pedestrian": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-inbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "pedestrian",
+              "variants": {
+                "density": "normal"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|pedestrian": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-outbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "pedestrian",
+              "variants": {
+                "density": "normal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
   "bikeshare": {
     "name": "Bikeshare station",
     "nameKey": "bikeshare-station",
@@ -4388,355 +4736,6 @@
               "id": "tree",
               "variants": {
                 "type": "big"
-              }
-            }
-          ]
-        }
-      }
-    }
-  },
-  "drive-lane": {
-    "name": "Drive lane",
-    "nameKey": "drive-lane",
-    "owner": "CAR",
-    "zIndex": 14,
-    "defaultWidth": 10,
-    "needRandSeed": true,
-    "rules": {
-      "minWidth": 8,
-      "maxWidth": 11.9
-    },
-    "variants": ["direction", "car-type"],
-    "details": {
-      "inbound|car": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-inbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "car",
-              "variants": {
-                "direction": "inbound"
-              }
-            }
-          ]
-        }
-      },
-      "outbound|car": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-outbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "car",
-              "variants": {
-                "direction": "outbound"
-              }
-            }
-          ]
-        }
-      },
-      "inbound|sharrow": {
-        "name": "Sharrow",
-        "nameKey": "sharrow",
-        "rules": {
-          "minWidth": 12,
-          "maxWidth": 14
-        },
-        "defaultWidth": 14,
-        "description": {
-          "key": "sharrow",
-          "image": "sharrow-01.jpg"
-        },
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--sharrow-inbound"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "car",
-              "variants": {
-                "direction": "inbound"
-              }
-            },
-            {
-              "id": "bike",
-              "variants": {
-                "type|direction": ["biker-02", "inbound"]
-              }
-            }
-          ]
-        }
-      },
-      "outbound|sharrow": {
-        "name": "Sharrow",
-        "nameKey": "sharrow",
-        "rules": {
-          "minWidth": 12,
-          "maxWidth": 14
-        },
-        "defaultWidth": 14,
-        "description": {
-          "key": "sharrow",
-          "image": "sharrow-01.jpg"
-        },
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--sharrow-outbound"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "car",
-              "variants": {
-                "direction": "outbound"
-              }
-            },
-            {
-              "id": "bike",
-              "variants": {
-                "type|direction": ["biker-02", "outbound"]
-              }
-            }
-          ]
-        }
-      },
-      "inbound|truck": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-inbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "truck",
-              "variants": {
-                "direction": "inbound"
-              }
-            }
-          ]
-        }
-      },
-      "outbound|truck": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-outbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "truck",
-              "variants": {
-                "direction": "outbound"
-              }
-            }
-          ]
-        }
-      },
-      "inbound|av": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-inbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "av",
-              "variants": {
-                "direction": "inbound"
-              }
-            }
-          ]
-        }
-      },
-      "outbound|av": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-outbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "av",
-              "variants": {
-                "direction": "outbound"
-              }
-            }
-          ]
-        }
-      },
-      "inbound|motorcycle-sidecar": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-inbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "motorcycle-sidecar",
-              "variants": {
-                "direction": "inbound"
-              }
-            }
-          ]
-        }
-      },
-      "outbound|motorcycle-sidecar": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-outbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "motorcycle-sidecar",
-              "variants": {
-                "direction": "outbound"
-              }
-            }
-          ]
-        }
-      },
-      "inbound|pedestrian": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-inbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "pedestrian",
-              "variants": {
-                "density": "normal"
-              }
-            }
-          ]
-        }
-      },
-      "outbound|pedestrian": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "markings": [
-            {
-              "id": "markings--straight-outbound-light"
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "pedestrian",
-              "variants": {
-                "density": "normal"
               }
             }
           ]
@@ -6393,44 +6392,6 @@
       }
     }
   },
-  "train": {
-    "name": "“Inception” train",
-    "nameKey": "inception-train",
-    "owner": "TRANSIT",
-    "zIndex": 10,
-    "defaultWidth": 14,
-    "enableWithFlag": "SEGMENT_INCEPTION_TRAIN",
-    "description": {
-      "key": "inception-train",
-      "image": "train.jpg"
-    },
-    "rules": {
-      "minWidth": 14
-    },
-    "variants": [""],
-    "details": {
-      "": {
-        "components": {
-          "lanes": [
-            {
-              "id": "asphalt",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "vehicles": [
-            {
-              "id": "train",
-              "variants": {
-                "type": "default"
-              }
-            }
-          ]
-        }
-      }
-    }
-  },
   "magic-carpet": {
     "name": "Magic carpet",
     "nameKey": "magic-carpet",
@@ -6969,6 +6930,254 @@
               "id": "sidewalk-sloped-right",
               "variants": {
                 "orientation": "right"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "brt-station": {
+    "name": "BRT station",
+    "nameKey": "brt-station",
+    "owner": "TRANSIT",
+    "zIndex": 20,
+    "defaultWidth": 13.3333,
+    "enableWithFlag": "SEGMENT_BRT",
+    "paletteIcon": "center",
+    "rules": {
+      "minWidth": 13.3333
+    },
+    "variants": ["brt-station-orientation"],
+    "details": {
+      "left": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "objects": [
+            {
+              "id": "brt-station",
+              "variants": {
+                "orientation": ["left"]
+              }
+            }
+          ]
+        }
+      },
+      "right": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "objects": [
+            {
+              "id": "brt-station",
+              "variants": {
+                "orientation": ["right"]
+              }
+            }
+          ]
+        }
+      },
+      "center": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "objects": [
+            {
+              "id": "brt-station",
+              "variants": {
+                "orientation": ["center"]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "brt-lane": {
+    "name": "Bus rapid transit lane",
+    "nameKey": "brt-lane",
+    "owner": "TRANSIT",
+    "zIndex": 15,
+    "defaultWidth": 12,
+    "enableWithFlag": "SEGMENT_BRT",
+    "rules": {
+      "minWidth": 11.5,
+      "maxWidth": 13
+    },
+    "variants": ["direction", "brt-asphalt"],
+    "details": {
+      "inbound|regular": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-inbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "brt-bus",
+              "variants": {
+                "direction": "inbound"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|regular": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-outbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "brt-bus",
+              "variants": {
+                "direction": "outbound"
+              }
+            }
+          ]
+        }
+      },
+      "inbound|red": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "red"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-inbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "brt-bus",
+              "variants": {
+                "direction": "inbound"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|red": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "red"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--straight-outbound-light"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "brt-bus",
+              "variants": {
+                "direction": "outbound"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "train": {
+    "name": "“Inception” train",
+    "nameKey": "inception-train",
+    "owner": "TRANSIT",
+    "zIndex": 10,
+    "defaultWidth": 14,
+    "enableWithFlag": "SEGMENT_INCEPTION_TRAIN",
+    "description": {
+      "key": "inception-train",
+      "image": "train.jpg"
+    },
+    "rules": {
+      "minWidth": 10
+    },
+    "variants": [""],
+    "details": {
+      "": {
+        "components": {
+          "lanes": [
+            {
+              "id": "paved",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "offsetX": 6,
+              "variants": {
+                "direction|orientation": ["inbound", "left"]
+              }
+            },
+            {
+              "id": "pedestrian",
+              "variants": {
+                "density": "sparse"
+              }
+            },
+            {
+              "id": "bike",
+              "variants": {
+                "type|direction": ["biker-02", "inbound"]
+              }
+            },
+            {
+              "id": "bike",
+              "offsetX": 90,
+              "variants": {
+                "type|direction": ["biker-01", "inbound"]
               }
             }
           ]

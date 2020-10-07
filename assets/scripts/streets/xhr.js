@@ -5,7 +5,7 @@ import {
   checkIfEverythingIsLoaded,
   setServerContacted
 } from '../app/initialization'
-import { t } from '../locales/locale'
+import { formatMessage } from '../locales/locale'
 import { MODES, processMode, getMode, setMode } from '../app/mode'
 import { goNewStreet } from '../app/routing'
 import { infoBubble } from '../info_bubble/info_bubble'
@@ -282,7 +282,7 @@ function receiveStreetForVerification (transmission) {
     store.dispatch(
       addToast({
         method: 'warning',
-        message: t(
+        message: formatMessage(
           'toast.reloaded',
           'Your street was reloaded from the server as it was modified elsewhere.'
         )
@@ -394,7 +394,7 @@ export function unpackServerStreetData (
 
 export function packServerStreetData () {
   var data = {}
-  data.street = trimStreetData(store.getState().street, false)
+  data.street = trimStreetData(store.getState().street)
 
   // Those go above data in the structure, so they need to be cleared here
   delete data.street.name
