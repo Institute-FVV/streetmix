@@ -38,4 +38,4 @@ jobs:
           file: ./Dockerfile
           target: streetmix
           tags: |
-            docker.pkg.github.com/user/streetmix:latest
+            docker.pkg.github.com/Institute-FVV/streetmix/streetmix:latest
