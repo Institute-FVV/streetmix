@@ -38,5 +38,4 @@ jobs:
           file: ./Dockerfile
           target: streetmix
           tags: |
-            jimmy.levell/streetmix:latest
             docker.pkg.github.com/user/streetmix:latest
