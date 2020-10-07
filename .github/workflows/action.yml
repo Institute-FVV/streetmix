@@ -1,4 +1,4 @@
-name: Publish streetmix docker image
+name: Publish streetmix docker images
 
 on:
   # Trigger the workflow on push
@@ -7,17 +7,31 @@ on:
     branches:
       - master
 
+
 jobs:
-  build:
+  push_to_registry:
+    name: Push streetmix docker images to GitHub Packages
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-    - name: Publish docker image to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: Institute-FVV/streetmix/streetmixdocker
-        registry: docker.pkg.github.com
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        dockerfile: Dockerfile
+      - 
+        name: Check out the repo
+        uses: actions/checkout@v2
+      - 
+        name: Build and push streetmix docker
+        uses: docker/build-push-action@v2
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: Institute-FVV/streetmix/streetmixdocker
+          dockerfile: Dockerfile
+      -
+        name: Build and push streetmix-postgres docker
+        uses: docker/build-push-action@v2
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: Institute-FVV/streetmix/streetmixdocker-postgres
+          dockerfile: Dockerfile
