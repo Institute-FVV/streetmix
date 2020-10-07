@@ -257,11 +257,11 @@
       "resend-email": "Resend email"
     },
     "metadata": {
-      "heading": "Submit your work",
+      "heading": "Adding additional information regarding your project",
       "heading-submitted": "Submitted your work",
-      "description": "Hand in your design",
+      "description": "Please add the following metadata to your work",
       "name-label": "Full name",
-      "matrikelNummer-label": "matrikelNummer",
+      "matriculationNumber-label": "Matriculation number",
       "email-label": "Email",
       "projectName-label": "Projectname",
       "directionOfView-label": "Direction of view",

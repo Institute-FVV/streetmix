@@ -40,8 +40,10 @@ module.exports = {
   db: {
     sequelize: {
       logging: true,
-      database: 'streetmix_dev',
-      host: process.env.PGHOST || '127.0.0.1',
+      database: 'streetmix',
+      username: process.env.PGUSER || '',
+      password: process.env.PGPASSWORD || '',
+      host: process.env.PGHOST || '/var/run/postgresql',
       port: process.env.PGPORT || 5432,
       // surely there is a way to inherit these defaults to other config files?
       // heroku hobby tier has max connections of 20, so this is a conservative setting

@@ -10,7 +10,7 @@ export default class MetadataDialog extends React.Component {
 
     this.state = {
       name: '',
-      matrikelNummer: '',
+      matriculationNumber: '',
       email: '',
       projectName: '',
       status: '',
@@ -22,7 +22,7 @@ export default class MetadataDialog extends React.Component {
     }
 
     this.nameInputEl = React.createRef()
-    this.martikelNummerInputEl = React.createRef()
+    this.matriculationNumberInputEl = React.createRef()
     this.emailInputEl = React.createRef()
     this.projectNamenInputEl = React.createRef()
     this.statusInputEl = React.createRef()
@@ -152,7 +152,7 @@ export default class MetadataDialog extends React.Component {
               <h1>
                 <FormattedMessage
                   id="dialogs.metadata.heading"
-                  defaultMessage="Submit your work"
+                  defaultMessage="Adding additional information regarding your project"
                 />
               </h1>
             </header>
@@ -160,7 +160,7 @@ export default class MetadataDialog extends React.Component {
               <p>
                 <FormattedMessage
                   id="dialogs.metadata.description"
-                  defaultMessage="Hand in your design."
+                  defaultMessage="Please add the following metadata to your work."
                 />
               </p>
 
@@ -187,24 +187,24 @@ export default class MetadataDialog extends React.Component {
                 />
 
                 <label
-                  htmlFor="metadata-matrikelNummer-input"
+                  htmlFor="metadata-matriculationNumber-input"
                   className="metadata-label"
                 >
                   <FormattedMessage
-                    id="dialogs.metadata.matrikelNummer-label"
-                    defaultMessage="MatrikelNummer"
+                    id="dialogs.metadata.matriculationNumber-label"
+                    defaultMessage="Matriculation number"
                   />
                 </label>
                 <input
                   type="number"
-                  id="metadata-matrikelNummer-input"
-                  ref={this.matrikelNummerInputEl}
-                  value={this.state.matrikelNummer}
+                  id="metadata-matriculationNumber-input"
+                  ref={this.matriculationNumberInputEl}
+                  value={this.state.matriculationNumber}
                   className={
                     'metadata-input ' +
                     (this.state.error ? 'metadata-input-error' : '')
                   }
-                  name="matrikelNummer"
+                  name="matriculationNumber"
                   onChange={this.handleChange}
                   placeholder="12345678"
                   required={true}
@@ -240,7 +240,7 @@ export default class MetadataDialog extends React.Component {
                 >
                   <FormattedMessage
                     id="dialogs.metadata.projectName-label"
-                    defaultMessage="Projectname"
+                    defaultMessage="Project name"
                   />
                 </label>
                 <input
@@ -264,7 +264,7 @@ export default class MetadataDialog extends React.Component {
                 >
                   <FormattedMessage
                     id="dialogs.metadata.projectStatus-label"
-                    defaultMessage="Projectstatus"
+                    defaultMessage="Project status"
                   />
                 </label>
 
