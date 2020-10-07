@@ -41,3 +41,12 @@ jobs:
           target: streetmix
           tags: |
             ghcr.io/institute-fvv/streetmix/streetmix:latest
+      -
+        name: Build and push streetmix postgres docker
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: ./Dockerfile
+          target: streetmix-postgres
+          tags: |
+            ghcr.io/institute-fvv/streetmix/streetmix-postgres:latest 
