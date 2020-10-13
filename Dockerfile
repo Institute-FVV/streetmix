@@ -14,10 +14,10 @@ RUN apt-get upgrade -y
 # where available (npm@5+)
 COPY package*.json ./
 RUN npm install --only=production && npm cache clean --force --loglevel=error
-RUN npm run postinstall
 
 # Bundle app source
 COPY . .
+RUN npm run postinstall
 
 # publish app
 EXPOSE 8000
