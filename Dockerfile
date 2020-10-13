@@ -18,6 +18,7 @@ RUN npm install --only=production && npm cache clean --force --loglevel=error
 # Bundle app source
 COPY . .
 RUN npm run postinstall
+RUN chmod -R 755 assets/locales
 
 # publish app
 EXPOSE 8000

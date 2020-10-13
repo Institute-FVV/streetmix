@@ -254,6 +254,24 @@
       "email-unreceived": "Nicht bekommen?",
       "resend-email": "E-Mail nochmal senden"
     },
+    "metadata": {
+      "heading": "Zusätzliche Informationen betreffend Ihres Projekts",
+      "heading-submitted": "Speichern der zusätzlichen Metainformationen",
+      "description": "Bitte fügen Sie folgende Metadaten zu Ihrem Projekt hinzu",
+      "name-label": "Vollständiger Name",
+      "matriculationNumber-label": "Matrikelnummer",
+      "email-label": "Email",
+      "projectName-label": "Projektname",
+      "directionOfView-label": "Blickrichtung",
+      "note": "Wir werden Ihnen eine Bestätigung der Speicherung der Metadaten per Email zusenden. ",
+      "submit-invalid": "Oops! Es scheit, dass die Speicherung der Metadaten nicht funktioniert hat. Bitte kontaktieren Sie den lokalen Support.",
+      "loading-message": "Speichern Ihrer Daten…",
+      "submit-message": "Wir haben Ihnen einen Link als Bestätigung der erfolgreichen Speicherung der Daten zugesendet. Der Link führt Sie jederzeit zu diesem Projekt zurück.",
+      "button": "Metadaten speichern",
+      "tos": "Indem ich auf einen dieser Buttons klicke, stimme ich den {tosLink} und der {privacyLink} zu..",
+      "tos-link-label": "Geschäftsbedingungen",
+      "privacy-link-label": "Datenschutzrichtlinie"
+    },
     "whatsnew": {
       "heading": "Was gibt es Neues bei Streetmix?"
     },

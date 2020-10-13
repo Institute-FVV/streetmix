@@ -6557,9 +6557,9 @@
     "rules": {
       "minWidth": 4
     },
-    "variants": ["orientation"],
+    "variants": ["orientation", "waste-positioning"],
     "details": {
-      "left": {
+      "left|front": {
         "components": {
           "lanes": [
             {
@@ -6573,13 +6573,13 @@
             {
               "id": "box",
               "variants": {
-                "orientation": "left"
+                "orientation|waste-positioning": ["left", "front"]
               }
             }
           ]
         }
       },
-      "right": {
+      "right|front": {
         "components": {
           "lanes": [
             {
@@ -6593,7 +6593,47 @@
             {
               "id": "box",
               "variants": {
-                "orientation": "right"
+                "orientation|waste-positioning": ["right", "front"]
+              }
+            }
+          ]
+        }
+      },
+      "left|sideways": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "objects": [
+            {
+              "id": "box",
+              "variants": {
+                "orientation|waste-positioning": ["left", "sideways"]
+              }
+            }
+          ]
+        }
+      },
+      "right|sideways": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "objects": [
+            {
+              "id": "box",
+              "variants": {
+                "orientation|waste-positioning": ["right", "sideways"]
               }
             }
           ]

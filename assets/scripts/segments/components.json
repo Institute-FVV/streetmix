@@ -898,15 +898,29 @@
       "owner": "FLEX",
       "zIndex": 20,
       "variants": {
-        "orientation": {
+        "orientation|waste-positioning": {
           "left": {
-            "graphics": {
-              "left": "objects--box"
+            "front": {
+              "graphics": {
+                "left": "objects--box-front"
+              }
+            },
+            "sideways": {
+              "graphics": {
+                "left": "objects--box-side"
+              }
             }
           },
           "right": {
-            "graphics": {
-              "right": "objects--box"
+            "front": {
+              "graphics": {
+                "right": "objects--box-front"
+              }
+            },
+            "sideways": {
+              "graphics": {
+                "right": "objects--box-side"
+              }
             }
           }
         }
