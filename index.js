@@ -22,13 +22,13 @@ const httpServer = http.createServer(app)
 
 if (process.env.NODE_ENV === 'development') {
   httpServer.listen(config.port, () => {
-    logger.info('HTTP Server running on port 80')
+    logger.info('HTTP Server running on port ' + config.port)
   })
 } else {
   //  httpsServer.listen(443, () => {
   // logger.info('HTTPS Server running on port 443');
   // })
   httpServer.listen(config.port, () => {
-    logger.info('HTTP Server running on port 80')
+    logger.info('HTTP Server running on port ' + config.port)
   })
 }
