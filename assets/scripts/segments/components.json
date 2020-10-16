@@ -147,6 +147,18 @@
           }
         }
       }
+    },
+    "other": {
+      "elevation": 1,
+      "variants": {
+        "color": {
+          "regular": {
+            "graphics": {
+              "repeat": "ground--other"
+            }
+          }
+        }
+      }
     }
   },
   "markings": {
@@ -200,6 +212,11 @@
         "center": "markings--left-inbound"
       }
     },
+    "markings--left-inbound-light": {
+      "graphics": {
+        "center": "markings--left-inbound-light"
+      }
+    },
     "markings--left-straight-inbound": {
       "graphics": {
         "center": "markings--left-straight-inbound"
@@ -218,6 +235,11 @@
     "markings--right-inbound": {
       "graphics": {
         "center": "markings--right-inbound"
+      }
+    },
+    "markings--right-inbound-light": {
+      "graphics": {
+        "center": "markings--right-inbound-light"
       }
     },
     "markings--both-inbound": {
@@ -250,6 +272,11 @@
         "center": "markings--left-outbound"
       }
     },
+    "markings--left-outbound-light": {
+      "graphics": {
+        "center": "markings--left-outbound-light"
+      }
+    },
     "markings--left-straight-outbound": {
       "graphics": {
         "center": "markings--left-straight-outbound"
@@ -268,6 +295,11 @@
     "markings--right-outbound": {
       "graphics": {
         "center": "markings--right-outbound"
+      }
+    },
+    "markings--right-outbound-light": {
+      "graphics": {
+        "center": "markings--right-outbound-light"
       }
     },
     "markings--both-outbound": {
@@ -308,6 +340,16 @@
     "markings--parking-right": {
       "graphics": {
         "left": "markings--parking-right"
+      }
+    },
+    "markings--cape-stop-right": {
+      "graphics": {
+        "right": "markings--cape-stop-right"
+      }
+    },
+    "markings--cape-stop-left": {
+      "graphics": {
+        "left": "markings--cape-stop-left"
       }
     }
   },

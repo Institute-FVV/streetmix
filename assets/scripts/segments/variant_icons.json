@@ -25,7 +25,7 @@
       "title": "Narrow building"
     },
     "narrowSubway": {
-      "id": "building-thin",
+      "id": "building-subway",
       "title": "Narrow building subway"
     },
     "wide": {
@@ -257,7 +257,7 @@
       "title": "Street level"
     },
     "halfraised": {
-      "id": "elevation-lower",
+      "id": "elevation-medium",
       "title": "Middle level"
     }
   },
@@ -325,14 +325,12 @@
   },
   "zone-type": {
     "no-bikes": {
-      "id": "asphalt",
-      "color": "#292a29",
-      "title": "Asphalt"
+      "id": "sidewalk-density-dense",
+      "title": "Dense"
     },
     "bikes": {
-      "id": "asphalt",
-      "color": "#9b1f22",
-      "title": "Sidewalk"
+      "id": "sidewalk-cyclist",
+      "title": "Mixed"
     }
   },
   "transit-shelter-elevation": {
@@ -402,7 +400,7 @@
       "title": "Sparse"
     },
     "mixed": {
-      "id": "sidewalk-density-mixed",
+      "id": "sidewalk-cyclist",
       "title": "Mixed"
     },
     "empty": {
@@ -565,26 +563,22 @@
   },
   "station-type": {
     "simple": {
-      "id": "asphalt",
-      "color": "#292a29",
-      "title": "Simple"
+      "id": "station-sign",
+      "title": "simple"
     },
     "covered": {
-      "id": "asphalt",
-      "color": "#D8D3CB",
-      "title": "Covered"
+      "id": "station-shelter",
+      "title": "covered"
     }
   },
   "subway-station-type": {
     "stairs": {
-      "id": "asphalt",
-      "color": "#292a29",
-      "title": "Stairs"
+      "id": "subway-stairs",
+      "title": "stairs"
     },
     "elevator": {
-      "id": "asphalt",
-      "color": "#D8D3CB",
-      "title": "Elevator"
+      "id": "subway-elevator",
+      "title": "elevator"
     }
   },
   "brt-bus": {}

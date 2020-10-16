@@ -96,13 +96,76 @@
             {
               "id": "pedestrian",
               "variants": {
-                "density": "sparse"
+                "density": "normal"
               }
             },
             {
               "id": "bike",
               "variants": {
-                "type|direction": ["biker-03", "inbound"]
+                "type|direction": ["biker-02", "inbound"]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "cape-stop": {
+    "name": "Cape stop",
+    "nameKey": "cape-stop",
+    "owner": "PEDESTRIAN",
+    "zIndex": 30,
+    "defaultWidth": 6,
+    "rules": {
+      "minWidth": 6
+    },
+    "variants": ["orientation"],
+    "details": {
+      "left": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--cape-stop-left"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction": "inbound"
+              }
+            }
+          ]
+        }
+      },
+      "right": {
+        "components": {
+          "lanes": [
+            {
+              "id": "asphalt",
+              "variants": {
+                "color": "regular"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--cape-stop-right"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction": "inbound"
               }
             }
           ]
@@ -2012,7 +2075,7 @@
           ],
           "markings": [
             {
-              "id": "markings--straight-inbound-light"
+              "id": "markings--straight-inbound"
             }
           ],
           "vehicles": [
@@ -2041,7 +2104,7 @@
           ],
           "markings": [
             {
-              "id": "markings--straight-outbound-light"
+              "id": "markings--straight-outbound"
             }
           ],
           "vehicles": [
@@ -2336,7 +2399,7 @@
           ],
           "markings": [
             {
-              "id": "markings--left-inbound-light"
+              "id": "markings--left-inbound"
             }
           ],
           "vehicles": [
@@ -2365,7 +2428,7 @@
           ],
           "markings": [
             {
-              "id": "markings--left-outbound-light"
+              "id": "markings--left-outbound"
             }
           ],
           "vehicles": [
@@ -2660,7 +2723,7 @@
           ],
           "markings": [
             {
-              "id": "markings--right-inbound-light"
+              "id": "markings--right-inbound"
             }
           ],
           "vehicles": [
@@ -2689,7 +2752,7 @@
           ],
           "markings": [
             {
-              "id": "markings--right-outbound-light"
+              "id": "markings--right-outbound"
             }
           ],
           "vehicles": [
@@ -7337,6 +7400,28 @@
               "id": "pedestrian",
               "variants": {
                 "density": "sparse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "other": {
+    "name": "Other",
+    "nameKey": "other",
+    "owner": "FLEX",
+    "zIndex": 20,
+    "defaultWidth": 10,
+    "variants": [""],
+    "details": {
+      "": {
+        "components": {
+          "lanes": [
+            {
+              "id": "other",
+              "variants": {
+                "color": "regular"
               }
             }
           ]

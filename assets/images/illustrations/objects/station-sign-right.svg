@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 596 842" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g id="station-sign-right" transform="matrix(0.57572,0,0,0.57572,278.584,495.603)">
-        <path d="M20.74,600L44.903,600L36.088,33.71L23.549,39.049L20.74,600Z" style="fill:rgb(228,226,220);fill-rule:nonzero;"/>
-        <path d="M44.905,600L20.738,600L40.963,396.603L44.905,600Z" style="fill:rgb(193,190,187);fill-rule:nonzero;"/>
-        <path d="M22.805,183.035L36.085,33.71L23.548,39.067L22.805,183.035Z" style="fill:rgb(193,190,187);fill-rule:nonzero;"/>
-        <path d="M39,162L88,162L90,63L37,63L39,162Z" style="fill:rgb(216,211,203);fill-rule:nonzero;"/>
-        <path d="M65.021,84.102L65.021,78.371L81.718,78.518L82.021,73.028L59.152,73.477L59.209,90.02L75.486,90.231L75.515,98.625L59.722,99.118L59.54,103.973L81.617,103.918L81.614,84.528" style="fill:rgb(49,49,86);fill-rule:nonzero;"/>
+<svg width="100%" height="100%" viewBox="0 0 129 362" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Artboard1" transform="matrix(1,0,0,1,-228.579,-479.201)">
+        <rect x="228.579" y="479.201" width="128.727" height="361.75" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="228.579" y="479.201" width="128.727" height="361.75"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g id="station-sign-right" transform="matrix(0.57572,0,0,0.57572,274.163,495.805)">
+                <path d="M20.74,600L44.903,600L36.088,33.71L23.549,39.049L20.74,600Z" style="fill:rgb(228,226,220);fill-rule:nonzero;"/>
+                <path d="M44.905,600L20.738,600L40.963,396.603L44.905,600Z" style="fill:rgb(193,190,187);fill-rule:nonzero;"/>
+                <path d="M22.805,183.035L36.085,33.71L23.548,39.067L22.805,183.035Z" style="fill:rgb(193,190,187);fill-rule:nonzero;"/>
+                <path d="M39,162L88,162L90,63L37,63L39,162Z" style="fill:rgb(216,211,203);fill-rule:nonzero;"/>
+                <path d="M65.021,84.102L65.021,78.371L81.718,78.518L82.021,73.028L59.152,73.477L59.209,90.02L75.486,90.231L75.515,98.625L59.722,99.118L59.54,103.973L81.617,103.918L81.614,84.528" style="fill:rgb(49,49,86);fill-rule:nonzero;"/>
+            </g>
+        </g>
     </g>
 </svg>

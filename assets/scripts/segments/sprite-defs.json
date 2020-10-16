@@ -19,32 +19,64 @@
     "id": "markings--left-inbound",
     "originY": 96
   },
+  "markings--left-inbound-light": {
+    "id": "markings--left-inbound-light",
+    "originY": 96
+  },
   "markings--left-outbound": {
     "id": "markings--left-outbound",
+    "originY": 96
+  },
+  "markings--left-outbound-light": {
+    "id": "markings--left-outbound-light",
     "originY": 96
   },
   "markings--left-straight-inbound": {
     "id": "markings--left-straight-inbound",
     "originY": 96
   },
+  "markings--left-straight-inbound-light": {
+    "id": "markings--left-straight-inbound-light",
+    "originY": 96
+  },
   "markings--left-straight-outbound": {
     "id": "markings--left-straight-outbound",
+    "originY": 96
+  },
+  "markings--left-straight-outbound-light": {
+    "id": "markings--left-straight-outbound-light",
     "originY": 96
   },
   "markings--right-inbound": {
     "id": "markings--right-inbound",
     "originY": 96
   },
+  "markings--right-inbound-light": {
+    "id": "markings--right-inbound-light",
+    "originY": 96
+  },
   "markings--right-outbound": {
     "id": "markings--right-outbound",
+    "originY": 96
+  },
+  "markings--right-outbound-light": {
+    "id": "markings--right-outbound-light",
     "originY": 96
   },
   "markings--right-straight-inbound": {
     "id": "markings--right-straight-inbound",
     "originY": 96
   },
+  "markings--right-straight-inbound-light": {
+    "id": "markings--right-straight-inbound-light",
+    "originY": 96
+  },
   "markings--right-straight-outbound": {
     "id": "markings--right-straight-outbound",
+    "originY": 96
+  },
+  "markings--right-straight-outbound-light": {
+    "id": "markings--right-straight-outbound-light",
     "originY": 96
   },
   "markings--both-inbound": {
@@ -126,6 +158,14 @@
   "markings--stripes-diagonal": {
     "id": "markings--stripes-diagonal",
     "originY": 113
+  },
+  "markings--cape-stop-right": {
+    "id": "markings--cape-stop-right",
+    "originY": 96
+  },
+  "markings--cape-stop-left": {
+    "id": "markings--cape-stop-left",
+    "originY": 96
   },
   "lamps--lamp-modern-left": {
     "id": "lamps--lamp-modern-left",

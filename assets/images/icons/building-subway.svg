@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="building-thin-subway" transform="matrix(1,0,0,1,-527.952,-168)">
+        <g transform="matrix(0.872727,-2.74047e-17,-2.74047e-17,0.984615,76.4979,2.18511)">
+            <path d="M552.812,202.937L552.812,194.812L545.937,202.937L552.812,202.937Z" style="fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,6.702,0)">
+            <rect x="552.25" y="168" width="9" height="48"/>
+        </g>
+        <g transform="matrix(1,0,0,1,509.668,169.07)">
+            <path d="M23.938,12.174L22.998,20.922L23.964,32.02L41.127,32.02L42.088,20.934L41.148,12.174L23.938,12.174ZM30.697,24.725L31.786,25.814L33.036,25.814L34.106,24.743L34.106,16.855L36.058,16.855L36.058,25.465L36.085,25.493L36.058,25.52L36.058,25.532L36.046,25.532L33.77,27.808L33.728,27.765L31.049,27.765L31.029,27.785L31.009,27.765L31.003,27.765L31.003,27.759L28.775,25.532L28.745,25.532L28.745,25.502L28.714,25.47L28.745,25.438L28.745,16.855L30.697,16.855L30.697,24.725Z"/>
+        </g>
+    </g>
+</svg>

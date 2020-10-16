@@ -8,18 +8,6 @@ const util = require('../../../lib/util.js')
 const IP_GEOLOCATION_TIMEOUT = 500
 
 exports.get = function (req, res) {
-  // Prevent this service from being accessed by third parties
-  if (
-    req.headers.referer === undefined ||
-    new URL(req.headers.referer).host !== config.app_host_port
-  ) {
-    res.status(403).json({
-      status: 403,
-      msg: 'I’m sorry — you do not have access to this service.'
-    })
-    return
-  }
-
   // If API key environment variable has not been provided, return an error.
   if (!config.geoip.api_key) {
     logger.warn(
@@ -39,6 +27,10 @@ exports.get = function (req, res) {
   }
 
   const requestGeolocation = function (isRedisConnected = true) {
+    if (ip.includes('127.0.0.1')) {
+      ip = '128.131.201.160'
+    }
+
     let url = `${config.geoip.protocol}${config.geoip.host}`
     url += req.hostname === 'localhost' ? 'check' : ip
     url += `?access_key=${config.geoip.api_key}`
@@ -86,7 +78,7 @@ exports.get = function (req, res) {
       })
   }
 
-  const ip = util.requestIp(req)
+  var ip = util.requestIp(req)
   const client = req.redisClient
 
   // If Redis is connected and Streetmix is not being run locally, check

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="station-shelter">
+        <g transform="matrix(0.0805748,0,0,0.0805748,1.28191,-6.25933)">
+            <path d="M435.097,672L459.26,672L456.451,111.049L443.912,105.71L435.097,672Z" style="fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(0.0805748,0,0,0.0805748,1.28191,-6.25933)">
+            <path d="M441,234L392,234L390,135L443,135L441,234Z" style="fill-rule:nonzero;"/>
+        </g>
+        <g id="ad-panel" transform="matrix(0.0737501,0,0,0.0737501,-1.08361,3.60678)">
+            <g transform="matrix(1,0,0,1,40.6779,0)">
+                <path d="M72,600L51,600L55,228L72,228L72,600Z" style="fill-rule:nonzero;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,40.6779,0)">
+                <path d="M309,600L288,600L288,168L305,168L309,600Z" style="fill-rule:nonzero;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,40.6779,0)">
+                <rect x="72" y="230" width="216" height="286" style="fill-rule:nonzero;"/>
+            </g>
+        </g>
+        <g transform="matrix(0.0737501,0,0,0.0737501,1.91639,3.60678)">
+            <g id="roof">
+                <path d="M51.662,196L48,228L72,228L365,169.5L364,148.418L51.662,196Z" style="fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>
