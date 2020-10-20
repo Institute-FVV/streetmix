@@ -8,6 +8,8 @@ WORKDIR /usr/src/app
 # update the image
 RUN apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update
 RUN apt-get upgrade -y
+RUN apt-get install vim -y
+RUN apt-get install net-tools -y
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -42,6 +44,8 @@ RUN apt-get install postgresql-13-postgis-2.5 -y
 RUN apt-get install nodejs -y
 RUN apt-get install curl -y
 RUN curl -L https://www.npmjs.com/install.sh | sh
+RUN apt-get install vim -y 
+RUN apt-get install net-tools -y
 
 # copy git project into image and install it, so migration can be executed
 COPY . ./

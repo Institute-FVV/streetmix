@@ -62,7 +62,7 @@ module.exports = {
     transifex: {
       api_token: process.env.TRANSIFEX_API_TOKEN
     },
-    use_local: false
+    use_local: true
   },
   geocode: {
     pelias: {
