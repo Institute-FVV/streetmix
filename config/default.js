@@ -40,7 +40,7 @@ module.exports = {
   db: {
     sequelize: {
       logging: true,
-      database: 'streetmix',
+      database: 'fvv_streetmix',
       username: process.env.PGUSER || '',
       password: process.env.PGPASSWORD || '',
       host: process.env.PGHOST || '/var/run/postgresql',

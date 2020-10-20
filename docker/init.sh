@@ -10,9 +10,21 @@ npx sequelize db:create
 npx sequelize db:migrate
 
 # change permission on the database streetmix to a new user streetmix
-psql -v ON_ERROR_STOP=1 -d streetmix <<- EOSQL
-    CREATE USER streetmix;
-    GRANT ALL PRIVILEGES ON DATABASE streetmix TO streetmix;
-    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO streetmix;
-    ALTER USER streetmix WITH ENCRYPTED PASSWORD 'password';
+psql -v ON_ERROR_STOP=1 -d fvv_streetmix <<- EOSQL
+    CREATE USER fvv_streetmix;
+    GRANT ALL PRIVILEGES ON DATABASE fvv_streetmix TO fvv_streetmix;
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO fvv_streetmix;
+    ALTER USER fvv_streetmix WITH ENCRYPTED PASSWORD 'password';
+EOSQL
+
+psql -v ON_ERROR_STOP=1 <<- EOSQL
+    CREATE DATABASE fvv_counter;
+EOSQL
+
+# change permission on the database counter to a new user counter
+psql -v ON_ERROR_STOP=1 -d fvv_counter <<- EOSQL
+    CREATE USER fvv_counter;
+    GRANT ALL PRIVILEGES ON DATABASE fvv_counter TO fvv_counter;
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO fvv_counter;
+    ALTER USER fvv_counter WITH ENCRYPTED PASSWORD 'password';
 EOSQL
