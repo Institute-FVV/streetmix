@@ -40,7 +40,7 @@ jobs:
           file: ./Dockerfile
           target: streetmix
           tags: |
-            ghcr.io/institute-fvv/streetmix/streetmix:latest
+            ghcr.io/institute-fvv/fvv/streetmix:latest
       -
         name: Build and push streetmix postgres docker
         uses: docker/build-push-action@v2
@@ -49,4 +49,4 @@ jobs:
           file: ./Dockerfile
           target: streetmix-postgres
           tags: |
-            ghcr.io/institute-fvv/streetmix/streetmix-postgres:latest 
+            ghcr.io/institute-fvv/fvv/postgres:latest 
