@@ -17,6 +17,7 @@ psql -v ON_ERROR_STOP=1 -d fvv_streetmix <<- EOSQL
     ALTER USER fvv_streetmix WITH ENCRYPTED PASSWORD 'password';
 EOSQL
 
+# create counter database
 psql -v ON_ERROR_STOP=1 <<- EOSQL
     CREATE DATABASE fvv_counter;
 EOSQL
@@ -27,4 +28,17 @@ psql -v ON_ERROR_STOP=1 -d fvv_counter <<- EOSQL
     GRANT ALL PRIVILEGES ON DATABASE fvv_counter TO fvv_counter;
     GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO fvv_counter;
     ALTER USER fvv_counter WITH ENCRYPTED PASSWORD 'password';
+EOSQL
+
+# create limesurvey database
+psql -v ON_ERROR_STOP=1 <<- EOSQL
+    CREATE DATABASE fvv_limesurvey;
+EOSQL
+
+# change permission on the database counter to a new user counter
+psql -v ON_ERROR_STOP=1 -d fvv_limesurvey <<- EOSQL
+    CREATE USER fvv_limesurvey;
+    GRANT ALL PRIVILEGES ON DATABASE fvv_limesurvey TO fvv_limesurvey;
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO fvv_limesurvey;
+    ALTER USER fvv_limesurvey WITH ENCRYPTED PASSWORD 'password';
 EOSQL

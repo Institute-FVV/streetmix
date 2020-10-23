@@ -162,6 +162,11 @@ app.use(
 app.use(requestHandlers.request_log)
 app.use(requestHandlers.request_id_echo)
 
+// serve static folder for production
+let publicFolder = path.resolve(__dirname, '..')
+publicFolder = path.resolve(publicFolder, '..')
+app.use(express.static(path.join(publicFolder, 'build')))
+
 // Set variables for use in view templates
 app.use((req, res, next) => {
   // Generate nonces for inline scripts

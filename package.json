@@ -87,6 +87,10 @@
     ]
   },
   "dependencies": {
+    "@babel/core": "7.9.0",
+    "@babel/plugin-proposal-class-properties": "7.10.4",
+    "@babel/preset-env": "7.10.4",
+    "@babel/preset-react": "7.9.0",
     "@formatjs/intl-relativetimeformat": "4.5.11",
     "@fortawesome/fontawesome-svg-core": "1.2.25",
     "@fortawesome/free-brands-svg-icons": "5.13.0",
@@ -175,10 +179,6 @@
     "winston": "3.2.1"
   },
   "devDependencies": {
-    "@babel/core": "7.9.0",
-    "@babel/plugin-proposal-class-properties": "7.10.4",
-    "@babel/preset-env": "7.10.4",
-    "@babel/preset-react": "7.9.0",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "8.3.4",
     "@commitlint/travis-cli": "8.3.5",

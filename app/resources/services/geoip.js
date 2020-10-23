@@ -27,7 +27,8 @@ exports.get = function (req, res) {
   }
 
   const requestGeolocation = function (isRedisConnected = true) {
-    if (ip.includes('127.0.0.1')) {
+    console.log(ip)
+    if (ip.includes('127.0.0.1') && ip.includes('172.19.0.1')) {
       ip = '128.131.201.160'
     }
 

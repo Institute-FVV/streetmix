@@ -1,6 +1,6 @@
 module.exports = {
-  app_host_port: 'streetmix.tuwien.ac.at',
-  header_host_port: 'streetmix.tuwien.ac.at',
+  app_host_port: 'streetmix.fvv.tuwien.ac.at',
+  header_host_port: 'streetmix.fvv.tuwien.ac.at',
   restapi: {
     protocol: 'https://',
     baseuri: '/api'

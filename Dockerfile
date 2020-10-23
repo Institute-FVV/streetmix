@@ -5,6 +5,8 @@ FROM node:latest as streetmix
 
 WORKDIR /usr/src/app
 
+ENV NODE_ENV=production 
+
 # update the image
 RUN apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update
 RUN apt-get upgrade -y
