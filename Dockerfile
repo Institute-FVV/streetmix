@@ -17,10 +17,10 @@ RUN apt-get install net-tools -y
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
-RUN npm install --only=production && npm cache clean --force --loglevel=error
 
 # Bundle app source
 COPY . .
+RUN npm install --only=production && npm cache clean --force --loglevel=error
 RUN npm run postinstall
 RUN chmod -R 755 assets/locales
 
