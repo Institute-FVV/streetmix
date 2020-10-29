@@ -94,8 +94,7 @@ exports.get = function (req, res) {
 
   const code = req.query.code
 
-  const redirectUri = `${config.restapi.protocol}${config.app_host_port}${config.auth0.callback_path}`
-  console.log(redirectUri)
+  const redirectUri = `${config.protocol}${config.app_host_port}${config.auth0.callback_path}`
   const tokenUrl = config.auth0.token_api_url
   const options = {
     headers: { 'content-type': 'application/json' },
