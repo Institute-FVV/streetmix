@@ -119,15 +119,15 @@
     "rules": {
       "minWidth": 6
     },
-    "variants": ["orientation"],
+    "variants": ["direction", "orientation", "cape-stop-variant"],
     "details": {
-      "left": {
+      "inbound|left|car": {
         "components": {
           "lanes": [
             {
-              "id": "asphalt",
+              "id": "sidewalk",
               "variants": {
-                "color": "regular"
+                "color": "black"
               }
             }
           ],
@@ -146,13 +146,13 @@
           ]
         }
       },
-      "right": {
+      "inbound|right|car": {
         "components": {
           "lanes": [
             {
-              "id": "asphalt",
+              "id": "sidewalk",
               "variants": {
-                "color": "regular"
+                "color": "black"
               }
             }
           ],
@@ -166,6 +166,157 @@
               "id": "car",
               "variants": {
                 "direction": "inbound"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|left|car": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "black"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--cape-stop-left"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction": "outbound"
+              }
+            }
+          ]
+        }
+      },
+      "outbound|right|car": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "black"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--cape-stop-right"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "car",
+              "variants": {
+                "direction": "outbound"
+              }
+            }
+          ]
+        }
+      },
+
+      "inbound|left|bike": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "black"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--cape-stop-left"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "bike",
+              "variants": {
+                "type|direction": ["biker-01", "inbound"]
+              }
+            }
+          ]
+        }
+      },
+      "inbound|right|bike": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "black"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--cape-stop-right"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "bike",
+              "variants": {
+                "type|direction": ["biker-01", "inbound"]
+              }
+            }
+          ]
+        }
+      },
+      "outbound|left|bike": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "black"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--cape-stop-left"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "bike",
+              "variants": {
+                "type|direction": ["biker-01", "outbound"]
+              }
+            }
+          ]
+        }
+      },
+      "outbound|right|bike": {
+        "components": {
+          "lanes": [
+            {
+              "id": "sidewalk",
+              "variants": {
+                "color": "black"
+              }
+            }
+          ],
+          "markings": [
+            {
+              "id": "markings--cape-stop-right"
+            }
+          ],
+          "vehicles": [
+            {
+              "id": "bike",
+              "variants": {
+                "type|direction": ["biker-01", "outbound"]
               }
             }
           ]
@@ -7012,8 +7163,8 @@
     "details": {
       "left": {
         "rules": {
-          "minWidth": 2,
-          "maxWidth": 2
+          "minWidth": 1,
+          "maxWidth": 1
         },
         "components": {
           "lanes": [

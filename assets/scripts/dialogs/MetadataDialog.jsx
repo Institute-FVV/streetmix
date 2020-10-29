@@ -11,7 +11,6 @@ export default class MetadataDialog extends React.Component {
     this.state = {
       name: '',
       matriculationNumber: '',
-      email: '',
       projectName: '',
       status: '',
       submissionDate: '',
@@ -23,7 +22,6 @@ export default class MetadataDialog extends React.Component {
 
     this.nameInputEl = React.createRef()
     this.matriculationNumberInputEl = React.createRef()
-    this.emailInputEl = React.createRef()
     this.projectNamenInputEl = React.createRef()
     this.statusInputEl = React.createRef()
     this.directionOfViewInputEl = React.createRef()
@@ -120,12 +118,7 @@ export default class MetadataDialog extends React.Component {
               <p>
                 <FormattedMessage
                   id="dialogs.metadata.submit-message"
-                  defaultMessage="We have send you an {email} confirmation of the submission and a link to this project to your email."
-                  values={{
-                    email: (
-                      <span className="sign-in-email">{this.state.email}</span>
-                    )
-                  }}
+                  defaultMessage="We have send you an confirmation of the submission and a link to this project to your email."
                 />
               </p>
             </div>
@@ -211,30 +204,6 @@ export default class MetadataDialog extends React.Component {
                 />
 
                 <label
-                  htmlFor="metadata-email-input"
-                  className="metadata-label"
-                >
-                  <FormattedMessage
-                    id="dialogs.metadata.email-label"
-                    defaultMessage="Email"
-                  />
-                </label>
-                <input
-                  type="email"
-                  id="metadata-email-input"
-                  ref={this.emailInputEl}
-                  value={this.state.email}
-                  className={
-                    'metadata-input ' +
-                    (this.state.error ? 'metadata-input-error' : '')
-                  }
-                  name="email"
-                  onChange={this.handleChange}
-                  placeholder="studentname@tuwien.ac.at"
-                  required={true}
-                />
-
-                <label
                   htmlFor="metadata-projectName-input"
                   className="metadata-label"
                 >
@@ -264,20 +233,23 @@ export default class MetadataDialog extends React.Component {
                 >
                   <FormattedMessage
                     id="dialogs.metadata.projectStatus-label"
-                    defaultMessage="Project status"
+                    defaultMessage="Street section status as of"
                   />
                 </label>
 
-                <select
-                  className="metadata-input"
-                  value={this.state.value}
+                <input
+                  type="date"
+                  id="metadata-projectStatus-input"
+                  ref={this.statusInputEl}
+                  value={this.state.status}
+                  className={
+                    'metadata-input ' +
+                    (this.state.error ? 'metadata-input-error' : '')
+                  }
+                  name="status"
                   onChange={this.handleChange}
-                >
-                  <option selected={true} value="current">
-                    Current
-                  </option>
-                  <option value="planned">Planned</option>
-                </select>
+                  required={true}
+                />
 
                 <label
                   htmlFor="metadata-directionOfView-input"
@@ -285,7 +257,7 @@ export default class MetadataDialog extends React.Component {
                 >
                   <FormattedMessage
                     id="dialogs.metadata.directionOfView-label"
-                    defaultMessage="Direction of view"
+                    defaultMessage="Direction of view: looking towards ..."
                   />
                 </label>
 
@@ -294,16 +266,16 @@ export default class MetadataDialog extends React.Component {
                   value={this.state.value}
                   onChange={this.handleChange}
                 >
-                  <option selected={true} value="north">
+                  <option selected={true} value="0">
                     North
                   </option>
-                  <option value="northeast">North-east</option>
-                  <option value="east">East</option>
-                  <option value="eastsouth">East-south</option>
-                  <option value="south">South</option>
-                  <option value="southwest">South-west</option>
-                  <option value="west">West</option>
-                  <option value="westnorth">West-north</option>
+                  <option value="45">North-east</option>
+                  <option value="90">East</option>
+                  <option value="135">East-south</option>
+                  <option value="180">South</option>
+                  <option value="225">South-west</option>
+                  <option value="270 ">West</option>
+                  <option value="315">West-north</option>
                 </select>
 
                 <label

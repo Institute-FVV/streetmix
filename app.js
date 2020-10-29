@@ -140,7 +140,7 @@ const csp = {
       'jimmy2.eu.auth0.com',
       'checkout.stripe.com',
       'http://api.ipstack.com/',
-      'http://levell.ch:4000/'
+      'https://pelias.fvv.tuwien.ac.at'
     ]
   }
 }
@@ -161,6 +161,8 @@ app.use(
 
 app.use(requestHandlers.request_log)
 app.use(requestHandlers.request_id_echo)
+
+app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal'])
 
 // serve static folder for production
 let publicFolder = path.resolve(__dirname, '..')

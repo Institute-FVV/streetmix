@@ -581,5 +581,15 @@
       "title": "elevator"
     }
   },
+  "cape-stop-variant": {
+    "car": {
+      "id": "car",
+      "title": "Car"
+    },
+    "bike": {
+      "id": "sharrow",
+      "title": "Sharrow"
+    }
+  },
   "brt-bus": {}
 }
