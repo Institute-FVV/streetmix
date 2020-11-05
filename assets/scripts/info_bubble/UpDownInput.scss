@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 .up-down-input-element {
-  width: 50px;
+  width: 50px !important;
   margin: 0 3px;
   font-family: $font-family;
   text-align: center;

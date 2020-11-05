@@ -24,9 +24,11 @@ RUN npm install --only=production && npm cache clean --force --loglevel=error
 RUN npm run postinstall
 RUN chmod -R 755 assets/locales
 
+RUN chmod +x docker/entrypoint.sh
+
 # publish app
 EXPOSE 8000
-CMD [ "node", "index.js" ]
+ENTRYPOINT [ "docker/entrypoint.sh" ]
 
 ###############################################################################################
 # Postgres Image
