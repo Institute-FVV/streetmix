@@ -3,38 +3,97 @@ import { FormattedMessage } from 'react-intl'
 import Dialog from './Dialog'
 import LoadingSpinner from '../ui/LoadingSpinner'
 import './MetadataDialog.scss'
+import { API_URL } from '../app/config'
+
+import store from '../store'
+
+const axios = require('axios')
 
 export default class MetadataDialog extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      name: '',
+      userId: '',
+      userExtensionId: '',
+      fullName: '',
       matriculationNumber: '',
+
+      streetId: '',
+      streetExtensionId: '',
       projectName: '',
-      status: '',
-      submissionDate: '',
+      sectionStatus: '',
       directionOfView: '',
       description: '',
+
       submitting: false,
       submitted: false
     }
 
-    this.nameInputEl = React.createRef()
+    this.fullNameInputEl = React.createRef()
     this.matriculationNumberInputEl = React.createRef()
     this.projectNamenInputEl = React.createRef()
-    this.statusInputEl = React.createRef()
+    this.streetSectionSInputEl = React.createRef()
     this.directionOfViewInputEl = React.createRef()
     this.descriptionInputEl = React.createRef()
   }
 
   componentDidMount = () => {
-    this.nameInputEl.current.focus()
+    const userId = Object.keys(store.getState().user.profileCache)[0]
+    const streetId = store.getState().street.id
+
+    this.setState({
+      userId: userId,
+      streetId: streetId
+    })
+
+    this.fullNameInputEl.current.focus()
+  }
+
+  fetch = async function (postData, endPoint, id) {
+    const extensionIdName = endPoint + 'Id'
+    const apiUri = API_URL + 'v1/' + endPoint + '/' + id
+    const extensionId = this.state[extensionIdName]
+    let response
+
+    try {
+      if (extensionId) {
+        postData[extensionIdName] = this.state[extensionIdName]
+        response = await axios.put(apiUri, postData)
+      } else {
+        response = await axios.post(apiUri, postData)
+        this.setState({
+          [extensionIdName]: response.data.id
+        })
+      }
+    } catch (error) {
+      console.log(error)
+      throw error
+    }
   }
 
   goStoreData = (event) => {
     const receivedData = event.state
-    console.log(receivedData)
+
+    const userExtensionData = {
+      userId: this.state.userId,
+      fullName: receivedData.fullName,
+      matriculationNumber: receivedData.matriculationNumber
+    }
+    const streetExtensionData = {
+      streetId: this.state.streetId,
+      projectName: receivedData.projectName,
+      directionOfView: receivedData.directionOfView,
+      sectionStatus: receivedData.sectionStatus,
+      description: receivedData.description
+    }
+
+    this.fetch(userExtensionData, 'userExtension', this.state.userExtensionId)
+    this.fetch(
+      streetExtensionData,
+      'streetExtension',
+      this.state.streetExtensionId
+    )
 
     this.setState({
       submitting: false,
@@ -55,11 +114,9 @@ export default class MetadataDialog extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    // Note: we don't validate the input here;
-    // we let HTML5 <input type="email" required /> do validation
-    this.setState({
-      submitting: true
-    })
+    //    this.setState({
+    // submitting: true
+    // })
 
     this.goStoreData(this)
   }
@@ -167,13 +224,13 @@ export default class MetadataDialog extends React.Component {
                 <input
                   type="text"
                   id="metadata-name-input"
-                  ref={this.nameInputEl}
-                  value={this.state.name}
+                  ref={this.fullNameInputEl}
+                  value={this.state.fullName}
                   className={
                     'metadata-input ' +
                     (this.state.error ? 'metadata-input-error' : '')
                   }
-                  name="name"
+                  name="fullName"
                   onChange={this.handleChange}
                   placeholder="John Doe"
                   required={true}
@@ -240,13 +297,13 @@ export default class MetadataDialog extends React.Component {
                 <input
                   type="date"
                   id="metadata-projectStatus-input"
-                  ref={this.statusInputEl}
-                  value={this.state.status}
+                  ref={this.sectionStatusInputEl}
+                  value={this.state.sectionStatus}
                   className={
                     'metadata-input ' +
                     (this.state.error ? 'metadata-input-error' : '')
                   }
-                  name="status"
+                  name="sectionStatus"
                   onChange={this.handleChange}
                   required={true}
                 />
@@ -262,13 +319,14 @@ export default class MetadataDialog extends React.Component {
                 </label>
 
                 <select
+                  id="metadata-directionOfView-input"
                   className="metadata-input"
-                  value={this.state.value}
+                  name="directionOfView"
+                  value={this.state.directionOfView}
                   onChange={this.handleChange}
                 >
-                  <option selected={true} value="0">
-                    North
-                  </option>
+                  <option />
+                  <option value="0">North</option>
                   <option value="45">North-east</option>
                   <option value="90">East</option>
                   <option value="135">East-south</option>
@@ -289,8 +347,11 @@ export default class MetadataDialog extends React.Component {
                 </label>
 
                 <textarea
+                  id="metadata-description-input"
+                  ref={this.descriptionInputEl}
+                  name="description"
                   className="metadata-input"
-                  value={this.state.value}
+                  value={this.state.description}
                   onChange={this.handleChange}
                 />
 

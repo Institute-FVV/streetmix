@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-  const CreatorMetadata = sequelize.define('CreatorMetadata', {
+  const StreetExtension = sequelize.define('StreetExtension', {
     id: {
       allowNull: false,
       primaryKey: true,
@@ -11,27 +11,31 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       field: 'street_id'
     },
-    name: DataTypes.STRING,
-    matrikelnummer: {
-      type: DataTypes.INTEGER,
-      unique: true,
-      field: 'matrikelnummer'
-    },
-    email: {
+    projectName: {
       type: DataTypes.STRING,
-      unique: true,
-      field: 'email'
+      field: 'project_name'
+    },
+    sectionStatus: {
+      type: DataTypes.DATE,
+      field: 'section_status'
+    },
+    directionOfView: {
+      type: DataTypes.STRING,
+      field: 'direction_of_view'
+    },
+    description: {
+      type: DataTypes.STRING
     },
     createdAt: { type: DataTypes.DATE, field: 'created_at' },
     updatedAt: { type: DataTypes.DATE, field: 'updated_at' }
   })
 
-  CreatorMetadata.associate = function (models) {
-    models.CreatorMetadata.belongsTo(models.Street, {
+  StreetExtension.associate = function (models) {
+    models.StreetExtension.belongsTo(models.Street, {
       foreignKey: 'streetId',
       targetKey: 'id'
     })
   }
 
-  return CreatorMetadata
+  return StreetExtension
 }

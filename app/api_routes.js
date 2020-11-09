@@ -883,7 +883,7 @@ routes.put('/api/v1/votes', cors(), jwtCheck, resources.v1.votes.put)
 
 /**
  * @swagger
- * /api/v1/creatorMetadata:
+ * /api/v1/streetExtension:
  *   get:
  *     description: Returns creator Metadata
  *     tags:
@@ -899,9 +899,55 @@ routes.put('/api/v1/votes', cors(), jwtCheck, resources.v1.votes.put)
  *             $ref: '#/definitions/CreatorMetadata'
  */
 routes.get(
-  '/api/v1/creatorMetadata',
+  '/api/v1/streetExtension',
   jwtCheck,
-  resources.v1.creatorMetadata.get
+  resources.v1.streetExtension.get
+)
+
+routes.get(
+  '/api/v1/streetExtension/:streetId',
+  jwtCheck,
+  resources.v1.streetExtension.find
+)
+
+routes.put(
+  '/api/v1/streetExtension/:streetExtensionId',
+  jwtCheck,
+  resources.v1.streetExtension.put
+)
+
+routes.post(
+  '/api/v1/streetExtension',
+  jwtCheck,
+  resources.v1.streetExtension.post
+)
+
+routes.post(
+  '/api/v1/streetExtension/:streetExtensionId',
+  jwtCheck,
+  resources.v1.streetExtension.post
+)
+
+routes.get('/api/v1/userExtension', jwtCheck, resources.v1.userExtension.get)
+
+routes.get(
+  '/api/v1/userExtension/:userId',
+  jwtCheck,
+  resources.v1.userExtension.find
+)
+
+routes.put(
+  '/api/v1/userExtension/:userExtensionId',
+  jwtCheck,
+  resources.v1.userExtension.put
+)
+
+routes.post('/api/v1/userExtension', jwtCheck, resources.v1.userExtension.post)
+
+routes.post(
+  '/api/v1/userExtension/:userExtensionId',
+  jwtCheck,
+  resources.v1.userExtension.post
 )
 
 // Catch all for all broken api paths, direct to 404 response.

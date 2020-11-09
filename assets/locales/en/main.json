@@ -267,7 +267,7 @@
       "note": "We will send you a confirmation of the saving of the metadata and a link to this project to your email.",
       "submit-invalid": "Oops! Seems the submission of your work did not work, please try again or contact local support",
       "loading-message": "Submitting your data…",
-      "submit-message": "We have send you an {email} confirmation of the submission and a link to this project to your email.",
+      "submit-message": "We have send you an confirmation of the submission and a link to this project to your email.",
       "button": "Saving the metadata",
       "tos": "By clicking one of these buttons, I agree to the {tosLink} and {privacyLink}.",
       "tos-link-label": "terms of service",

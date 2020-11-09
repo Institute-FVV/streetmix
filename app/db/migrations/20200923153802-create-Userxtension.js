@@ -2,26 +2,24 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('CreatorMetadata', {
+    return queryInterface.createTable('UserExtensions', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.STRING
       },
-      streetId: {
+      userId: {
         type: Sequelize.STRING,
-        field: 'street_id'
+        field: 'user_id'
       },
-      name: Sequelize.STRING,
-      matrikelnummer: {
+      fullName: {
+        type: Sequelize.STRING,
+        field: 'full_name'
+      },
+      matriculationNumber: {
         type: Sequelize.INTEGER,
         unique: true,
-        field: 'matrikelnummer'
-      },
-      email: {
-        type: Sequelize.STRING,
-        unique: true,
-        field: 'email'
+        field: 'matriculation_number'
       },
       created_at: {
         allowNull: false,
@@ -34,6 +32,6 @@ module.exports = {
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('CreatorMetadata')
+    return queryInterface.dropTable('UserExtensions')
   }
 }
