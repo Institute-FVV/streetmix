@@ -6406,17 +6406,13 @@
     "owner": "TRANSIT",
     "zIndex": 20,
     "defaultWidth": 9,
-    "paletteIcon": "right|light-rail|stairs",
+    "paletteIcon": "light-rail|stairs",
     "rules": {
       "minWidth": 9
     },
-    "variants": [
-      "orientation",
-      "transit-shelter-elevation",
-      "subway-station-type"
-    ],
+    "variants": ["transit-shelter-elevation", "subway-station-type"],
     "details": {
-      "left|street-level|stairs": {
+      "street-level|stairs": {
         "components": {
           "lanes": [
             {
@@ -6436,27 +6432,7 @@
           ]
         }
       },
-      "right|street-level|stairs": {
-        "components": {
-          "lanes": [
-            {
-              "id": "sidewalk",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "objects": [
-            {
-              "id": "subway-station-stairs",
-              "variants": {
-                "type": "default"
-              }
-            }
-          ]
-        }
-      },
-      "left|light-rail|stairs": {
+      "light-rail|stairs": {
         "description": {
           "key": "transit-shelter-elevated",
           "image": "transit-station-elevated.jpg"
@@ -6483,34 +6459,7 @@
           ]
         }
       },
-      "right|light-rail|stairs": {
-        "description": {
-          "key": "transit-shelter-elevated",
-          "image": "transit-station-elevated.jpg"
-        },
-        "rules": {
-          "minWidth": 8
-        },
-        "components": {
-          "lanes": [
-            {
-              "id": "raised-sidewalk",
-              "variants": {
-                "type": "default"
-              }
-            }
-          ],
-          "objects": [
-            {
-              "id": "subway-station-stairs",
-              "variants": {
-                "type": "default"
-              }
-            }
-          ]
-        }
-      },
-      "left|street-level|elevator": {
+      "street-level|elevator": {
         "components": {
           "lanes": [
             {
@@ -6530,54 +6479,7 @@
           ]
         }
       },
-      "right|street-level|elevator": {
-        "components": {
-          "lanes": [
-            {
-              "id": "sidewalk",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "objects": [
-            {
-              "id": "subway-station-elevator",
-              "variants": {
-                "type": "default"
-              }
-            }
-          ]
-        }
-      },
-      "left|light-rail|elevator": {
-        "description": {
-          "key": "transit-shelter-elevated",
-          "image": "transit-station-elevated.jpg"
-        },
-        "rules": {
-          "minWidth": 8
-        },
-        "components": {
-          "lanes": [
-            {
-              "id": "raised-sidewalk",
-              "variants": {
-                "type": "default"
-              }
-            }
-          ],
-          "objects": [
-            {
-              "id": "subway-station-elevator",
-              "variants": {
-                "type": "default"
-              }
-            }
-          ]
-        }
-      },
-      "right|light-rail|elevator": {
+      "light-rail|elevator": {
         "description": {
           "key": "transit-shelter-elevated",
           "image": "transit-station-elevated.jpg"
@@ -7158,13 +7060,13 @@
     "nameKey": "sidewalk-sloped",
     "owner": "PEDESTRIAN",
     "zIndex": 30,
-    "defaultWidth": 2,
+    "defaultWidth": 1.35,
     "variants": ["orientation"],
     "details": {
       "left": {
         "rules": {
           "minWidth": 1,
-          "maxWidth": 1
+          "maxWidth": 1.5
         },
         "components": {
           "lanes": [
