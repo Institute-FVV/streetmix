@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       field: 'full_name'
     },
     matriculationNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       field: 'matriculation_number'
     },
     createdAt: { type: DataTypes.DATE, field: 'created_at' },

@@ -210,7 +210,6 @@ exports.post = async function (req, res) {
     return
   }
 
-  logger.info(body)
   if (Object.prototype.hasOwnProperty.call(body, 'auth0_twitter')) {
     handleAuth0TwitterSignIn(body.auth0_twitter)
   } else if (Object.prototype.hasOwnProperty.call(body, 'auth0')) {

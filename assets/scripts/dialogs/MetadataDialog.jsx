@@ -15,6 +15,7 @@ export default class MetadataDialog extends React.Component {
 
     this.state = {
       userId: '',
+      userEmail: '',
       userExtensionId: '',
       fullName: '',
       matriculationNumber: '',
@@ -36,40 +37,82 @@ export default class MetadataDialog extends React.Component {
     this.streetSectionSInputEl = React.createRef()
     this.directionOfViewInputEl = React.createRef()
     this.descriptionInputEl = React.createRef()
+
+    this.loadExtensionData = this.loadExtensionData.bind(this)
   }
 
   componentDidMount = () => {
     const userId = Object.keys(store.getState().user.profileCache)[0]
     const streetId = store.getState().street.id
+    let userEmail = store.getState().user.signInData.details
 
-    this.setState({
-      userId: userId,
-      streetId: streetId
-    })
+    if (userEmail) {
+      userEmail = userEmail.email || ''
+    }
+
+    this.setState(
+      {
+        userEmail: userEmail,
+        userId: userId,
+        streetId: streetId
+      },
+      this.loadExtensionData
+    )
 
     this.fullNameInputEl.current.focus()
   }
 
-  fetch = async function (postData, endPoint, id) {
-    const extensionIdName = endPoint + 'Id'
-    const apiUri = API_URL + 'v1/' + endPoint + '/' + id
-    const extensionId = this.state[extensionIdName]
+  loadExtensionData = async function () {
+    const userExtension = await this.fetch(
+      this.state.userId,
+      'GET',
+      'userExtension'
+    )
+    if (userExtension) {
+      this.setState({
+        userExtensionId: userExtension.id,
+        fullName: userExtension.fullName,
+        matriculationNumber: userExtension.matriculationNumber
+      })
+    }
+
+    const streetExtension = await this.fetch(
+      this.state.streetId,
+      'GET',
+      'streetExtension'
+    )
+    if (streetExtension) {
+      this.setState({
+        streetExtensionId: streetExtension.id,
+        projectName: streetExtension.projectName,
+        sectionStatus: streetExtension.sectionStatus.split('T')[0],
+        directionOfView: streetExtension.directionOfView,
+        description: streetExtension.description
+      })
+    }
+  }
+
+  fetch = async function (id, method, endpoint, body) {
+    const apiUri = API_URL + 'v1'
     let response
 
     try {
-      if (extensionId) {
-        postData[extensionIdName] = this.state[extensionIdName]
-        response = await axios.put(apiUri, postData)
+      if (method === 'POST') {
+        if (id === '') {
+          response = await axios.post(`${apiUri}/${endpoint}`, body)
+        } else response = await axios.put(`${apiUri}/${endpoint}/${id}`, body)
       } else {
-        response = await axios.post(apiUri, postData)
-        this.setState({
-          [extensionIdName]: response.data.id
-        })
+        if (id !== '') {
+          response = await axios.get(`${apiUri}/${endpoint}/${id}`)
+        } else {
+          response = await axios.get(`${apiUri}/${endpoint}`)
+        }
       }
     } catch (error) {
       console.log(error)
-      throw error
+      return ''
     }
+    return response.data
   }
 
   goStoreData = (event) => {
@@ -80,6 +123,7 @@ export default class MetadataDialog extends React.Component {
       fullName: receivedData.fullName,
       matriculationNumber: receivedData.matriculationNumber
     }
+
     const streetExtensionData = {
       streetId: this.state.streetId,
       projectName: receivedData.projectName,
@@ -88,17 +132,45 @@ export default class MetadataDialog extends React.Component {
       description: receivedData.description
     }
 
-    this.fetch(userExtensionData, 'userExtension', this.state.userExtensionId)
-    this.fetch(
-      streetExtensionData,
-      'streetExtension',
-      this.state.streetExtensionId
-    )
+    if (this.state.streetExtensionId) {
+      streetExtensionData.streetExtensionId = this.state.streetExtensionId
+      this.fetch(
+        this.state.streetExtensionId,
+        'POST',
+        'streetExtension',
+        streetExtensionData
+      )
+    } else {
+      this.fetch('', 'POST', 'streetExtension', streetExtensionData)
+    }
 
+    if (this.state.userExtensionId) {
+      userExtensionData.userId = this.state.userExtensionId
+      this.fetch(
+        this.state.userExtensionId,
+        'POST',
+        'userExtension',
+        userExtensionData
+      )
+    } else {
+      this.fetch('', 'POST', 'userExtension', userExtensionData)
+    }
+
+    this.loadExtensionData()
     this.setState({
       submitting: false,
       submitted: true
     })
+
+    const email = {
+      secret: 'DasIstEinSicheresPasswort10!',
+      from: 'fvv.office@tuwien.ac.at',
+      to: this.state.userEmail,
+      subject: 'Sucessfull storage of the additional metadata',
+      message: 'Thank you very much for your submission.'
+    }
+
+    this.fetch('', 'POST', 'sendEmail', email)
   }
 
   handleChange = (event) => {
@@ -114,9 +186,9 @@ export default class MetadataDialog extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    //    this.setState({
-    // submitting: true
-    // })
+    this.setState({
+      submitting: true
+    })
 
     this.goStoreData(this)
   }

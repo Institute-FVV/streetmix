@@ -17,7 +17,7 @@ module.exports = {
         field: 'full_name'
       },
       matriculationNumber: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         unique: true,
         field: 'matriculation_number'
       },

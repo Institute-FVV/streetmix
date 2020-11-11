@@ -950,6 +950,8 @@ routes.post(
   resources.v1.userExtension.post
 )
 
+routes.post('/api/v1/sendEmail', jwtCheck, resources.v1.sendEmail.post)
+
 // Catch all for all broken api paths, direct to 404 response.
 routes.all('/api/*', (req, res) => {
   res

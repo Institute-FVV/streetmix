@@ -82,31 +82,41 @@ export default class AdminDialog extends React.Component {
       const result = {}
 
       // street extension data
-      result.streetId = streetExtension.streetId
-      result.streetProjectName = streetExtension.projectName
-      result.streetSectionStatus = streetExtension.sectionStatus
-      result.streetDirectionOfView = streetExtension.directionOfView
-      result.streetDescription = streetExtension.description
+      result.streetId = streetExtension.streetId || ''
+      result.streetProjectName = streetExtension.projectName || ''
+      result.streetSectionStatus = streetExtension.sectionStatus || ''
+      result.streetDirectionOfView = streetExtension.directionOfView || ''
+      result.streetDescription = streetExtension.description || ''
 
       // street data
       const streetData = await this.fetch('streets', result.streetId)
-      result.streetName = streetData.name
-      result.streetChangedAt = streetData.clientUpdatedAt
-      result.streetCreator = streetData.creator.id
-      result.streetDataWidth = streetData.data.street.width
-      result.streetDataLocationLat = streetData.data.street.location.latlng.lat
-      result.streetDataLocationLng = streetData.data.street.location.latlng.lng
-      result.streetDataLocationLabel = streetData.data.street.location.label
+      result.streetName = streetData.name || ''
+      result.streetChangedAt = streetData.clientUpdatedAt || ''
+      result.streetCreator = streetData.creator.id || ''
+      result.streetDataWidth = streetData.data.street.width || ''
+
+      if (!streetData.data.street.location) {
+        streetData.data.street.location = {}
+        streetData.data.street.location.latlng = {}
+        streetData.data.street.location.hierarchy = {}
+      }
+
+      result.streetDataLocationLat =
+        streetData.data.street.location.latlng.lat || ''
+      result.streetDataLocationLng =
+        streetData.data.street.location.latlng.lng || ''
+      result.streetDataLocationLabel =
+        streetData.data.street.location.label || ''
       result.streetDataLocationCountry =
-        streetData.data.street.location.hierarchy.country
+        streetData.data.street.location.hierarchy.country || ''
       result.streetDataLocationRegion =
-        streetData.data.street.location.hierarchy.region
+        streetData.data.street.location.hierarchy.region || ''
       result.streetDataLocationLocality =
-        streetData.data.street.location.hierarchy.locality
+        streetData.data.street.location.hierarchy.locality || ''
       result.streetDataLocationNeighbourhood =
-        streetData.data.street.location.hierarchy.neighbourhood
+        streetData.data.street.location.hierarchy.neighbourhood || ''
       result.streetDataLocationStreet =
-        streetData.data.street.location.hierarchy.street
+        streetData.data.street.location.hierarchy.street || ''
 
       // user data
       const userData = await this.fetch('users', result.streetCreator)
@@ -117,8 +127,8 @@ export default class AdminDialog extends React.Component {
         'userExtension',
         result.streetCreator
       )
-      result.userFullName = userExtension.fullName
-      result.userMatriculationNumber = userExtension.matriculationNumber
+      result.userFullName = userExtension.fullName || ''
+      result.userMatriculationNumber = userExtension.matriculationNumber || ''
 
       data.push(result)
     }
@@ -141,7 +151,7 @@ export default class AdminDialog extends React.Component {
 
   render () {
     const data = this.state.data
-    console.log(this.state)
+
     return (
       <Dialog>
         {(closeDialog) => (
@@ -227,21 +237,21 @@ export default class AdminDialog extends React.Component {
                   }}
                 />
               ) : !this.state.isLoading ? (
-                <p>
+                <div>
                   <FormattedMessage
                     id="dialogs.admin.noDataAvailable"
                     defaultMessage="Sadly there are currently no data available, please wait a while."
                   />
-                </p>
+                </div>
               ) : (
-                <p>
+                <div>
                   <FormattedMessage
                     id="dialogs.admin.loading"
                     defaultMessage="Data loading"
                   />
                   <br />
                   <CircularProgress size={100} />
-                </p>
+                </div>
               )}
             </div>
           </div>
