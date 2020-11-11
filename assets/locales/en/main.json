@@ -273,6 +273,11 @@
       "tos-link-label": "terms of service",
       "privacy-link-label": "privacy policy"
     },
+    "admin": {
+      "heading": "Saved streets with metadata within Streetmix",
+      "noDataAvailable": "Sadly there are currently no data available, please wait a while.",
+      "loading": "Daten werden geladen"
+    },
     "whatsnew": {
       "heading": "What’s new in Streetmix?"
     },

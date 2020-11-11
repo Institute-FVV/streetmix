@@ -272,6 +272,11 @@
       "tos-link-label": "Geschäftsbedingungen",
       "privacy-link-label": "Datenschutzrichtlinie"
     },
+    "admin": {
+      "heading": "Gespeicherte Strassen inklusive Metainformationen",
+      "noDataAvailable": "Leider können zur Zeit keine Daten angezeigt werden, warten Sie einen Augenblick.",
+      "loading": "Data loading"
+    },
     "whatsnew": {
       "heading": "Was gibt es Neues bei Streetmix?"
     },

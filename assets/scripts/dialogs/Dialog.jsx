@@ -18,7 +18,7 @@ import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import CloseButton from '../ui/CloseButton'
-import { useOnClickOutside } from '../ui/useOnClickOutside'
+// import { useOnClickOutside } from '../ui/useOnClickOutside'
 import { clearDialogs } from '../store/slices/dialogs'
 import { registerKeypress, deregisterKeypress } from '../app/keypress'
 import './Dialog.scss'
@@ -32,9 +32,6 @@ function Dialog ({ children }) {
   const dialogEl = useRef(null)
   const [appear, setAppear] = useState(true)
   const dispatch = useDispatch()
-
-  // Set up handler to close dialogs when clicking outside of it
-  useOnClickOutside(dialogEl, handleClose)
 
   // Set up keypress listener to close dialogs if open
   useEffect(() => {

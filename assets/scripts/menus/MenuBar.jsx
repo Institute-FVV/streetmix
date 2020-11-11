@@ -10,6 +10,8 @@ import { showDialog } from '../store/slices/dialogs'
 import logo from '../../images/logo_horizontal.svg'
 import './MenuBar.scss'
 
+import USER_ROLES from '../../../app/data/user_roles'
+
 MenuBar.propTypes = {
   onMenuDropdownClick: PropTypes.func.isRequired
 }
@@ -22,6 +24,15 @@ function MenuBar (props) {
   )
   const dispatch = useDispatch()
   const menuBarRightEl = useRef(null)
+
+  let roles = []
+  let isAdmin = false
+  let isUser = false
+  if (user) {
+    roles = user.roles
+    isAdmin = roles.includes(USER_ROLES.ADMIN.value)
+    isUser = roles.includes(USER_ROLES.USER.value)
+  }
 
   useEffect(() => {
     window.addEventListener('resize', handleWindowResize)
@@ -89,6 +100,15 @@ function MenuBar (props) {
           <img src={logo} alt="Streemix" className="menu-bar-logo" />
           <h1>Streetmix - @TU-Wien</h1>
         </li>
+        {/* Admin overview */}
+        {isAdmin && (
+          <MenuBarItem
+            label="Admin"
+            translation="menu.item.admin"
+            url="#"
+            onClick={() => dispatch(showDialog('ADMIN'))}
+          />
+        )}
         <MenuBarItem
           label="Help"
           translation="menu.item.help"
@@ -137,12 +157,14 @@ function MenuBar (props) {
         />
 
         {/* additional menu item for submitting current streetmix */}
-        <MenuBarItem
-          label="Metadata"
-          translation="menu.item.metadata"
-          url="#"
-          onClick={() => dispatch(showDialog('METADATA'))}
-        />
+        {isUser && (
+          <MenuBarItem
+            label="Metadata"
+            translation="menu.item.metadata"
+            url="#"
+            onClick={() => dispatch(showDialog('METADATA'))}
+          />
+        )}
 
         <MenuBarItem
           label="Share"

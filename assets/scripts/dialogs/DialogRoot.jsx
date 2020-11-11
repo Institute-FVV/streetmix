@@ -16,6 +16,7 @@ import SentimentSurveyDialog from './SentimentSurveyDialog'
 import ErrorDialog from './ErrorDialog'
 
 import MetadataDialog from './MetadataDialog'
+import AdminDialog from './AdminDialog'
 
 const DIALOG_COMPONENTS = {
   ABOUT: {
@@ -50,6 +51,9 @@ const DIALOG_COMPONENTS = {
   },
   METADATA: {
     id: MetadataDialog
+  },
+  ADMIN: {
+    id: AdminDialog
   }
 }
 
