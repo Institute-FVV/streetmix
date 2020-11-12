@@ -50,8 +50,8 @@ RUN apt-get install net-tools -y
 COPY . ./
 RUN npm install -g sequelize
 RUN npm install -g sequelize-cli
-RUN RUN npm install phantomjs-prebuilt@2.1.14 --ignore-scripts
-RUN npm install --only=production
+RUN npm install phantomjs-prebuilt@2.1.14 --ignore-scripts
+RUN npm install --only=production && npm cache clean --force --loglevel=error
 
 # copy init shell scripts to docker init
 COPY ./docker/*.sh /docker-entrypoint-initdb.d/
