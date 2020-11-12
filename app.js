@@ -136,6 +136,7 @@ const csp = {
       'syndication.twitter.com',
       'https://www.google-analytics.com',
       'sentry.io',
+      'checkout.stripe.com',
       'plausible.io',
       'jimmy2.eu.auth0.com',
       'checkout.stripe.com',
@@ -161,8 +162,6 @@ app.use(
 
 app.use(requestHandlers.request_log)
 app.use(requestHandlers.request_id_echo)
-
-app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal'])
 
 // serve static folder for production
 let publicFolder = path.resolve(__dirname, '..')

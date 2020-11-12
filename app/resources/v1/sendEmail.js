@@ -1,10 +1,11 @@
 const logger = require('../../../lib/logger.js')()
 const nodemailer = require('nodemailer')
+const config = require('config')
 
 exports.post = async function (req, res) {
-  const secret = 'DasIstEinSicheresPasswort10!'
+  const secret = config.email_api_secret
   const transport = nodemailer.createTransport({
-    host: 'mr.tuwien.ac.at',
+    host: config.smtp_relay,
     port: 25
   })
   let body
@@ -28,7 +29,6 @@ exports.post = async function (req, res) {
       message.subject = body.subject
       message.html = body.message
 
-      console.log(message)
       transport.sendMail(message, function (err, info) {
         if (err) {
           logger.error(err)

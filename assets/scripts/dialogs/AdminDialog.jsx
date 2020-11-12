@@ -95,6 +95,7 @@ export default class AdminDialog extends React.Component {
       result.streetCreator = streetData.creator.id || ''
       result.streetDataWidth = streetData.data.street.width || ''
 
+      // add empty object because some streets do not have to have these information, but materialtable requires it
       if (!streetData.data.street.location) {
         streetData.data.street.location = {}
         streetData.data.street.location.latlng = {}
@@ -130,6 +131,7 @@ export default class AdminDialog extends React.Component {
       result.userFullName = userExtension.fullName || ''
       result.userMatriculationNumber = userExtension.matriculationNumber || ''
 
+      // add result to final array
       data.push(result)
     }
 
@@ -150,8 +152,6 @@ export default class AdminDialog extends React.Component {
   }
 
   render () {
-    const data = this.state.data
-
     return (
       <Dialog>
         {(closeDialog) => (
@@ -165,7 +165,7 @@ export default class AdminDialog extends React.Component {
               </h1>
             </header>
             <div className="dialog-content">
-              {data.length > 0 ? (
+              {this.state.data.length > 0 ? (
                 // data available, present table
                 <MaterialTable
                   icons={tableIcons}
@@ -225,7 +225,7 @@ export default class AdminDialog extends React.Component {
                       field: 'userMatriculationNumber'
                     }
                   ]}
-                  data={data}
+                  data={this.state.data}
                   options={{
                     showTitle: false,
                     exportButton: true,

@@ -17,6 +17,7 @@ import ErrorDialog from './ErrorDialog'
 
 import MetadataDialog from './MetadataDialog'
 import AdminDialog from './AdminDialog'
+import MetadataMissing from './MetaDataMissing'
 
 const DIALOG_COMPONENTS = {
   ABOUT: {
@@ -54,6 +55,9 @@ const DIALOG_COMPONENTS = {
   },
   ADMIN: {
     id: AdminDialog
+  },
+  METADATA_MISSING: {
+    id: MetadataMissing
   }
 }
 

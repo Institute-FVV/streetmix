@@ -14,7 +14,8 @@
       "share": "Share",
       "store": "Store",
       "upgrade": "Upgrade",
-      "metadata": "Metadata"
+      "metadata": "Metadata",
+      "admin": "Admin"
     },
     "help": {
       "keyboard-label": "Keyboard shortcuts:",
@@ -257,7 +258,7 @@
     },
     "metadata": {
       "heading": "Adding additional information regarding your project",
-      "heading-submitted": "Saving of the additional metadata.",
+      "heading-submitted": "Saving of additional metadata.",
       "description": "Please add the following metadata to your work",
       "name-label": "Full name",
       "matriculationNumber-label": "Matriculation number",
@@ -275,8 +276,8 @@
     },
     "admin": {
       "heading": "Saved streets with metadata within Streetmix",
-      "noDataAvailable": "Sadly there are currently no data available, please wait a while.",
-      "loading": "Daten werden geladen"
+      "noDataAvailable": "Sadly there are currently no data available, please contact the local support.",
+      "loading": "Datas are being loaded..."
     },
     "whatsnew": {
       "heading": "What’s new in Streetmix?"

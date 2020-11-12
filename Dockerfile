@@ -3,30 +3,26 @@
 ###############################################################################################
 FROM node:latest as streetmix
 
+# define folder where app will be placed
 WORKDIR /usr/src/app
 
+# set environment variables
 ENV NODE_ENV=production 
 
-# update the image
+# update the image, because of some timing difference temporaly disable it
+# install additionally some debugging tools
 RUN apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update
 RUN apt-get upgrade -y
 RUN apt-get install vim -y
 RUN apt-get install net-tools -y
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
 # Bundle app source
 COPY . .
 RUN npm install --only=production && npm cache clean --force --loglevel=error
 RUN npm run postinstall
-RUN chmod -R 755 assets/locales
 
+# publish app using entry script
 RUN chmod +x docker/entrypoint.sh
-
-# publish app
 EXPOSE 8000
 ENTRYPOINT [ "docker/entrypoint.sh" ]
 
@@ -35,9 +31,7 @@ ENTRYPOINT [ "docker/entrypoint.sh" ]
 ###############################################################################################
 FROM postgres:latest as streetmix-postgres
 
-#ENV POSTGRES_PASSWORD=Pass
-#ENV PGDATA=/var/lib/postgresql/data/some_name/
-
+# define where project data will be copied
 WORKDIR /usr/src/app
 
 # update image and install postgis, nodejs, npm
@@ -52,11 +46,11 @@ RUN apt-get install vim -y
 RUN apt-get install net-tools -y
 
 # copy git project into image and install it, so migration can be executed
+# install some prerequists before, because the build fails otherwise
 COPY . ./
 RUN npm install -g sequelize
 RUN npm install -g sequelize-cli
-RUN npm install phantomjs-prebuilt@2.1.14 --ignore-scripts
-RUN npm install
+RUN npm install --only=production && npm cache clean --force --loglevel=error
 
 # copy init shell scripts to docker init
 COPY ./docker/*.sh /docker-entrypoint-initdb.d/

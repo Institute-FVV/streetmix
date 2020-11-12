@@ -67,9 +67,9 @@ module.exports = {
   },
   geocode: {
     pelias: {
+      protocol: process.env.PELIAS_PROTOCOL || 'https://',
       host: process.env.PELIAS_HOST_NAME || 'api.geocode.earth',
-      api_key: process.env.PELIAS_API_KEY || null,
-      protocol: process.env.PELIAS_PROTOCOL || 'https://'
+      api_key: process.env.PELIAS_API_KEY || null
     }
   },
   geoip: {
@@ -90,5 +90,7 @@ module.exports = {
     api_key: process.env.STRIPE_PUBLIC_KEY || null,
     api_secret: process.env.STRIPE_SECRET_KEY || null,
     tier1_plan_id: process.env.TIER1_PLAN_ID || 'plan_Fc2mb0eKhaEzu5'
-  }
+  },
+  smtp_relay: process.env.SMTP_RELAY || '',
+  email_api_secret: process.env.EMAIL_API_SECRET || ''
 }

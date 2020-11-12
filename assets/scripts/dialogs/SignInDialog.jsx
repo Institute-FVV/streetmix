@@ -8,7 +8,6 @@ import {
   goGoogleSignIn
 } from '../app/routing'
 import LoadingSpinner from '../ui/LoadingSpinner'
-import Icon from '../ui/Icon'
 import './SignInDialog.scss'
 
 export default class SignInDialog extends React.Component {
@@ -263,49 +262,6 @@ export default class SignInDialog extends React.Component {
                   />
                 </button>
               </form>
-
-              <div className="sign-in-social-heading">
-                <hr />
-                <span>
-                  <FormattedMessage
-                    id="dialogs.sign-in.social-heading"
-                    defaultMessage="or"
-                  />
-                </span>
-              </div>
-
-              <button
-                className="button-tertiary sign-in-button sign-in-social-button sign-in-twitter-button"
-                onClick={this.handleTwitterSignIn}
-              >
-                <Icon icon="twitter" />
-                <FormattedMessage
-                  id="dialogs.sign-in.button.twitter"
-                  defaultMessage="Continue with Twitter"
-                />
-              </button>
-
-              <button
-                className="button-tertiary sign-in-button sign-in-social-button sign-in-google-button"
-                onClick={this.handleGoogleSignIn}
-              >
-                <Icon icon="google" />
-                <FormattedMessage
-                  id="dialogs.sign-in.button.google"
-                  defaultMessage="Continue with Google"
-                />
-              </button>
-
-              <button
-                className="button-tertiary sign-in-button sign-in-social-button sign-in-facebook-button"
-                onClick={this.handleFacebookSignIn}
-              >
-                <Icon icon="facebook" />
-                <FormattedMessage
-                  id="dialogs.sign-in.button.facebook"
-                  defaultMessage="Continue with Facebook"
-                />
-              </button>
             </div>
 
             <footer>

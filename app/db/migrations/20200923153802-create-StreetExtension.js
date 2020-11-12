@@ -25,7 +25,7 @@ module.exports = {
         field: 'direction_of_view'
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       created_at: {
         allowNull: false,

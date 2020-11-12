@@ -10,7 +10,9 @@ import { showDialog } from '../store/slices/dialogs'
 import logo from '../../images/logo_horizontal.svg'
 import './MenuBar.scss'
 
+import { API_URL } from '../app/config'
 import USER_ROLES from '../../../app/data/user_roles'
+const axios = require('axios')
 
 MenuBar.propTypes = {
   onMenuDropdownClick: PropTypes.func.isRequired
@@ -18,6 +20,7 @@ MenuBar.propTypes = {
 
 function MenuBar (props) {
   const user = useSelector((state) => state.user.signInData?.details || null)
+  const streetId = useSelector((state) => state.street.id)
   const offline = useSelector((state) => state.system.noInternet)
   const upgradeFunnel = useSelector(
     (state) => state.flags.BUSINESS_PLAN.value || false
@@ -29,6 +32,7 @@ function MenuBar (props) {
   let isAdmin = false
   let isUser = false
   if (user) {
+    // user available
     roles = user.roles
     isAdmin = roles.includes(USER_ROLES.ADMIN.value)
     isUser = roles.includes(USER_ROLES.USER.value)
@@ -79,6 +83,37 @@ function MenuBar (props) {
         }
       })
     )
+  }
+
+  async function getch (id, method, endpoint, body) {
+    const apiUri = API_URL + 'v1'
+    let response
+
+    try {
+      if (method === 'POST') {
+        if (id === '') {
+          response = await axios.post(`${apiUri}/${endpoint}`, body)
+        } else response = await axios.put(`${apiUri}/${endpoint}/${id}`, body)
+      } else {
+        if (id !== '') {
+          response = await axios.get(`${apiUri}/${endpoint}/${id}`)
+        } else {
+          response = await axios.get(`${apiUri}/${endpoint}`)
+        }
+      }
+    } catch (error) {
+      console.log(error)
+      return ''
+    }
+    return response.data
+  }
+
+  if (user) {
+    getch(streetId, 'GET', 'streetExtension').then((response) => {
+      if (!response) {
+        dispatch(showDialog('METADATA_MISSING'))
+      }
+    })
   }
 
   function renderUserAvatar (user) {

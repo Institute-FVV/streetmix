@@ -191,6 +191,7 @@ exports.put = async function (req, res) {
         })
         return
       default:
+        logger.error(error)
         res.status(500).end()
     }
   } // END function - handleErrors

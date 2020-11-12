@@ -46,6 +46,7 @@ export default class MetadataDialog extends React.Component {
     const streetId = store.getState().street.id
     let userEmail = store.getState().user.signInData.details
 
+    // used for sending the user a confirmation email
     if (userEmail) {
       userEmail = userEmail.email || ''
     }
@@ -63,11 +64,13 @@ export default class MetadataDialog extends React.Component {
   }
 
   loadExtensionData = async function () {
+    // add extension data if available
     const userExtension = await this.fetch(
       this.state.userId,
       'GET',
       'userExtension'
     )
+
     if (userExtension) {
       this.setState({
         userExtensionId: userExtension.id,
@@ -81,6 +84,7 @@ export default class MetadataDialog extends React.Component {
       'GET',
       'streetExtension'
     )
+
     if (streetExtension) {
       this.setState({
         streetExtensionId: streetExtension.id,
@@ -118,12 +122,6 @@ export default class MetadataDialog extends React.Component {
   goStoreData = (event) => {
     const receivedData = event.state
 
-    const userExtensionData = {
-      userId: this.state.userId,
-      fullName: receivedData.fullName,
-      matriculationNumber: receivedData.matriculationNumber
-    }
-
     const streetExtensionData = {
       streetId: this.state.streetId,
       projectName: receivedData.projectName,
@@ -144,8 +142,15 @@ export default class MetadataDialog extends React.Component {
       this.fetch('', 'POST', 'streetExtension', streetExtensionData)
     }
 
+    const userExtensionData = {
+      userId: this.state.userId,
+      fullName: receivedData.fullName,
+      matriculationNumber: receivedData.matriculationNumber
+    }
+
     if (this.state.userExtensionId) {
-      userExtensionData.userId = this.state.userExtensionId
+      console.log(this.state)
+      userExtensionData.userId = this.state.userId
       this.fetch(
         this.state.userExtensionId,
         'POST',
@@ -156,12 +161,14 @@ export default class MetadataDialog extends React.Component {
       this.fetch('', 'POST', 'userExtension', userExtensionData)
     }
 
+    // reload data from server and disable loading view
     this.loadExtensionData()
     this.setState({
       submitting: false,
       submitted: true
     })
 
+    // send submittion email
     const email = {
       secret: 'DasIstEinSicheresPasswort10!',
       from: 'fvv.office@tuwien.ac.at',

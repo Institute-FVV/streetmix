@@ -13,7 +13,9 @@
       "settings": "Einstellungen",
       "share": "Teilen",
       "store": "",
-      "upgrade": ""
+      "upgrade": "",
+      "metadata": "Metadata",
+      "admin": "Admin"
     },
     "help": {
       "keyboard-label": "Tastatur-Shortcuts:",
@@ -262,10 +264,10 @@
       "matriculationNumber-label": "Matrikelnummer",
       "projectName-label": "Projektname",
       "directionOfView-label": "Blickrichtung: schauend in Richtung ...",
-      "projectStatus-label": "Street Kreuzungsstatus von",
+      "projectStatus-label": "Kreuzungsstatus von",
       "note": "Wir werden Ihnen eine Bestätigung der Speicherung der Metadaten per Email zusenden. ",
       "submit-invalid": "Oops! Es scheit, dass die Speicherung der Metadaten nicht funktioniert hat. Bitte kontaktieren Sie den lokalen Support.",
-      "loading-message": "Speichern Ihrer Daten…",
+      "loading-message": "Wir speichern Ihrer Daten…",
       "submit-message": "Wir haben Ihnen einen Link als Bestätigung der erfolgreichen Speicherung der Daten zugesendet. Der Link führt Sie jederzeit zu diesem Projekt zurück.",
       "button": "Metadaten speichern",
       "tos": "Indem ich auf einen dieser Buttons klicke, stimme ich den {tosLink} und der {privacyLink} zu..",
@@ -274,8 +276,8 @@
     },
     "admin": {
       "heading": "Gespeicherte Strassen inklusive Metainformationen",
-      "noDataAvailable": "Leider können zur Zeit keine Daten angezeigt werden, warten Sie einen Augenblick.",
-      "loading": "Data loading"
+      "noDataAvailable": "Leider können zur Zeit keine Daten angezeigt werden, bitte kontaktieren Sie den lokalen Support.",
+      "loading": "Data werden geladen..."
     },
     "whatsnew": {
       "heading": "Was gibt es Neues bei Streetmix?"
