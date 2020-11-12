@@ -54,8 +54,8 @@ RUN npm install phantomjs-prebuilt@2.1.14 --ignore-scripts
 RUN npm install --only=production && npm cache clean --force --loglevel=error
 
 # copy init shell scripts to docker init
-COPY ./docker/*.sh /docker-entrypoint-initdb.d/
-RUN chmod +x /docker-entrypoint-initdb.d/*.sh
+COPY ./docker/init.sh /docker-entrypoint-initdb.d/
+RUN chmod +x /docker-entrypoint-initdb.d/init.sh
 
 # copy postgressql to conf folder
 COPY docker/postgresql.conf /etc/postgresql/

@@ -93,7 +93,9 @@ function MenuBar (props) {
       if (method === 'POST') {
         if (id === '') {
           response = await axios.post(`${apiUri}/${endpoint}`, body)
-        } else response = await axios.put(`${apiUri}/${endpoint}/${id}`, body)
+        } else {
+          response = await axios.put(`${apiUri}/${endpoint}/${id}`, body)
+        }
       } else {
         if (id !== '') {
           response = await axios.get(`${apiUri}/${endpoint}/${id}`)
@@ -108,7 +110,7 @@ function MenuBar (props) {
     return response.data
   }
 
-  if (user) {
+  if (streetId && user) {
     getch(streetId, 'GET', 'streetExtension').then((response) => {
       if (!response) {
         dispatch(showDialog('METADATA_MISSING'))

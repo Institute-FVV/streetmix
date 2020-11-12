@@ -155,7 +155,7 @@ export default class AdminDialog extends React.Component {
     return (
       <Dialog>
         {(closeDialog) => (
-          <div className="admin-dialog">
+          <div className="admin-dialog admin-dialog-content">
             <header>
               <h1>
                 <FormattedMessage

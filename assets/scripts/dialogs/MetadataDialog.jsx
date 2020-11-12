@@ -225,7 +225,7 @@ export default class MetadataDialog extends React.Component {
               </h1>
             </header>
             <div
-              className="dialog-content submit-loading"
+              className="metadata-dialog-content submit-loading"
               aria-live="polite"
               aria-busy="true"
             >
