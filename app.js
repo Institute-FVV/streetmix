@@ -104,7 +104,7 @@ const csp = {
       'platform.twitter.com',
       'https://www.google-analytics.com',
       'cdn.mxpnl.com',
-      'jimmy2.eu.auth0.com',
+      'fvv.eu.auth0.com',
       '*.basemaps.cartocdn.com',
       'api.geocode.earth',
       'downloads.mailchimp.com.s3.amazonaws.com',
@@ -138,7 +138,7 @@ const csp = {
       'sentry.io',
       'checkout.stripe.com',
       'plausible.io',
-      'jimmy2.eu.auth0.com',
+      'fvv.eu.auth0.com',
       'checkout.stripe.com',
       'http://api.ipstack.com/',
       'https://pelias.fvv.tuwien.ac.at'

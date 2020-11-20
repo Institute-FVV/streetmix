@@ -7,13 +7,13 @@ const secret = jwksRsa.expressJwtSecret({
   cache: true,
   rateLimit: true,
   jwksRequestsPerMinute: 5,
-  jwksUri: 'http://jimmy2.eu.auth0.com/.well-known/jwks.json'
+  jwksUri: 'http://fvv.eu.auth0.com/.well-known/jwks.json'
 })
 
 const jwtCheck = jwt({
   algorithms: ['RS256'],
   secret,
-  issuer: 'https://jimmy2.eu.auth0.com/',
+  issuer: 'https://fvv.eu.auth0.com/',
   audience: config.auth0.client_id,
   credentialsRequired: false,
   getToken: function fromCookies (req) {
