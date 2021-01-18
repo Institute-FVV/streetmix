@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center"> 
   <a href="http://streetmix.net/">
     <img width="450" alt="Streetmix" src="https://user-images.githubusercontent.com/2553268/62242301-dc18c800-b3a8-11e9-9960-6f6cbac50234.png">
   </a>
