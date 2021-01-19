@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderWithReduxAndIntl } from '../../../../test/helpers/render'
 import MenuBar from '../MenuBar'
 import { showDialog } from '../../store/slices/dialogs'
@@ -11,28 +12,28 @@ jest.mock('../../store/slices/dialogs', () => ({
 
 describe('MenuBar', () => {
   it('renders', () => {
-    const wrapper = renderWithReduxAndIntl(
+    const { asFragment } = renderWithReduxAndIntl(
       <MenuBar onMenuDropdownClick={jest.fn()} />
     )
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders minimal menu in offline mode', () => {
-    const wrapper = renderWithReduxAndIntl(
+    const { asFragment } = renderWithReduxAndIntl(
       <MenuBar onMenuDropdownClick={jest.fn()} />,
       {
         initialState: {
           system: {
-            noInternet: true
+            offline: true
           }
         }
       }
     )
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders logged in user', () => {
-    const wrapper = renderWithReduxAndIntl(
+    const { asFragment } = renderWithReduxAndIntl(
       <MenuBar onMenuDropdownClick={jest.fn()} />,
       {
         initialState: {
@@ -47,11 +48,11 @@ describe('MenuBar', () => {
         }
       }
     )
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders upgrade funnel and handles click', () => {
-    const wrapper = renderWithReduxAndIntl(
+    const { asFragment } = renderWithReduxAndIntl(
       <MenuBar onMenuDropdownClick={jest.fn()} />,
       {
         initialState: {
@@ -63,8 +64,8 @@ describe('MenuBar', () => {
         }
       }
     )
-
-    fireEvent.click(wrapper.getByText('Upgrade'))
+    expect(asFragment()).toMatchSnapshot()
+    userEvent.click(screen.getByText('Upgrade'))
 
     expect(showDialog).toBeCalledTimes(1)
     expect(showDialog).toBeCalledWith('UPGRADE')
@@ -72,11 +73,9 @@ describe('MenuBar', () => {
 
   it('handles a menu item click', () => {
     const handler = jest.fn()
-    const wrapper = renderWithReduxAndIntl(
-      <MenuBar onMenuDropdownClick={handler} />
-    )
+    renderWithReduxAndIntl(<MenuBar onMenuDropdownClick={handler} />)
 
-    fireEvent.click(wrapper.getByText('Share'))
+    userEvent.click(screen.getByText('Share'))
 
     expect(handler).toBeCalledTimes(1)
   })

@@ -13,13 +13,10 @@ const express = require('express')
 const helmet = require('helmet')
 const config = require('config')
 const path = require('path')
-const { v4: uuidv4 } = require('uuid')
 const controllers = require('./app/controllers')
 const requestHandlers = require('./lib/request_handlers')
-const initRedisClient = require('./lib/redis')
 const initCloudinary = require('./lib/cloudinary')
 const compileSVGSprites = require('./lib/svg-sprite')
-const exec = require('child_process').exec
 const swaggerUi = require('swagger-ui-express')
 const swaggerJSDoc = require('swagger-jsdoc')
 const apiRoutes = require('./app/api_routes')
@@ -28,7 +25,6 @@ const chalk = require('chalk')
 const logger = require('./lib/logger.js')()
 const jwtCheck = require('./app/authentication')
 
-const client = initRedisClient()
 initCloudinary()
 compileSVGSprites('assets/images/icons/', 'icons', 'icon')
 compileSVGSprites('assets/images/illustrations', 'illustrations', 'image')
@@ -48,14 +44,7 @@ process.on('uncaughtException', function (error) {
   logger.error(chalk`[process] {bold Uncaught exception:} ${error}`)
 
   console.trace()
-
-  if (client.connected) {
-    client.on('end', function () {
-      process.exit(1)
-    })
-  } else {
-    process.exit(1)
-  }
+  process.exit(1)
 })
 
 // Provide a message after a Ctrl-C
@@ -63,14 +52,8 @@ process.on('uncaughtException', function (error) {
 process.on('SIGINT', function () {
   if (app.locals.config.env === 'development') {
     logger.info(chalk`[express] {yellow.bold Stopping Streetmix!}`)
-    exec('npm stop')
   }
-
-  if (client.connected) {
-    client.on('end', process.exit)
-  } else {
-    process.exit()
-  }
+  process.exit()
 })
 
 app.locals.config = config
@@ -79,6 +62,7 @@ app.locals.config = config
 // off-by-default headers for better security as recommended by https://securityheaders.io/
 const helmetConfig = {
   frameguard: false, // Allow Streetmix to be iframed in 3rd party sites
+  contentSecurityPolicy: false, // These are set explicitly later
   hsts: {
     maxAge: 5184000, // 60 days
     includeSubDomains: false // we don't have a wildcard ssl cert
@@ -96,13 +80,11 @@ const csp = {
       "'self'",
       "'unsafe-inline'",
       'fonts.googleapis.com',
-      '*.typekit.net',
       'checkout.stripe.com'
     ],
     scriptSrc: [
       "'self'",
       'platform.twitter.com',
-      'https://www.google-analytics.com',
       'cdn.mxpnl.com',
       'fvv.eu.auth0.com',
       '*.basemaps.cartocdn.com',
@@ -115,26 +97,31 @@ const csp = {
     ],
     workerSrc: ["'self'"],
     childSrc: ['platform.twitter.com'],
-    frameSrc: ["'self'", 'streetmix.github.io', 'checkout.stripe.com'],
+    frameSrc: [
+      "'self'",
+      'streetmix.github.io',
+      'checkout.stripe.com',
+      'https://platform.twitter.com'
+    ],
     imgSrc: [
       "'self'",
       'data:',
+      // Profile images
       'pbs.twimg.com',
       'syndication.twitter.com',
       's.gravatar.com',
-      'https://www.google-analytics.com',
+      // Auth0 default profile images
+      'https://i0.wp.com/cdn.auth0.com/',
       '*.basemaps.cartocdn.com',
       'https://res.cloudinary.com/',
       '*.stripe.com',
       'i1.wp.com/cdn.auth0.com'
     ],
-    fontSrc: ["'self'", 'fonts.gstatic.com', '*.typekit.net'],
+    fontSrc: ["'self'", 'fonts.gstatic.com'],
     connectSrc: [
       "'self'",
-      'api.mixpanel.com',
       'api.geocode.earth',
       'syndication.twitter.com',
-      'https://www.google-analytics.com',
       'sentry.io',
       'checkout.stripe.com',
       'plausible.io',
@@ -142,11 +129,21 @@ const csp = {
       'checkout.stripe.com',
       'http://api.ipstack.com/',
       'https://pelias.fvv.tuwien.ac.at'
-    ]
-  }
+    ],
+    reportUri: '/services/csp-report/'
+  },
+  // Report (but do not block) CSP violations in development mode.
+  // This allows developers to work on new or experimental features without
+  // worrying about modifying CSP headers.
+  // !! WARNING !!
+  // Reported CSP violations should be addressed before releasing to
+  // production. IF A NEW FEATURE IS REPORTING A CSP VIOLATION, IT WILL
+  // FAIL IN PRODUCTION, EVEN THOUGH IT WORKS IN DEVELOPMENT MODE.
+  reportOnly: app.locals.config.env === 'development'
 }
 
-// Allows websockets for hot-module reloading (note: ports are assigned randomly by Parcel)
+// Allows websockets for hot-module reloading
+// (note: ports are assigned randomly by Parcel)
 if (app.locals.config.env === 'development') {
   csp.directives.scriptSrc.push("'unsafe-eval'")
   csp.directives.connectSrc.push('ws:')
@@ -172,8 +169,7 @@ app.use(express.static(path.join(publicFolder, 'build')))
 app.use((req, res, next) => {
   // Generate nonces for inline scripts
   res.locals.nonce = {
-    google_analytics: uuidv4(),
-    mixpanel: uuidv4()
+    // Currently: we use none
   }
 
   // Set default metatag information for social sharing cards
@@ -191,12 +187,6 @@ app.use((req, res, next) => {
   res.locals.FACEBOOK_APP_ID = config.facebook_app_id
   res.locals.STRIPE_PUBLIC_KEY = config.STRIPE_PUBLIC_KEY
 
-  next()
-})
-
-// Set Redis client for when requesting the geoip
-app.use('/services/geoip', (req, res, next) => {
-  req.redisClient = client
   next()
 })
 

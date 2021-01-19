@@ -24,7 +24,7 @@ exports[`EnvironmentEditor renders 1`] = `
           title="Dismiss"
         >
           <svg
-            class="svg-inline--fa fa-times"
+            class="octicon"
           />
         </button>
       </header>
@@ -54,12 +54,29 @@ exports[`EnvironmentEditor renders 1`] = `
           <div
             class="environment-select"
             title="Night"
-          />
+          >
+            <img
+              alt=""
+              draggable="false"
+              style="width: 100%; height: 100%; pointer-events: none; user-select: none;"
+            />
+          </div>
           <div
             class="environment-select"
             style="background: rgb(226, 240, 242);"
             title="Foggy"
           />
+          <div
+            class="environment-select"
+            style="background: rgb(20, 20, 20);"
+            title="Holodeck"
+          >
+            <img
+              alt=""
+              draggable="false"
+              style="width: 100%; height: 100%; pointer-events: none; user-select: none;"
+            />
+          </div>
         </div>
       </div>
     </div>

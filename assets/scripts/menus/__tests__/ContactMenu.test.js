@@ -1,32 +1,30 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderWithReduxAndIntl } from '../../../../test/helpers/render'
 import ContactMenu from '../ContactMenu'
-import { trackEvent } from '../../app/event_tracking'
 import { showDialog } from '../../store/slices/dialogs'
 
-jest.mock('../../app/event_tracking', () => ({
-  trackEvent: jest.fn()
-}))
 jest.mock('../../store/slices/dialogs', () => ({
   showDialog: jest.fn(() => ({ type: 'MOCK_ACTION' }))
 }))
 
 describe('ContactMenu', () => {
   it('renders', () => {
-    const wrapper = renderWithReduxAndIntl(<ContactMenu />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    const { asFragment } = renderWithReduxAndIntl(
+      <ContactMenu isActive={true} />
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('handles clicked menu items', () => {
-    const wrapper = renderWithReduxAndIntl(<ContactMenu />)
+    renderWithReduxAndIntl(<ContactMenu isActive={true} />)
 
-    fireEvent.click(wrapper.getByText('Discord', { exact: false }))
-    fireEvent.click(wrapper.getByText('GitHub', { exact: false }))
-    fireEvent.click(wrapper.getByText('newsletter', { exact: false }))
+    userEvent.click(screen.getByText('Discord', { exact: false }))
+    userEvent.click(screen.getByText('GitHub', { exact: false }))
+    userEvent.click(screen.getByText('newsletter', { exact: false }))
 
-    expect(trackEvent).toBeCalledTimes(3)
     expect(showDialog).toBeCalledTimes(1)
   })
 })

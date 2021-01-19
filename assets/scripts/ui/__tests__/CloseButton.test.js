@@ -1,17 +1,17 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderWithIntl as render } from '../../../../test/helpers/render'
 import CloseButton from '../CloseButton'
 
 describe('CloseButton', () => {
   it('renders snapshot', () => {
-    const wrapper = render(<CloseButton onClick={jest.fn()} />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    const { asFragment } = render(<CloseButton onClick={jest.fn()} />)
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders with custom title, class name, and other attributes', () => {
-    const wrapper = render(
+    const { asFragment } = render(
       <CloseButton
         onClick={jest.fn()}
         title="foofoo"
@@ -20,13 +20,13 @@ describe('CloseButton', () => {
         hidden={true}
       />
     )
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('should call onClick function when button is clicked', () => {
     const onClick = jest.fn()
     const { getByTitle } = render(<CloseButton onClick={onClick} title="foo" />)
-    fireEvent.click(getByTitle('foo'))
+    userEvent.click(getByTitle('foo'))
     expect(onClick).toHaveBeenCalledTimes(1)
   })
 })

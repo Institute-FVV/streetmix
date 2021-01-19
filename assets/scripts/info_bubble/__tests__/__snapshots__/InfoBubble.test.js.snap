@@ -12,6 +12,7 @@ exports[`InfoBubble is visible 1`] = `
       <div
         class="info-bubble-label info-bubble-label-editable"
       >
+        Streetcar
         <span
           class="info-bubble-label-editable-icon"
         >
@@ -26,7 +27,7 @@ exports[`InfoBubble is visible 1`] = `
         title="Remove segment"
       >
         <svg
-          class="svg-inline--fa remove-icon fa-trash-alt"
+          class="octicon remove-icon"
         />
         Remove
       </button>
@@ -35,33 +36,112 @@ exports[`InfoBubble is visible 1`] = `
       class="info-bubble-controls"
     >
       <div
-        class="non-variant"
+        class="variants"
       >
         <button
-          class="up-down-input-decrement"
+          class="variant-selected"
           disabled=""
-          tabindex="-1"
-          title="Decrease width (hold Shift for more precision)"
+          title="Inbound"
         >
           <svg
-            class="svg-inline--fa fa-minus"
-          />
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-direction-inbound"
+            />
+          </svg>
         </button>
-        <input
-          class="up-down-input-element"
-          title="Change width of the segment"
-          type="text"
-          value="0 m"
-        />
         <button
-          class="up-down-input-increment"
-          tabindex="-1"
-          title="Increase width (hold Shift for more precision)"
+          title="Outbound"
         >
           <svg
-            class="svg-inline--fa fa-plus"
-          />
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-direction-outbound"
+            />
+          </svg>
         </button>
+        <hr />
+        <button
+          class="variant-selected"
+          disabled=""
+          title="Asphalt"
+        >
+          <svg
+            class="icon"
+            style="fill: #292a29;"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-asphalt"
+            />
+          </svg>
+        </button>
+        <button
+          title="Red lane"
+        >
+          <svg
+            class="icon"
+            style="fill: #9b1f22;"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-asphalt"
+            />
+          </svg>
+        </button>
+        <button
+          title="Grass"
+        >
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-grass"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="non-variant"
+      >
+        <div
+          class="up-down-input"
+        >
+          <button
+            class="up-down-input-decrement"
+            tabindex="-1"
+            title="Decrease width (hold Shift for more precision)"
+          >
+            <svg
+              class="svg-inline--fa fa-minus"
+            />
+          </button>
+          <input
+            class="up-down-input-element"
+            title="Change width of the segment"
+            type="text"
+            value="60 m"
+          />
+          <button
+            class="up-down-input-increment"
+            tabindex="-1"
+            title="Increase width (hold Shift for more precision)"
+          >
+            <svg
+              class="svg-inline--fa fa-plus"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -80,6 +160,7 @@ exports[`InfoBubble renders 1`] = `
       <div
         class="info-bubble-label info-bubble-label-editable"
       >
+        Streetcar
         <span
           class="info-bubble-label-editable-icon"
         >
@@ -94,7 +175,7 @@ exports[`InfoBubble renders 1`] = `
         title="Remove segment"
       >
         <svg
-          class="svg-inline--fa remove-icon fa-trash-alt"
+          class="octicon remove-icon"
         />
         Remove
       </button>
@@ -103,33 +184,112 @@ exports[`InfoBubble renders 1`] = `
       class="info-bubble-controls"
     >
       <div
-        class="non-variant"
+        class="variants"
       >
         <button
-          class="up-down-input-decrement"
+          class="variant-selected"
           disabled=""
-          tabindex="-1"
-          title="Decrease width (hold Shift for more precision)"
+          title="Inbound"
         >
           <svg
-            class="svg-inline--fa fa-minus"
-          />
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-direction-inbound"
+            />
+          </svg>
         </button>
-        <input
-          class="up-down-input-element"
-          title="Change width of the segment"
-          type="text"
-          value="0 m"
-        />
         <button
-          class="up-down-input-increment"
-          tabindex="-1"
-          title="Increase width (hold Shift for more precision)"
+          title="Outbound"
         >
           <svg
-            class="svg-inline--fa fa-plus"
-          />
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-direction-outbound"
+            />
+          </svg>
         </button>
+        <hr />
+        <button
+          class="variant-selected"
+          disabled=""
+          title="Asphalt"
+        >
+          <svg
+            class="icon"
+            style="fill: #292a29;"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-asphalt"
+            />
+          </svg>
+        </button>
+        <button
+          title="Red lane"
+        >
+          <svg
+            class="icon"
+            style="fill: #9b1f22;"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-asphalt"
+            />
+          </svg>
+        </button>
+        <button
+          title="Grass"
+        >
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-grass"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="non-variant"
+      >
+        <div
+          class="up-down-input"
+        >
+          <button
+            class="up-down-input-decrement"
+            tabindex="-1"
+            title="Decrease width (hold Shift for more precision)"
+          >
+            <svg
+              class="svg-inline--fa fa-minus"
+            />
+          </button>
+          <input
+            class="up-down-input-element"
+            title="Change width of the segment"
+            type="text"
+            value="60 m"
+          />
+          <button
+            class="up-down-input-increment"
+            tabindex="-1"
+            title="Increase width (hold Shift for more precision)"
+          >
+            <svg
+              class="svg-inline--fa fa-plus"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -267,33 +427,37 @@ exports[`InfoBubble shows building left info bubble 1`] = `
       <div
         class="non-variant building-height"
       >
-        <button
-          class="up-down-input-decrement"
-          disabled=""
-          tabindex="-1"
-          title="Remove floor"
+        <div
+          class="up-down-input"
         >
-          <svg
-            class="svg-inline--fa fa-minus"
+          <button
+            class="up-down-input-decrement"
+            disabled=""
+            tabindex="-1"
+            title="Remove floor"
+          >
+            <svg
+              class="svg-inline--fa fa-minus"
+            />
+          </button>
+          <input
+            class="up-down-input-element"
+            disabled=""
+            title="Change the number of floors"
+            type="text"
+            value=""
           />
-        </button>
-        <input
-          class="up-down-input-element"
-          disabled=""
-          title="Change the number of floors"
-          type="text"
-          value=""
-        />
-        <button
-          class="up-down-input-increment"
-          disabled=""
-          tabindex="-1"
-          title="Add floor"
-        >
-          <svg
-            class="svg-inline--fa fa-plus"
-          />
-        </button>
+          <button
+            class="up-down-input-increment"
+            disabled=""
+            tabindex="-1"
+            title="Add floor"
+          >
+            <svg
+              class="svg-inline--fa fa-plus"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -431,33 +595,37 @@ exports[`InfoBubble shows building right info bubble 1`] = `
       <div
         class="non-variant building-height"
       >
-        <button
-          class="up-down-input-decrement"
-          disabled=""
-          tabindex="-1"
-          title="Remove floor"
+        <div
+          class="up-down-input"
         >
-          <svg
-            class="svg-inline--fa fa-minus"
+          <button
+            class="up-down-input-decrement"
+            disabled=""
+            tabindex="-1"
+            title="Remove floor"
+          >
+            <svg
+              class="svg-inline--fa fa-minus"
+            />
+          </button>
+          <input
+            class="up-down-input-element"
+            disabled=""
+            title="Change the number of floors"
+            type="text"
+            value=""
           />
-        </button>
-        <input
-          class="up-down-input-element"
-          disabled=""
-          title="Change the number of floors"
-          type="text"
-          value=""
-        />
-        <button
-          class="up-down-input-increment"
-          disabled=""
-          tabindex="-1"
-          title="Add floor"
-        >
-          <svg
-            class="svg-inline--fa fa-plus"
-          />
-        </button>
+          <button
+            class="up-down-input-increment"
+            disabled=""
+            tabindex="-1"
+            title="Add floor"
+          >
+            <svg
+              class="svg-inline--fa fa-plus"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -476,6 +644,7 @@ exports[`InfoBubble shows description 1`] = `
       <div
         class="info-bubble-label info-bubble-label-editable"
       >
+        Streetcar
         <span
           class="info-bubble-label-editable-icon"
         >
@@ -490,7 +659,7 @@ exports[`InfoBubble shows description 1`] = `
         title="Remove segment"
       >
         <svg
-          class="svg-inline--fa remove-icon fa-trash-alt"
+          class="octicon remove-icon"
         />
         Remove
       </button>
@@ -499,33 +668,112 @@ exports[`InfoBubble shows description 1`] = `
       class="info-bubble-controls"
     >
       <div
-        class="non-variant"
+        class="variants"
       >
         <button
-          class="up-down-input-decrement"
+          class="variant-selected"
           disabled=""
-          tabindex="-1"
-          title="Decrease width (hold Shift for more precision)"
+          title="Inbound"
         >
           <svg
-            class="svg-inline--fa fa-minus"
-          />
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-direction-inbound"
+            />
+          </svg>
         </button>
-        <input
-          class="up-down-input-element"
-          title="Change width of the segment"
-          type="text"
-          value="0 m"
-        />
         <button
-          class="up-down-input-increment"
-          tabindex="-1"
-          title="Increase width (hold Shift for more precision)"
+          title="Outbound"
         >
           <svg
-            class="svg-inline--fa fa-plus"
-          />
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-direction-outbound"
+            />
+          </svg>
         </button>
+        <hr />
+        <button
+          class="variant-selected"
+          disabled=""
+          title="Asphalt"
+        >
+          <svg
+            class="icon"
+            style="fill: #292a29;"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-asphalt"
+            />
+          </svg>
+        </button>
+        <button
+          title="Red lane"
+        >
+          <svg
+            class="icon"
+            style="fill: #9b1f22;"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-asphalt"
+            />
+          </svg>
+        </button>
+        <button
+          title="Grass"
+        >
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/1999/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#icon-grass"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="non-variant"
+      >
+        <div
+          class="up-down-input"
+        >
+          <button
+            class="up-down-input-decrement"
+            tabindex="-1"
+            title="Decrease width (hold Shift for more precision)"
+          >
+            <svg
+              class="svg-inline--fa fa-minus"
+            />
+          </button>
+          <input
+            class="up-down-input-element"
+            title="Change width of the segment"
+            type="text"
+            value="60 m"
+          />
+          <button
+            class="up-down-input-increment"
+            tabindex="-1"
+            title="Increase width (hold Shift for more precision)"
+          >
+            <svg
+              class="svg-inline--fa fa-plus"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>

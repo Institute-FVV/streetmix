@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderWithReduxAndIntl } from '../../../../test/helpers/render'
 import StreetNameplateContainer from '../StreetNameplateContainer'
 
@@ -29,18 +30,18 @@ const initialState = {
 
 describe('StreetNameplateContainer', () => {
   it('renders', () => {
-    const wrapper = renderWithReduxAndIntl(<StreetNameplateContainer />, {
+    renderWithReduxAndIntl(<StreetNameplateContainer />, {
       initialState
     })
-    expect(wrapper.getByText('foo')).toBeInTheDocument()
+    expect(screen.getByText('foo')).toBeInTheDocument()
   })
 
   it('renders default street name', () => {
-    const wrapper = renderWithReduxAndIntl(<StreetNameplateContainer />, {
+    renderWithReduxAndIntl(<StreetNameplateContainer />, {
       ...initialState,
       street: { name: null }
     })
-    expect(wrapper.getByText('Unnamed St')).toBeInTheDocument()
+    expect(screen.getByText('Unnamed St')).toBeInTheDocument()
   })
 
   it('handles click and name change', () => {
@@ -49,11 +50,11 @@ describe('StreetNameplateContainer', () => {
     mockPrompt.mockImplementation(() => 'bar')
 
     // Mount, mimic click interaction and expect street name to have changed
-    const wrapper = renderWithReduxAndIntl(<StreetNameplateContainer />, {
+    renderWithReduxAndIntl(<StreetNameplateContainer />, {
       initialState
     })
-    fireEvent.click(wrapper.getByText('foo'))
-    expect(wrapper.getByText('bar')).toBeInTheDocument()
+    userEvent.click(screen.getByText('foo'))
+    expect(screen.getByText('bar')).toBeInTheDocument()
 
     // Restore mock
     mockPrompt.mockRestore()
@@ -65,30 +66,30 @@ describe('StreetNameplateContainer', () => {
     mockPrompt.mockImplementation(() => '')
 
     // Mount, mimic click interaction and expect street name to have changed
-    const wrapper = renderWithReduxAndIntl(<StreetNameplateContainer />, {
+    renderWithReduxAndIntl(<StreetNameplateContainer />, {
       initialState
     })
-    fireEvent.click(wrapper.getByText('foo'))
-    expect(wrapper.getByText('foo')).toBeInTheDocument()
+    userEvent.click(screen.getByText('foo'))
+    expect(screen.getByText('foo')).toBeInTheDocument()
 
     // Restore mock
     mockPrompt.mockRestore()
   })
 
   it('shows a "Click to edit" message when mouse is hovering over it', () => {
-    const wrapper = renderWithReduxAndIntl(<StreetNameplateContainer />, {
+    renderWithReduxAndIntl(<StreetNameplateContainer />, {
       initialState
     })
 
-    fireEvent.mouseOver(wrapper.getByText('foo'))
-    expect(wrapper.getByText('Click to rename')).toBeInTheDocument()
+    userEvent.hover(screen.getByText('foo'))
+    expect(screen.getByText('Click to rename')).toBeInTheDocument()
 
-    fireEvent.mouseOut(wrapper.getByText('foo'))
-    expect(wrapper.queryByText('Click to rename')).not.toBeInTheDocument()
+    userEvent.unhover(screen.getByText('foo'))
+    expect(screen.queryByText('Click to rename')).not.toBeInTheDocument()
   })
 
   it('does not show a "Click to edit" message when street name is not editable', () => {
-    const wrapper = renderWithReduxAndIntl(<StreetNameplateContainer />, {
+    renderWithReduxAndIntl(<StreetNameplateContainer />, {
       initialState: {
         ...initialState,
         flags: {
@@ -100,10 +101,10 @@ describe('StreetNameplateContainer', () => {
       }
     })
 
-    fireEvent.mouseOver(wrapper.getByText('foo'))
-    expect(wrapper.queryByText('Click to rename')).not.toBeInTheDocument()
+    userEvent.hover(screen.getByText('foo'))
+    expect(screen.queryByText('Click to rename')).not.toBeInTheDocument()
 
-    fireEvent.mouseOut(wrapper.getByText('foo'))
-    expect(wrapper.queryByText('Click to rename')).not.toBeInTheDocument()
+    userEvent.unhover(screen.getByText('foo'))
+    expect(screen.queryByText('Click to rename')).not.toBeInTheDocument()
   })
 })

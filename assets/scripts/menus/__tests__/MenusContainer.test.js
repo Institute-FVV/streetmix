@@ -4,8 +4,10 @@ import { renderWithReduxAndIntl } from '../../../../test/helpers/render'
 import MenusContainer from '../MenusContainer'
 
 describe('MenusContainer', () => {
+  // Menu container should be empty at mount
+  // It will only render a menu when one is active
   it('renders', () => {
-    const wrapper = renderWithReduxAndIntl(<MenusContainer />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    const { asFragment } = renderWithReduxAndIntl(<MenusContainer />)
+    expect(asFragment()).toMatchSnapshot()
   })
 })

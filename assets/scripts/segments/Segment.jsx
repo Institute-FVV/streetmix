@@ -5,11 +5,11 @@ import { DragSource, DropTarget } from 'react-dnd'
 import { getEmptyImage } from 'react-dnd-html5-backend'
 import flow from 'lodash/flow'
 import { CSSTransition } from 'react-transition-group'
-import { getSegmentCapacity } from '../util/street_analytics'
+import { getSegmentCapacity } from './capacity'
+import { getLocaleSegmentName } from './view'
 import SegmentCanvas from './SegmentCanvas'
 import SegmentDragHandles from './SegmentDragHandles'
 import SegmentLabelContainer from './SegmentLabelContainer'
-import { getLocaleSegmentName } from '../segments/view'
 
 import {
   TILE_SIZE,
@@ -35,7 +35,6 @@ import {
 } from './resizing'
 import { infoBubble } from '../info_bubble/info_bubble'
 import { INFO_BUBBLE_TYPE_SEGMENT } from '../info_bubble/constants'
-import { trackEvent } from '../app/event_tracking'
 import { formatMessage } from '../locales/locale'
 import { setActiveSegment } from '../store/slices/ui'
 import {
@@ -62,6 +61,7 @@ export class Segment extends React.Component {
     locale: PropTypes.string,
     descriptionVisible: PropTypes.bool,
     activeSegment: PropTypes.number,
+    capacitySource: PropTypes.string,
     setActiveSegment: PropTypes.func,
     incrementSegmentWidth: PropTypes.func,
     removeSegmentAction: PropTypes.func,
@@ -249,7 +249,6 @@ export class Segment extends React.Component {
 
         event.preventDefault()
         this.decrementSegmentWidth(this.props.dataNo, event.shiftKey)
-        trackEvent('INTERACTION', 'CHANGE_WIDTH', 'KEYBOARD', null, true)
         break
       // Plus (+) may only triggered with shift key, so also check if
       // the same physical key (Equal) is pressed
@@ -259,7 +258,6 @@ export class Segment extends React.Component {
 
         event.preventDefault()
         this.incrementSegmentWidth(this.props.dataNo, event.shiftKey)
-        trackEvent('INTERACTION', 'CHANGE_WIDTH', 'KEYBOARD', null, true)
         break
       case 'Backspace':
       case 'Delete':
@@ -277,13 +275,6 @@ export class Segment extends React.Component {
             ),
             component: 'TOAST_UNDO'
           })
-          trackEvent(
-            'INTERACTION',
-            'REMOVE_ALL_SEGMENTS',
-            'KEYBOARD',
-            null,
-            true
-          )
         } else {
           infoBubble.hide()
           infoBubble.hideSegment()
@@ -295,7 +286,6 @@ export class Segment extends React.Component {
             component: 'TOAST_UNDO'
           })
           this.props.removeSegmentAction(this.props.dataNo, false)
-          trackEvent('INTERACTION', 'REMOVE_SEGMENT', 'KEYBOARD', null, true)
         }
         break
       default:
@@ -304,7 +294,7 @@ export class Segment extends React.Component {
   }
 
   render () {
-    const { segment, enableAnalytics = true } = this.props
+    const { segment, enableAnalytics = true, capacitySource } = this.props
 
     const segmentInfo = getSegmentInfo(segment.type)
 
@@ -313,10 +303,7 @@ export class Segment extends React.Component {
     const displayName =
       segment.label || getLocaleSegmentName(segment.type, segment.variantString)
 
-    const {
-      capacity: { average, display = true }
-    } = getSegmentCapacity(segment)
-    const showCapacity = enableAnalytics && display
+    const average = getSegmentCapacity(segment, capacitySource)?.average ?? null
     const actualWidth = this.calculateSegmentWidths()
     const elementWidth = actualWidth * TILE_SIZE
     const translate = 'translateX(' + this.props.segmentPos + 'px)'
@@ -369,7 +356,7 @@ export class Segment extends React.Component {
           units={this.props.units}
           locale={this.props.locale}
           capacity={average}
-          showCapacity={showCapacity}
+          showCapacity={enableAnalytics}
         />
         <SegmentDragHandles width={elementWidth} />
         <CSSTransition
@@ -403,7 +390,10 @@ function mapStateToProps (state) {
     locale: state.locale.locale,
     descriptionVisible: state.infoBubble.descriptionVisible,
     activeSegment:
-      typeof state.ui.activeSegment === 'number' ? state.ui.activeSegment : null
+      typeof state.ui.activeSegment === 'number'
+        ? state.ui.activeSegment
+        : null,
+    capacitySource: state.street.capacitySource
   }
 }
 

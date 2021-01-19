@@ -7,29 +7,41 @@ jest.mock('../../streets/environs.json', () =>
   require('../../streets/__mocks__/environs.json')
 )
 
+// Mock the `images` object.
+// Note: in real life, this is a Map where the .get()
+// method looks up an object value by the `id` key.
+// The `src` property is normally a data-url.
+jest.mock('../../app/load_resources', () => ({
+  images: {
+    get: (id) => ({
+      src: 'bar.svg'
+    })
+  }
+}))
+
 describe('SkyContainer', () => {
   it('renders', () => {
-    const wrapper = renderWithRedux(
+    const { asFragment } = renderWithRedux(
       <SkyContainer scrollPos={0} height={100} />,
       {
         initialState: { street: { environment: 'foo' } }
       }
     )
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders with objects', () => {
-    const wrapper = renderWithRedux(
+    const { asFragment } = renderWithRedux(
       <SkyContainer scrollPos={0} height={100} />,
       {
         initialState: { street: { environment: 'bar' } }
       }
     )
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders background animations', () => {
-    const wrapper = renderWithRedux(
+    const { container } = renderWithRedux(
       <SkyContainer scrollPos={0} height={100} />,
       {
         initialState: {
@@ -41,8 +53,8 @@ describe('SkyContainer', () => {
       }
     )
     expect(
-      wrapper.container
-        .querySelector('.street-section-sky')
+      container
+        .querySelector('section')
         .className.includes('environment-animations')
     ).toEqual(true)
   })

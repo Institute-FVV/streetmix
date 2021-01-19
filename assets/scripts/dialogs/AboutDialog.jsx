@@ -4,13 +4,12 @@
  * Renders the "About" dialog box.
  *
  */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import { useSelector } from 'react-redux'
 import Dialog from './Dialog'
 import Credits from './About/Credits.jsx' // Without extension, test will erroneously import .json instead
 import ExternalLink from '../ui/ExternalLink'
-import { trackEvent } from '../app/event_tracking'
 import logo from '../../images/logo_horizontal.svg'
 import numoLogo from '../../images/sponsors/numo.svg'
 import cfalogo from '../../images/sponsors/codeforamerica.png'
@@ -18,11 +17,7 @@ import mozlogo from '../../images/sponsors/mozilla.svg'
 import './AboutDialog.scss'
 
 function AboutDialog (props) {
-  const noInternet = useSelector((state) => state.system.noInternet)
-
-  useEffect(() => {
-    trackEvent('Interaction', 'Open about dialog box', null, null, false)
-  }, [])
+  const offline = useSelector((state) => state.system.offline)
 
   return (
     <Dialog>
@@ -81,7 +76,7 @@ function AboutDialog (props) {
                     </ExternalLink>
                   </li>
                 </ul>
-                {!noInternet && (
+                {!offline && (
                   <>
                     <p>
                       <ExternalLink href="https://opencollective.com/streetmix/">
@@ -206,6 +201,38 @@ function AboutDialog (props) {
                               <ExternalLink
                                 href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
                                 title="SIL Open Font License, Version 1.1"
+                              >
+                                {chunks}
+                              </ExternalLink>
+                            )
+                          }}
+                        />
+                      </li>
+                      <li>
+                        <FormattedMessage
+                          id="dialogs.about.font-designed-by"
+                          defaultMessage="{fontName} font designed by {fontAuthor}."
+                          values={{
+                            fontName: (
+                              <ExternalLink href="https://overpassfont.org/">
+                                Overpass
+                              </ExternalLink>
+                            ),
+                            fontAuthor: (
+                              <ExternalLink href="https://delvefonts.com/">
+                                Delve Fonts
+                              </ExternalLink>
+                            )
+                          }}
+                        />{' '}
+                        <FormattedMessage
+                          id="dialogs.about.license-label"
+                          defaultMessage="(<a>License</a>)"
+                          values={{
+                            a: (chunks) => (
+                              <ExternalLink
+                                href="https://github.com/RedHatOfficial/Overpass/blob/master/LICENSE.md"
+                                title="SIL Open Font License, Version 1.1 and LGPL 2.1 (dual license)"
                               >
                                 {chunks}
                               </ExternalLink>

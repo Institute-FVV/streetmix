@@ -10,7 +10,6 @@ import {
   PELIAS_PROTOCOL,
   PELIAS_API_KEY
 } from '../app/config'
-import { trackEvent } from '../app/event_tracking'
 import ErrorBanner from './Geotag/ErrorBanner'
 import GeoSearch from './Geotag/GeoSearch'
 import LocationPopup from './Geotag/LocationPopup'
@@ -92,7 +91,7 @@ function getInitialState (props) {
     label = props.addressInformation.label
     // If there's no prior location data, use the user's location, if available
     // In this case, display the map view, but no marker or popup
-  } else if (props.userLocation) {
+  } else if (props.userLocation && props.userLocation.longitude) {
     mapCenter = {
       lat: props.userLocation.latitude,
       lng: props.userLocation.longitude
@@ -210,14 +209,6 @@ function GeotagDialog () {
       intersectionId: null
     }
 
-    trackEvent(
-      'Interaction',
-      'Geotag dialog: confirm chosen location',
-      null,
-      null,
-      true
-    )
-
     batch(() => {
       dispatch(addLocation(location))
       dispatch(saveStreetName(location.hierarchy.street, false))
@@ -225,13 +216,6 @@ function GeotagDialog () {
   }
 
   const handleClearLocation = (event) => {
-    trackEvent(
-      'Interaction',
-      'Geotag dialog: cleared existing location',
-      null,
-      null,
-      true
-    )
     dispatch(clearLocation())
   }
 

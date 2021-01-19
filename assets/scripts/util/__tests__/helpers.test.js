@@ -97,3 +97,44 @@ describe('isExternalUrl()', () => {
     expect(isExternalUrl('#hash')).toBeFalsy()
   })
 })
+
+describe('isExternalUrl()', () => {
+  beforeAll(() => {
+    global.window = Object.create(window)
+
+    Object.defineProperty(window, 'location', {
+      value: {
+        hostname: 'streetmix.net'
+      }
+    })
+  })
+
+  it('handles same hostname cases', () => {
+    expect(isExternalUrl('http://streetmix.net')).toBeFalsy()
+    expect(isExternalUrl('http://streetmix.net/with/path/params')).toBeFalsy()
+    expect(isExternalUrl('http://streetmix.net/?with=queryParam')).toBeFalsy()
+    expect(isExternalUrl('http://streetmix.net/#withHash')).toBeFalsy()
+
+    expect(isExternalUrl('https://streetmix.net')).toBeFalsy()
+    expect(isExternalUrl('https://streetmix.net/with/path/params')).toBeFalsy()
+    expect(isExternalUrl('https://streetmix.net/?with=queryParam')).toBeFalsy()
+    expect(isExternalUrl('https://streetmix.net/#withHash')).toBeFalsy()
+  })
+
+  it('handles different hostname cases', () => {
+    expect(isExternalUrl('http://example.com')).toBeTruthy()
+    expect(isExternalUrl('http://example.com/with/path/params')).toBeTruthy()
+    expect(isExternalUrl('http://example.com/?with=queryParam')).toBeTruthy()
+    expect(isExternalUrl('http://example.com/#withHash')).toBeTruthy()
+
+    expect(isExternalUrl('https://example.com')).toBeTruthy()
+    expect(isExternalUrl('https://example.com/with/path/params')).toBeTruthy()
+    expect(isExternalUrl('https://example.com/?with=queryParam')).toBeTruthy()
+    expect(isExternalUrl('https://example.com/#withHash')).toBeTruthy()
+  })
+
+  it('handles relative cases', () => {
+    expect(isExternalUrl('/with/path/params')).toBeFalsy()
+    expect(isExternalUrl('#hash')).toBeFalsy()
+  })
+})

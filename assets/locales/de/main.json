@@ -200,9 +200,12 @@
       "export-csv": "",
       "heading": "",
       "street-summary": "",
+      "typical-lane-width": "",
       "segment-summary": "",
       "segment-summary-single": "",
-      "source": ""
+      "source": "",
+      "capacity-data-source": "",
+      "settings-notice": ""
     },
     "save": {
       "heading": "Als Bild speichern",
@@ -456,6 +459,7 @@
     "lang": {
       "ar": "Arabisch",
       "ca": "",
+      "cs": "",
       "de": "Deutsch",
       "en": "Englisch",
       "es": "Spanisch",
@@ -466,10 +470,13 @@
       "it": "Italienisch",
       "ja": "Japanisch",
       "ko": "",
+      "nl-nl": "",
       "pl": "Polnisch",
       "pt-br": "Portugiesisch (Brasilien)",
+      "ro-ro": "",
       "ru": "Russisch",
       "sv": "Schwedisch",
+      "tr": "",
       "zh": "Chinesisch",
       "zh-hans": "Hochchinesisch",
       "zh-hant": "Traditionelles Chinesisch"

@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderWithIntl } from '../../../../test/helpers/render'
 import StreetMetaWidthLabel from '../StreetMetaWidthLabel'
 
@@ -13,7 +14,7 @@ const dummyStreetObject = {
 
 describe('StreetMetaWidthLabel', () => {
   it('renders when editable', () => {
-    const wrapper = renderWithIntl(
+    const { asFragment } = renderWithIntl(
       <StreetMetaWidthLabel
         street={dummyStreetObject}
         editable={true}
@@ -21,11 +22,11 @@ describe('StreetMetaWidthLabel', () => {
       />
     )
 
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders when not editable', () => {
-    const wrapper = renderWithIntl(
+    const { asFragment } = renderWithIntl(
       <StreetMetaWidthLabel
         street={dummyStreetObject}
         editable={false}
@@ -33,11 +34,11 @@ describe('StreetMetaWidthLabel', () => {
       />
     )
 
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders with remaining width', () => {
-    const wrapper = renderWithIntl(
+    const { asFragment } = renderWithIntl(
       <StreetMetaWidthLabel
         street={{
           ...dummyStreetObject,
@@ -49,11 +50,11 @@ describe('StreetMetaWidthLabel', () => {
       />
     )
 
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders with over available width', () => {
-    const wrapper = renderWithIntl(
+    const { asFragment } = renderWithIntl(
       <StreetMetaWidthLabel
         street={{
           ...dummyStreetObject,
@@ -65,12 +66,12 @@ describe('StreetMetaWidthLabel', () => {
       />
     )
 
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('calls onClick handler when clicked', () => {
     const handleClick = jest.fn()
-    const wrapper = renderWithIntl(
+    renderWithIntl(
       <StreetMetaWidthLabel
         street={dummyStreetObject}
         editable={true}
@@ -78,7 +79,7 @@ describe('StreetMetaWidthLabel', () => {
       />
     )
 
-    fireEvent.click(wrapper.getByTitle('Change width of the street'))
+    userEvent.click(screen.getByTitle('Change width of the street'))
     expect(handleClick).toBeCalled()
   })
 })

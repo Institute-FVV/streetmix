@@ -31,6 +31,7 @@ export const ENV = process.env.ENV
 export const NO_INTERNET_MODE = parse(process.env.NO_INTERNET_MODE)
 export const PELIAS_HOST_NAME = parse(process.env.PELIAS_HOST_NAME)
 export const PELIAS_PROTOCOL = parse(process.env.PELIAS_PROTOCOL)
+export const OFFLINE_MODE = parse(process.env.OFFLINE_MODE)
 export const PELIAS_API_KEY = parse(process.env.PELIAS_API_KEY)
 export const AUTH0_CLIENT_ID = parse(process.env.AUTH0_CLIENT_ID)
 export const AUTH0_DOMAIN = parse(process.env.AUTH0_DOMAIN)

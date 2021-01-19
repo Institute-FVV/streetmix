@@ -198,9 +198,12 @@
       "export-csv": "CSV로 내보내기",
       "heading": "분석",
       "street-summary": "나의 스트리트에는 시간당 평균 {averageTotal} 명, 최대 {potentialTotal} 명의 트래픽이 예상됩니다.",
+      "typical-lane-width": "",
       "segment-summary": "{average} ~ {potential} 명/시간",
       "segment-summary-single": "{amount} 명/시간",
-      "source": "소스"
+      "source": "소스",
+      "capacity-data-source": "",
+      "settings-notice": ""
     },
     "save": {
       "heading": "이미지로 저장",
@@ -431,6 +434,7 @@
     "lang": {
       "ar": "아랍어",
       "ca": "카탈로니아어",
+      "cs": "",
       "de": "독일어",
       "en": "영어",
       "es": "스페인어",
@@ -441,10 +445,13 @@
       "it": "이탈리아어",
       "ja": "일본어",
       "ko": "한국어",
+      "nl-nl": "",
       "pl": "폴란드어",
       "pt-br": "포르투갈어 (브라질)",
+      "ro-ro": "",
       "ru": "러시아어",
       "sv": "스웨덴어",
+      "tr": "",
       "zh": "중국어",
       "zh-hans": "중국어 간체",
       "zh-hant": "중국어 번체"

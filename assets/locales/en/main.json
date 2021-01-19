@@ -197,12 +197,15 @@
       "license-label": "(<a>License</a>)"
     },
     "analytics": {
-      "export-csv": "Export to CSV",
+      "export-csv": "Export as CSV",
       "heading": "Analytics",
       "street-summary": "Your street has an estimated average traffic of {averageTotal} people per hour, and potential for up to {potentialTotal} people per hour.",
+      "typical-lane-width": "Capacity values are based on {laneWidth}-wide lanes.",
       "segment-summary": "{average} — {potential} people/hour",
       "segment-summary-single": "{amount} people/hour",
-      "source": "Source"
+      "source": "Source",
+      "capacity-data-source": "Capacity data source",
+      "settings-notice": "Street owners can change these settings."
     },
     "save": {
       "heading": "Save as image",
@@ -456,6 +459,7 @@
     "lang": {
       "ar": "Arabic",
       "ca": "Catalan",
+      "cs": "Czech",
       "de": "German",
       "en": "English",
       "es": "Spanish",
@@ -466,10 +470,13 @@
       "it": "Italian",
       "ja": "Japanese",
       "ko": "Korean",
+      "nl-nl": "Dutch (Netherlands)",
       "pl": "Polish",
       "pt-br": "Portuguese (Brazil)",
+      "ro-ro": "Romanian",
       "ru": "Russian",
       "sv": "Swedish",
+      "tr": "Turkish",
       "zh": "Chinese",
       "zh-hans": "Simplified Chinese",
       "zh-hant": "Traditional Chinese"

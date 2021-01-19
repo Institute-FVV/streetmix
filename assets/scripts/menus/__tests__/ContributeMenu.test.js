@@ -5,7 +5,9 @@ import ContributeMenu from '../ContributeMenu'
 
 describe('ContributeMenu', () => {
   it('renders', () => {
-    const wrapper = renderWithReduxAndIntl(<ContributeMenu />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    const { asFragment } = renderWithReduxAndIntl(
+      <ContributeMenu isActive={true} />
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 })

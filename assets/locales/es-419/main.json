@@ -113,7 +113,7 @@
     "survey-finished": "Lista la encuesta. ¡Felicitaciones y gracias!",
     "street-deleted-elsewhere-title": "Esta calle se ha borrado en otro lugar.",
     "street-deleted-elsewhere-description": "Esta calle se ha borrado en otro navegador.",
-    "auth-expired": "",
+    "auth-expired": "Te hemos desconectado automáticamente por falta de actividad",
     "sign-in-again": "Por favor vuelve a ingresar.",
     "access-denied-title": "No has iniciado sesión",
     "access-denied-description": "Has cancelado el inicio de sesión",
@@ -198,9 +198,12 @@
       "export-csv": "Exportar a CSV",
       "heading": "Estadísticas",
       "street-summary": "Tu calle tiene un tráfico estimado promedio de {averageTotal} personas por hora, y potencial de hasta {potentialTotal} personas por hora.",
+      "typical-lane-width": "",
       "segment-summary": "{average} — {potential} personas/hora",
       "segment-summary-single": "{amount} personas/hora",
-      "source": "Fuente"
+      "source": "Fuente",
+      "capacity-data-source": "",
+      "settings-notice": ""
     },
     "save": {
       "heading": "Guardar como imagen",
@@ -431,6 +434,7 @@
     "lang": {
       "ar": "Árabe",
       "ca": "Catalán",
+      "cs": "",
       "de": "Alemán",
       "en": "Inglés",
       "es": "Español",
@@ -441,10 +445,13 @@
       "it": "Italiano",
       "ja": "Japonés",
       "ko": "Coreano",
+      "nl-nl": "",
       "pl": "Polaco",
       "pt-br": "Portugués (Brasil)",
+      "ro-ro": "",
       "ru": "Ruso",
       "sv": "Sueco",
+      "tr": "",
       "zh": "Chino",
       "zh-hans": "Chino Simplificado",
       "zh-hant": "Chino Tradicional"

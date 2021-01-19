@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderWithReduxAndIntl } from '../../../../test/helpers/render'
 import IdentityMenu from '../IdentityMenu'
 import { openGallery } from '../../store/actions/gallery'
@@ -15,12 +16,14 @@ jest.mock('../../users/authentication', () => ({
 
 describe('IdentityMenu', () => {
   it('renders', () => {
-    const wrapper = renderWithReduxAndIntl(<IdentityMenu />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    const { asFragment } = renderWithReduxAndIntl(
+      <IdentityMenu isActive={true} />
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('shows "My streets" when its link is clicked', () => {
-    const wrapper = renderWithReduxAndIntl(<IdentityMenu />, {
+    renderWithReduxAndIntl(<IdentityMenu isActive={true} />, {
       initialState: {
         user: {
           signInData: {
@@ -30,16 +33,16 @@ describe('IdentityMenu', () => {
       }
     })
 
-    fireEvent.click(wrapper.getByText('My streets'))
+    userEvent.click(screen.getByText('My streets'))
 
     expect(openGallery).toBeCalledTimes(1)
     expect(openGallery).toBeCalledWith({ userId: 'foo' })
   })
 
   it('signs the user out when its link is clicked', () => {
-    const wrapper = renderWithReduxAndIntl(<IdentityMenu />)
+    renderWithReduxAndIntl(<IdentityMenu isActive={true} />)
 
-    fireEvent.click(wrapper.getByText('Sign out'))
+    userEvent.click(screen.getByText('Sign out'))
 
     expect(onSignOutClick).toBeCalledTimes(1)
   })

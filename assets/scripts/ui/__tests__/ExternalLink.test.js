@@ -2,17 +2,16 @@
 import React from 'react'
 import { renderWithReduxAndIntl } from '../../../../test/helpers/render'
 import ExternalLink from '../ExternalLink'
-import { ERRORS } from '../../../../lib/util'
 
 const initialStateForOnline = {
   system: {
-    noInternet: false
+    offline: false
   }
 }
 
 const initialStateForOffline = {
   system: {
-    noInternet: true
+    offline: true
   }
 }
 
@@ -47,7 +46,7 @@ describe('ExternalLink', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('renders string child without an <a> element in "no-internet" mode', () => {
+  it('renders string child without an <a> element in "offline" mode', () => {
     const {
       asFragment
     } = renderWithReduxAndIntl(
@@ -57,7 +56,7 @@ describe('ExternalLink', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('renders element child without an <a> element in "no-internet" mode', () => {
+  it('renders element child without an <a> element in "offline" mode', () => {
     const { asFragment } = renderWithReduxAndIntl(
       <ExternalLink href="https://example.com">
         <div>foo</div>
@@ -65,15 +64,6 @@ describe('ExternalLink', () => {
       { initialState: initialStateForOffline }
     )
     expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should throw an error if href is not external', () => {
-    expect(() =>
-      renderWithReduxAndIntl(
-        <ExternalLink href="https://streetmix.net">foo</ExternalLink>,
-        { initialState: initialStateForOnline }
-      )
-    ).toThrow(ERRORS.INVALID_EXTERNAL_LINK)
   })
 
   it('renders an <a> element with mailto link', () => {

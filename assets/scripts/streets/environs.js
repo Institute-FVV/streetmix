@@ -1,4 +1,5 @@
 import ENVIRONS from './environs.json'
+import { images } from '../app/load_resources'
 import { DEFAULT_ENVIRONS } from './constants'
 import { observeStore } from '../store'
 
@@ -42,7 +43,10 @@ export function makeCSSGradientDeclaration (array) {
  * @returns {String} - CSS value
  */
 function makeCSSBackgroundImageDeclaration (url) {
-  return `url('${url}') top/2000px repeat`
+  const asset = images.get(url)
+  if (asset) {
+    return `url('${asset.src}') top/${asset.width}px repeat`
+  }
 }
 
 /**
@@ -51,9 +55,12 @@ function makeCSSBackgroundImageDeclaration (url) {
  * style prop, e.g. `<div style={style} />`
  *
  * @param {Object} - single environs data from environs.json
+ * @param {Boolean} - if `true`, add images to the style definition.
+ *   Images are not good for icons where the images won't be visible
+ *   and special images need to be used. Default value is `true`.
  * @returns {Object} - style object that can be passed to a `style` prop
  */
-function makeReactStyleObject (env) {
+function makeReactStyleObject (env, renderImages = true) {
   const style = {}
 
   // If an error causes `env` to be undefined, return an empty object.
@@ -65,8 +72,10 @@ function makeReactStyleObject (env) {
     background.push(makeCSSGradientDeclaration(env.backgroundGradient))
   }
 
-  if (env.backgroundImage) {
-    background.push(makeCSSBackgroundImageDeclaration(env.backgroundImage))
+  if (renderImages) {
+    if (env.backgroundImage) {
+      background.push(makeCSSBackgroundImageDeclaration(env.backgroundImage))
+    }
   }
 
   // Background colors must occur last in the `background` list
@@ -154,7 +163,8 @@ export function getEnvirons (id) {
   return {
     ...env,
     id,
-    style: makeReactStyleObject(env)
+    style: makeReactStyleObject(env),
+    iconStyle: makeReactStyleObject(env, false)
   }
 }
 
@@ -180,7 +190,10 @@ export function initEnvironsChangedListener () {
   })
   const onChange = (state) => {
     // `invertUITextColor` may not be defined, so coerce it to `false` with Boolean()
-    document.body.classList.toggle('dark-environs-invert-ui', Boolean(state.invertUITextColor))
+    document.body.classList.toggle(
+      'dark-environs-invert-ui',
+      Boolean(state.invertUITextColor)
+    )
   }
 
   return observeStore(select, onChange)

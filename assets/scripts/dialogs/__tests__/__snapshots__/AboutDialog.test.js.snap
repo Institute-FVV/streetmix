@@ -17,7 +17,7 @@ exports[`AboutDialog renders snapshot 1`] = `
         title="Dismiss"
       >
         <svg
-          class="svg-inline--fa fa-times"
+          class="octicon"
         />
       </button>
       <div
@@ -454,6 +454,33 @@ exports[`AboutDialog renders snapshot 1`] = `
                         rel="noopener noreferrer"
                         target="_blank"
                         title="SIL Open Font License, Version 1.1"
+                      >
+                        License
+                      </a>
+                      )
+                    </li>
+                    <li>
+                      <a
+                        href="https://overpassfont.org/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Overpass
+                      </a>
+                       font designed by 
+                      <a
+                        href="https://delvefonts.com/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Delve Fonts
+                      </a>
+                      . (
+                      <a
+                        href="https://github.com/RedHatOfficial/Overpass/blob/master/LICENSE.md"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        title="SIL Open Font License, Version 1.1 and LGPL 2.1 (dual license)"
                       >
                         License
                       </a>

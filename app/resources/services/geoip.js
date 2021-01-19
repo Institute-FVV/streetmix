@@ -1,5 +1,4 @@
 const axios = require('axios')
-const redis = require('redis')
 const config = require('config')
 const chalk = require('chalk')
 const logger = require('../../../lib/logger.js')()
@@ -55,10 +54,6 @@ exports.get = function (req, res) {
           return
         }
 
-        if (isRedisConnected && ip) {
-          client.set(ip, body, redis.print)
-        }
-
         res.status(200).json(data)
       })
       .catch(function (error) {
@@ -79,26 +74,5 @@ exports.get = function (req, res) {
   }
 
   var ip = util.requestIp(req)
-  const client = req.redisClient
-
-  // If Redis is connected and Streetmix is not being run locally, check
-  // to see if there is a matching key in Redis to the current IP address.
-  if (client.connected && req.hostname !== 'localhost') {
-    client.get(ip, function (error, reply) {
-      if (error || !reply) {
-        if (error) {
-          logger.error(error)
-        }
-        // If no matching key or Streetmix is being run locally,
-        // or an error occurred, request geolocation from ipstack.
-        requestGeolocation()
-      } else {
-        res.status(200).json(JSON.parse(reply))
-      }
-    })
-  } else {
-    // If Redis is not connected and/or Streetmix is being run locally,
-    // automatically request geolocation from ipstack and do not save to Redis.
-    requestGeolocation(false)
-  }
+  requestGeolocation()
 }

@@ -6,9 +6,11 @@ module.exports = {
     protocol: 'http://',
     baseuri: '/api'
   },
+  facebook_app_id: '',
   plausible: {
     domain: 'streetmix.net'
   },
+  pinterest: '',
   db: {
     sequelize: {
       logging: false,

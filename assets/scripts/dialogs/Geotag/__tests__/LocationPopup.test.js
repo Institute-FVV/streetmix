@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderWithIntl } from '../../../../../test/helpers/render'
 import LocationPopup from '../LocationPopup'
 
@@ -12,26 +13,23 @@ jest.mock('react-leaflet', () => {
 
 describe('LocationPopup', () => {
   it('does not render if a location is not provided', () => {
-    const wrapper = renderWithIntl(<LocationPopup />)
-
+    const { container } = renderWithIntl(<LocationPopup />)
     // react-leaflet's <Popup /> should not exist
-    expect(wrapper.asFragment().firstChild).toBe(null)
+    expect(container.firstChild).toBe(null)
   })
 
   it('renders an address label', () => {
-    const wrapper = renderWithIntl(
-      <LocationPopup position={{ lat: 0, lng: 0 }} label="foo" />
-    )
+    renderWithIntl(<LocationPopup position={{ lat: 0, lng: 0 }} label="foo" />)
 
     // Expect the text to be visible
-    expect(wrapper.getByText('foo')).not.toBe(null)
+    expect(screen.getByText('foo')).not.toBe(null)
   })
 
   it('renders a confirm button if location is editable', () => {
     const handleConfirm = jest.fn()
     const handleClear = jest.fn()
 
-    const wrapper = renderWithIntl(
+    renderWithIntl(
       <LocationPopup
         position={{ lat: 0, lng: 0 }}
         isEditable={true}
@@ -41,7 +39,7 @@ describe('LocationPopup', () => {
 
     // Button should exist and has the correct label
     // When button is clicked, `handleConfirm` should be called
-    fireEvent.click(wrapper.getByText('Confirm location'))
+    userEvent.click(screen.getByText('Confirm location'))
     expect(handleConfirm).toHaveBeenCalled()
     expect(handleClear).toHaveBeenCalledTimes(0)
   })
@@ -50,7 +48,7 @@ describe('LocationPopup', () => {
     const handleConfirm = jest.fn()
     const handleClear = jest.fn()
 
-    const wrapper = renderWithIntl(
+    renderWithIntl(
       <LocationPopup
         position={{ lat: 0, lng: 0 }}
         isEditable={true}
@@ -58,10 +56,9 @@ describe('LocationPopup', () => {
         handleClear={handleClear}
       />
     )
-
     // Button should exist and has the correct label
     // When button is clicked, `handleClear` should be called
-    fireEvent.click(wrapper.getByText('Clear location'))
+    userEvent.click(screen.getByText('Clear location'))
     expect(handleClear).toHaveBeenCalled()
     expect(handleConfirm).toHaveBeenCalledTimes(0)
   })

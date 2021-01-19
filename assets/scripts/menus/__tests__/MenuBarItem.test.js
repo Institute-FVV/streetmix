@@ -1,57 +1,56 @@
 /* eslint-env jest */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderWithIntl } from '../../../../test/helpers/render'
 import MenuBarItem from '../MenuBarItem'
 
 describe('MenuBarItem', () => {
   it('renders', () => {
-    const wrapper = renderWithIntl(
+    const { asFragment } = renderWithIntl(
       <MenuBarItem label="foo" translation="foo" />
     )
 
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('handles the click on a button', () => {
     const handleClick = jest.fn()
-    const wrapper = renderWithIntl(
-      <MenuBarItem onClick={handleClick}>label</MenuBarItem>
-    )
+    renderWithIntl(<MenuBarItem onClick={handleClick}>label</MenuBarItem>)
 
-    fireEvent.click(wrapper.getByRole('button'))
+    userEvent.click(screen.getByRole('button'))
 
     expect(handleClick).toBeCalled()
   })
 
   it('handles the click on a link', () => {
     const handleClick = jest.fn()
-    const wrapper = renderWithIntl(
+    renderWithIntl(
       <MenuBarItem url="#" onClick={handleClick}>
         label
       </MenuBarItem>
     )
 
     // Expect an anchor tag element to be present, then click it
-    fireEvent.click(wrapper.getByRole('link'))
+    userEvent.click(screen.getByRole('link'))
 
     expect(handleClick).toBeCalled()
   })
 
   it('renders children instead of default label if provided', () => {
-    const wrapper = renderWithIntl(
+    renderWithIntl(
       <MenuBarItem>
         <span data-testid="foo">bar</span>
       </MenuBarItem>
     )
 
-    expect(wrapper.getByTestId('foo')).toHaveTextContent('bar')
-    expect(wrapper.getByText('bar')).toBeInTheDocument()
+    expect(screen.getByTestId('foo')).toHaveTextContent('bar')
+    expect(screen.getByText('bar')).toBeInTheDocument()
   })
 
   it('passes unhandled props to child elements', () => {
-    const wrapper = renderWithIntl(<MenuBarItem foo="bar">child</MenuBarItem>)
+    renderWithIntl(<MenuBarItem foo="bar">child</MenuBarItem>)
 
-    expect(wrapper.getByText('child')).toHaveAttribute('foo', 'bar')
+    expect(screen.getByText('child')).toHaveAttribute('foo', 'bar')
   })
 })
