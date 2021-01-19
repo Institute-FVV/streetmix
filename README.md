@@ -1,3 +1,28 @@
+# Adaption of FVV
+
+## Scope
+
+The FVV is involved in the education of future civil engineers. During their studies the students are working with Streetmix to create a drawing of a section.  
+To adapt and extend the functionalities to the local requirements of FVV we have decided to extend the powerful planning software Streetmix.
+
+## Introduced adaptation
+
+The following main adaptations have been introduced.
+
+### Dockerization
+
+The application was dockerized to provide easier management and deployment.
+
+### Added new illustration
+
+For the regionality new illustration have been introduced. These elements represent the specialities of Austrian architecture.
+
+### Added possibility to store meta data with a given street
+
+Because the students are handing in the drawn street we have created a possibility to add further metadata to the drawings. This enables the student to further elaborate on the creation.
+
+# Original Readme
+
 <p align="center">
   <a href="http://streetmix.net/">
     <img width="450" alt="Streetmix" src="https://user-images.githubusercontent.com/2553268/62242301-dc18c800-b3a8-11e9-9960-6f6cbac50234.png">
