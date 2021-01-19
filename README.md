@@ -21,6 +21,8 @@ For the regionality new illustration have been introduced. These elements repres
 
 Because the students are handing in the drawn street we have created a possibility to add further metadata to the drawings. This enables the student to further elaborate on the creation.
 
+![additionalMetadatalink](documentation/additionalMetadataLink.PNG) ![additionalFormForMetadata](documentation/storeAdditionalMetadata.PNG) ![AdminViewForMetadata](documentation/viewAdditionalMetadata.PNG)
+
 # Original Readme
 
 <p align="center">
