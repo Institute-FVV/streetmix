@@ -78,12 +78,15 @@ const csp = {
     defaultSrc: ["'self'"],
     styleSrc: [
       "'self'",
+      'http://localhost',
       "'unsafe-inline'",
       'fonts.googleapis.com',
+      'streetmix.fvv.tuwien.ac.at',
       'checkout.stripe.com'
     ],
     scriptSrc: [
       "'self'",
+      'http://localhost',
       'platform.twitter.com',
       'cdn.mxpnl.com',
       'fvv.eu.auth0.com',
@@ -92,6 +95,7 @@ const csp = {
       'downloads.mailchimp.com.s3.amazonaws.com',
       'checkout.stripe.com',
       'plausible.io',
+      'streetmix.fvv.tuwien.ac.at',
       (req, res) => "'nonce-" + res.locals.nonce.google_analytics + "'",
       (req, res) => "'nonce-" + res.locals.nonce.mixpanel + "'"
     ],
@@ -99,27 +103,33 @@ const csp = {
     childSrc: ['platform.twitter.com'],
     frameSrc: [
       "'self'",
+      'http://localhost:8000',
       'streetmix.github.io',
       'checkout.stripe.com',
+      'streetmix.fvv.tuwien.ac.at',
       'https://platform.twitter.com'
     ],
     imgSrc: [
       "'self'",
+      'http://localhost:8000',
       'data:',
       // Profile images
       'pbs.twimg.com',
       'syndication.twitter.com',
       's.gravatar.com',
+      'https://s.gravatar.com/avatar/',
       // Auth0 default profile images
       'https://i0.wp.com/cdn.auth0.com/',
       '*.basemaps.cartocdn.com',
       'https://res.cloudinary.com/',
       '*.stripe.com',
+      'streetmix.fvv.tuwien.ac.at',
       'i1.wp.com/cdn.auth0.com'
     ],
     fontSrc: ["'self'", 'fonts.gstatic.com'],
     connectSrc: [
       "'self'",
+      'http://localhost:8000',
       'api.geocode.earth',
       'syndication.twitter.com',
       'sentry.io',
@@ -127,6 +137,7 @@ const csp = {
       'plausible.io',
       'fvv.eu.auth0.com',
       'checkout.stripe.com',
+      'streetmix.fvv.tuwien.ac.at',
       'http://api.ipstack.com/',
       'https://pelias.fvv.tuwien.ac.at'
     ],

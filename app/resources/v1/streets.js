@@ -483,6 +483,7 @@ exports.put = async function (req, res) {
         })
         return
       default:
+        console.log(error)
         res.status(500).end()
     }
   } // END function - handleErrors
@@ -531,9 +532,14 @@ exports.put = async function (req, res) {
       throw new Error(ERRORS.FORBIDDEN_REQUEST)
     }
 
-    if (street.creatorId.toString() !== user.id.toString()) {
+    // only allow admin and owner to change their own street
+    if (
+      street.creatorId.toString() !== user.id.toString() &&
+      (!user.roles || !user.roles.includes('ADMIN'))
+    ) {
       throw new Error(ERRORS.FORBIDDEN_REQUEST)
     }
+
     return updateStreetData(street)
   } // END function - updateStreetWithUser
 
@@ -563,11 +569,12 @@ exports.put = async function (req, res) {
       where: { auth0_id: req.user.sub }
     })
 
-    const isOwner = user && user.id === street.creatorId
-    if (!isOwner) {
-      res.status(401).end()
-      return
-    }
+    // not required anymore because we allow not only owner to edit the document
+    // const isOwner = user && user.id === street.creatorId
+    // if (!isOwner) {
+    //  res.status(401).end()
+    // return
+    // }
 
     updateStreetWithUser(street, user)
       .then((street) => {

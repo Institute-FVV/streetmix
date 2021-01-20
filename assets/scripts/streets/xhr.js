@@ -380,12 +380,17 @@ export function unpackServerStreetData (
   }
 
   if (checkIfNeedsToBeRemixed) {
-    if (!isSignedIn() || street.creatorId !== getSignInData().userId) {
+    // allow administrators to change all streets
+    // otherwise remix street and provide copy of the street
+    if (
+      !isSignedIn() ||
+      (street.creatorId !== getSignInData().userId &&
+        !getSignInData().details.roles.includes('ADMIN'))
+    ) {
       setRemixOnFirstEdit(true)
     } else {
       setRemixOnFirstEdit(false)
     }
-
     if (updatedSchema && !getRemixOnFirstEdit()) {
       saveStreetToServer()
     }
