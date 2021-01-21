@@ -44,6 +44,7 @@ exports.post = async function (req, res) {
     extension.projectName = body.projectName
     extension.sectionStatus = body.sectionStatus
     extension.directionOfView = body.directionOfView
+    extension.allowExternalChange = body.allowExternalChange
     extension.description = body.description
   }
 
@@ -206,6 +207,7 @@ exports.put = async function (req, res) {
     extension.sectionStatus = body.sectionStatus || extension.sectionStatus
     extension.directionOfView =
       body.directionOfView || extension.directionOfView
+    extension.allowExternalChange = body.allowExternalChange
     extension.description = body.description || extension.description
 
     if (body.streetId) {

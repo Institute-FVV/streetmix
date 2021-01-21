@@ -14,7 +14,7 @@
       "share": "Teilen",
       "store": "",
       "upgrade": "",
-      "metadata": "Metadata",
+      "metadata": "Metadaten",
       "admin": "Admin"
     },
     "help": {
@@ -263,6 +263,8 @@
       "heading": "Zusätzliche Informationen betreffend Ihres Projekts",
       "heading-submitted": "Speichern der zusätzlichen Metainformationen",
       "description": "Bitte fügen Sie folgende Metadaten zu Ihrem Projekt hinzu",
+      "description-label": "Zusätzliche nützliche Informationen zum Projekt",
+      "allowExternalChange-label": "Erlaube Editierung der Strasse durch Externe",
       "name-label": "Vollständiger Name",
       "matriculationNumber-label": "Matrikelnummer",
       "projectName-label": "Projektname",

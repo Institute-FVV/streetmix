@@ -43,7 +43,15 @@
     "brt-lane": "Bus rapid transit lane",
     "temporary-barrier": "Temporary barrier",
     "inception-train": "“Inception” train",
-    "magic-carpet": "Magic carpet"
+    "magic-carpet": "Magic carpet",
+    "cape-stop": "Cape-stop",
+    "loading-lane": "Loading-lane",
+    "subway-shelter": "Subway shelter",
+    "waste": "Waste",
+    "trolley-bus-lane": "Trolley-bus lane",
+    "shared-space": "Shared space",
+    "pedestrian-zone": "Pedestrian zone",
+    "other": "Other"
   },
   "descriptions": {
     "wayfinding-sign": {

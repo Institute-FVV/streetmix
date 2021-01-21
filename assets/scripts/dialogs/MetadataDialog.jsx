@@ -25,6 +25,7 @@ export default class MetadataDialog extends React.Component {
       projectName: '',
       sectionStatus: '',
       directionOfView: '',
+      allowExternalChange: false,
       description: '',
 
       submitting: false,
@@ -35,6 +36,7 @@ export default class MetadataDialog extends React.Component {
     this.matriculationNumberInputEl = React.createRef()
     this.projectNamenInputEl = React.createRef()
     this.streetSectionSInputEl = React.createRef()
+    this.allowExternalChangeInputEl = React.createRef()
     this.directionOfViewInputEl = React.createRef()
     this.descriptionInputEl = React.createRef()
 
@@ -91,6 +93,7 @@ export default class MetadataDialog extends React.Component {
         projectName: streetExtension.projectName,
         sectionStatus: streetExtension.sectionStatus.split('T')[0],
         directionOfView: streetExtension.directionOfView,
+        allowExternalChange: streetExtension.allowExternalChange,
         description: streetExtension.description
       })
     }
@@ -119,15 +122,14 @@ export default class MetadataDialog extends React.Component {
     return response.data
   }
 
-  goStoreData = (event) => {
-    const receivedData = event.state
-
+  goStoreData = () => {
     const streetExtensionData = {
       streetId: this.state.streetId,
-      projectName: receivedData.projectName,
-      directionOfView: receivedData.directionOfView,
-      sectionStatus: receivedData.sectionStatus,
-      description: receivedData.description
+      projectName: this.state.projectName,
+      directionOfView: this.state.directionOfView,
+      sectionStatus: this.state.sectionStatus,
+      allowExternalChange: this.state.allowExternalChange,
+      description: this.state.description
     }
 
     if (this.state.streetExtensionId) {
@@ -144,12 +146,11 @@ export default class MetadataDialog extends React.Component {
 
     const userExtensionData = {
       userId: this.state.userId,
-      fullName: receivedData.fullName,
-      matriculationNumber: receivedData.matriculationNumber
+      fullName: this.state.fullName,
+      matriculationNumber: this.state.matriculationNumber
     }
 
     if (this.state.userExtensionId) {
-      console.log(this.state)
       userExtensionData.userId = this.state.userId
       this.fetch(
         this.state.userExtensionId,
@@ -183,7 +184,12 @@ export default class MetadataDialog extends React.Component {
   handleChange = (event) => {
     const target = event.target
     const name = target.name
-    const value = target.value
+    let value = target.value
+
+    // implement switch of checkboxes
+    if (target.type === 'checkbox') {
+      value = !(value === 'true')
+    }
 
     this.setState({
       [name]: value
@@ -197,7 +203,7 @@ export default class MetadataDialog extends React.Component {
       submitting: true
     })
 
-    this.goStoreData(this)
+    this.goStoreData()
   }
 
   renderErrorMessage = () => {
@@ -414,6 +420,26 @@ export default class MetadataDialog extends React.Component {
                   <option value="270 ">West</option>
                   <option value="315">West-north</option>
                 </select>
+
+                <label
+                  htmlFor="metadata-allowExternalChange-input"
+                  className="metadata-label"
+                >
+                  <FormattedMessage
+                    id="dialogs.metadata.allowExternalChange-label"
+                    defaultMessage="Allow external change"
+                  />
+                </label>
+
+                <input
+                  type="checkbox"
+                  id="metadata-allowExternalChange-input"
+                  ref={this.allowExternalChangeInputEl}
+                  value={this.state.allowExternalChange}
+                  checked={this.state.allowExternalChange}
+                  name="allowExternalChange"
+                  onChange={this.handleChange}
+                />
 
                 <label
                   htmlFor="metadata-description-input"

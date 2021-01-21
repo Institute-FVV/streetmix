@@ -373,28 +373,42 @@ export function unpackServerStreetData (
     store.dispatch(resetUndoStack())
   }
 
+  let streetId = 0
   if (id) {
+    streetId = id
     setStreetId(id, namespacedId)
   } else {
+    streetId = transmission.id
     setStreetId(transmission.id, transmission.namespacedId)
   }
 
-  if (checkIfNeedsToBeRemixed) {
-    // allow administrators to change all streets
-    // otherwise remix street and provide copy of the street
-    if (
-      !isSignedIn() ||
-      (street.creatorId !== getSignInData().userId &&
-        !getSignInData().details.roles.includes('ADMIN'))
-    ) {
-      setRemixOnFirstEdit(true)
-    } else {
-      setRemixOnFirstEdit(false)
-    }
-    if (updatedSchema && !getRemixOnFirstEdit()) {
-      saveStreetToServer()
-    }
-  }
+  window
+    .fetch(API_URL + 'v1/streetExtension/' + streetId)
+    .then((response) => {
+      if (!response.ok) {
+        throw response
+      }
+      return response.json()
+    })
+    .then((data) => {
+      if (checkIfNeedsToBeRemixed) {
+        // allow administrators to change all streets
+        // otherwise remix street and provide copy of the street
+        if (
+          !isSignedIn() ||
+          (street.creatorId !== getSignInData().userId &&
+            !getSignInData().details.roles.includes('ADMIN') &&
+            !data.allowExternalChange)
+        ) {
+          setRemixOnFirstEdit(true)
+        } else {
+          setRemixOnFirstEdit(false)
+        }
+        if (updatedSchema && !getRemixOnFirstEdit()) {
+          saveStreetToServer()
+        }
+      }
+    })
 }
 
 export function packServerStreetData () {

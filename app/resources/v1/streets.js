@@ -3,7 +3,7 @@ const { v1: uuidv1 } = require('uuid')
 const { isArray } = require('lodash')
 const { ERRORS, asStreetJson } = require('../../../lib/util')
 const logger = require('../../../lib/logger.js')()
-const { User, Street, Sequence } = require('../../db/models')
+const { User, Street, StreetExtension, Sequence } = require('../../db/models')
 
 exports.post = async function (req, res) {
   let body
@@ -532,9 +532,17 @@ exports.put = async function (req, res) {
       throw new Error(ERRORS.FORBIDDEN_REQUEST)
     }
 
-    // only allow admin and owner to change their own street
+    // check if street is allowed to be edited by external people
+    const streetExtension = await StreetExtension.findOne({
+      where: { street_id: street.id }
+    })
+
+    // only allow two cases that streets can be edited by external people
+    // there are admin users
+    // the owner has enabled the feature
     if (
       street.creatorId.toString() !== user.id.toString() &&
+      streetExtension.allowExternalChange !== true &&
       (!user.roles || !user.roles.includes('ADMIN'))
     ) {
       throw new Error(ERRORS.FORBIDDEN_REQUEST)

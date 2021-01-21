@@ -263,6 +263,8 @@
       "heading": "Adding additional information regarding your project",
       "heading-submitted": "Saving of additional metadata.",
       "description": "Please add the following metadata to your work",
+      "description-label": "Provide any additional helpful information for your submission",
+      "allowExternalChange-label": "Allow external change of the street",
       "name-label": "Full name",
       "matriculationNumber-label": "Matriculation number",
       "projectName-label": "Project name",

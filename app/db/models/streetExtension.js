@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       field: 'direction_of_view'
     },
+    allowExternalChange: {
+      type: DataTypes.BOOLEAN,
+      field: 'allow_external_change'
+    },
     description: {
       type: DataTypes.TEXT
     },

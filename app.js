@@ -122,6 +122,8 @@ const csp = {
       'https://i0.wp.com/cdn.auth0.com/',
       '*.basemaps.cartocdn.com',
       'https://res.cloudinary.com/',
+      'i2.wp.com',
+      's.gravatar.com',
       '*.stripe.com',
       'streetmix.fvv.tuwien.ac.at',
       'i1.wp.com/cdn.auth0.com'

@@ -86,6 +86,7 @@ export default class AdminDialog extends React.Component {
       result.streetProjectName = streetExtension.projectName || ''
       result.streetSectionStatus = streetExtension.sectionStatus || ''
       result.streetDirectionOfView = streetExtension.directionOfView || ''
+      result.allowExternalChange = streetExtension.allowExternalChange
       result.streetDescription = streetExtension.description || ''
 
       // street data
@@ -182,6 +183,10 @@ export default class AdminDialog extends React.Component {
                     {
                       title: 'Street direction of view',
                       field: 'streetDirectionOfView'
+                    },
+                    {
+                      title: 'Allow external change',
+                      field: 'allowExternalChange'
                     },
                     { title: 'Street description', field: 'streetDescription' },
                     { title: 'Street creator', field: 'streetCreator' },

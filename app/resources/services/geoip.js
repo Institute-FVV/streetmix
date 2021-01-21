@@ -4,7 +4,7 @@ const chalk = require('chalk')
 const logger = require('../../../lib/logger.js')()
 const util = require('../../../lib/util.js')
 
-const IP_GEOLOCATION_TIMEOUT = 500
+const IP_GEOLOCATION_TIMEOUT = 1000
 
 exports.get = function (req, res) {
   // If API key environment variable has not been provided, return an error.
@@ -57,6 +57,7 @@ exports.get = function (req, res) {
         res.status(200).json(data)
       })
       .catch(function (error) {
+        console.log(error)
         // enriched error handling
         if (error.response) {
           // Request made and server responded
@@ -70,6 +71,8 @@ exports.get = function (req, res) {
           // Something happened in setting up the request that triggered an Error
           logger.error(error.message)
         }
+
+        res.status(500).json(error)
       })
   }
 
