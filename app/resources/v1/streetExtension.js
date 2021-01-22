@@ -8,7 +8,9 @@ exports.get = async function (req, res) {
   let streetExtensionList
 
   try {
-    streetExtensionList = await StreetExtension.findAll()
+    streetExtensionList = await StreetExtension.findAll({
+      order: [['updated_at', 'DESC']]
+    })
   } catch (err) {
     logger.error(err)
     res.status(500).json({ status: 500, msg: 'Could load extension data.' })
