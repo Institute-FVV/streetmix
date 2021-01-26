@@ -85,7 +85,9 @@ export default class AdminDialog extends React.Component {
       result.streetId = streetExtension.streetId || ''
       result.streetProjectName = streetExtension.projectName || ''
       result.streetSectionStatus = streetExtension.sectionStatus || ''
+      result.streetSectionStatus = streetExtension.sectionStatus.split('T')[0]
       result.streetDirectionOfView = streetExtension.directionOfView || ''
+      result.streetDirectionOfView = result.streetDirectionOfView + '°'
       result.allowExternalChange = streetExtension.allowExternalChange
       result.streetDescription = streetExtension.description || ''
 
@@ -95,6 +97,7 @@ export default class AdminDialog extends React.Component {
       result.streetChangedAt = streetData.clientUpdatedAt || ''
       result.streetCreator = streetData.creator.id || ''
       result.streetDataWidth = streetData.data.street.width || ''
+      result.url = window.location.origin + '/' + streetData.creator.id + '/' + streetData.namespacedId
 
       // add empty object because some streets do not have to have these information, but materialtable requires it
       if (!streetData.data.street.location) {
@@ -228,6 +231,12 @@ export default class AdminDialog extends React.Component {
                     {
                       title: 'User matriculation number',
                       field: 'userMatriculationNumber'
+                    },
+                    {
+                      title: 'Street url',
+                      field: 'url',
+                      // eslint-disable-next-line react/jsx-no-target-blank
+                      render: rowData => <a target="_blank" href={rowData.url}> {rowData.url} </a>
                     }
                   ]}
                   data={this.state.data}
@@ -237,8 +246,7 @@ export default class AdminDialog extends React.Component {
                     exportAllData: true,
                     filtering: true,
                     search: false,
-                    pageSize: 5,
-                    pageSizeOptions: [5, 20, 50, 100, 1000]
+                    pageSize: 5
                   }}
                 />
               ) : !this.state.isLoading ? (

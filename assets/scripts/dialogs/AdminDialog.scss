@@ -1,18 +1,16 @@
 @import "../../styles/variables.scss";
 
 .dialog-box {
-  margin: 50px;
+  margin: 10px;
 }
 
 .admin-dialog-content {
   overflow-x: hidden;
   overflow-y: scroll;
-  max-height: 800px;
 }
 
 .admin-dialog {
-  width: 1400px;
-  min-height: 400px;
+  min-height: 95vh;
 }
 
 .admin-loading {
