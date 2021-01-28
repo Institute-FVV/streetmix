@@ -92,40 +92,35 @@ export default class AdminDialog extends React.Component {
       result.streetDescription = streetExtension.description || ''
 
       // street data
-      const streetData = await this.fetch('streets', result.streetId)
-      result.streetName = streetData.name || ''
-      result.streetChangedAt = streetData.clientUpdatedAt || ''
-      result.streetCreator = streetData.creator.id || ''
-      result.streetDataWidth = streetData.data.street.width || ''
-      result.url = window.location.origin + '/' + streetData.creator.id + '/' + streetData.namespacedId
+      result.streetName = streetExtension.street.name || ''
+      result.streetChangedAt = streetExtension.street.clientUpdatedAt || ''
+      result.streetCreator = streetExtension.street.creator.id || ''
+      result.streetDataWidth = streetExtension.street.data.street.width || ''
+      result.url = window.location.origin + '/' + streetExtension.street.creator.id + '/' + streetExtension.street.namespacedId
 
       // add empty object because some streets do not have to have these information, but materialtable requires it
-      if (!streetData.data.street.location) {
-        streetData.data.street.location = {}
-        streetData.data.street.location.latlng = {}
-        streetData.data.street.location.hierarchy = {}
+      if (!streetExtension.street.data.street.location) {
+        streetExtension.street.data.street.location = {}
+        streetExtension.street.data.street.location.latlng = {}
+        streetExtension.street.data.street.location.hierarchy = {}
       }
 
       result.streetDataLocationLat =
-        streetData.data.street.location.latlng.lat || ''
+        streetExtension.street.data.street.location.latlng.lat || ''
       result.streetDataLocationLng =
-        streetData.data.street.location.latlng.lng || ''
+        streetExtension.street.data.street.location.latlng.lng || ''
       result.streetDataLocationLabel =
-        streetData.data.street.location.label || ''
+        streetExtension.street.data.street.location.label || ''
       result.streetDataLocationCountry =
-        streetData.data.street.location.hierarchy.country || ''
+        streetExtension.street.data.street.location.hierarchy.country || ''
       result.streetDataLocationRegion =
-        streetData.data.street.location.hierarchy.region || ''
+        streetExtension.street.data.street.location.hierarchy.region || ''
       result.streetDataLocationLocality =
-        streetData.data.street.location.hierarchy.locality || ''
+        streetExtension.street.data.street.location.hierarchy.locality || ''
       result.streetDataLocationNeighbourhood =
-        streetData.data.street.location.hierarchy.neighbourhood || ''
+        streetExtension.street.data.street.location.hierarchy.neighbourhood || ''
       result.streetDataLocationStreet =
-        streetData.data.street.location.hierarchy.street || ''
-
-      // user data
-      const userData = await this.fetch('users', result.streetCreator)
-      result.userRoles = userData.roles.join(', ')
+        streetExtension.street.data.street.location.hierarchy.street || ''
 
       // user extension data
       const userExtension = await this.fetch(
@@ -134,6 +129,7 @@ export default class AdminDialog extends React.Component {
       )
       result.userFullName = userExtension.fullName || ''
       result.userMatriculationNumber = userExtension.matriculationNumber || ''
+      result.userRoles = userExtension.User.roles.join(', ')
 
       // add result to final array
       data.push(result)

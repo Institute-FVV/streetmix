@@ -12,10 +12,11 @@
       "my-streets": "Meine Straßen",
       "settings": "Einstellungen",
       "share": "Teilen",
-      "store": "",
-      "upgrade": "",
+      "store": "Shop",
+      "upgrade": "Upgrade",
       "metadata": "Metadaten",
-      "admin": "Admin"
+      "admin": "Admin",
+      "adminMap": "AdminMap"
     },
     "help": {
       "keyboard-label": "Tastatur-Shortcuts:",
@@ -30,7 +31,7 @@
       "sign-in-twitter-link": "Anmelden",
       "sign-in-link": "{signInLink} für schönere Links zu deinen Straßen und deiner persönlichen Straßen-Galerie",
       "link": "Diesen Link zum Teilen kopieren und einfügen",
-      "copy-to-clipboard": "",
+      "copy-to-clipboard": "In die Zwischenablage kopieren",
       "twitter": "Über Twitter teilen",
       "facebook": "Über Facebook teilen",
       "print": "Drucken...",
@@ -279,10 +280,17 @@
       "tos-link-label": "Geschäftsbedingungen",
       "privacy-link-label": "Datenschutzrichtlinie"
     },
+    "metadata-missing": {
+      "title": "Metadata missing for your project",
+      "description": "So far no meta data has been provided, please do not forget to fill out the metadata for your project using the metadata button on the top right side. You can update the provided data at any time."
+    },
     "admin": {
       "heading": "Gespeicherte Strassen inklusive Metainformationen",
       "noDataAvailable": "Leider können zur Zeit keine Daten angezeigt werden, bitte kontaktieren Sie den lokalen Support.",
-      "loading": "Data werden geladen..."
+      "loading": "Daten werden geladen..."
+    },
+    "adminMap": {
+      "loading": "Daten werden geladen..."
     },
     "whatsnew": {
       "heading": "Was gibt es Neues bei Streetmix?"
@@ -292,7 +300,7 @@
     }
   },
   "tools": {
-    "tooltip": "",
+    "tooltip": "Tooltip",
     "environment": {
       "heading": ""
     }
@@ -353,10 +361,10 @@
     "decrease-width": "Breite verkleinern (Shift gedrückt halten für eine höhere Genauigkeit)",
     "add-floor": "Stockwerk hinzufügen",
     "remove-floor": "Stockwerk entfernen",
-    "scroll-street-left": "",
-    "scroll-street-right": "",
-    "scroll-left": "",
-    "scroll-right": ""
+    "scroll-street-left": "Strasse nach links scrollen",
+    "scroll-street-right": "Strasse nach rechts scrollen",
+    "scroll-left": "Links scrollen",
+    "scroll-right": "Rechts scrollen"
   },
   "street": {
     "default-name": "Unbenannte Straße",

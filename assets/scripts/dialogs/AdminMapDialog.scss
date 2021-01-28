@@ -1,0 +1,188 @@
+@import "../../styles/variables.scss";
+
+$adminmap-dialog-background-color: $off-white;
+$adminmap-error-banner-margin: 100px;
+
+.adminmap-dialog {
+  width: 90vw;
+  height: 80vh;
+  max-height: 960px; /* Prevent outside of map being shown when default view on large monitors */
+  max-width: 1400px;
+}
+
+.adminmap-dialog .close {
+  z-index: $z-index-10;
+  text-shadow: 0 1px white;
+}
+
+.adminmap-error-banner {
+  /* Very similar to the notification bar banner */
+  padding: 0.75em 2.5em;
+  text-align: center;
+  background-color: $alert-background;
+  border-bottom: $alert-border;
+  border-bottom-left-radius: $border-radius-medium;
+  border-bottom-right-radius: $border-radius-medium;
+
+  /* Place error banner above map */
+  position: absolute;
+  top: 0;
+
+  /* Place above leaflet tiles, which have a z-index of 400 */
+  z-index: 500;
+
+  /* Constrain width of banner to allow for zoom widget and close
+     dialog button */
+  width: calc(100% - #{$adminmap-error-banner-margin * 2});
+  margin: 0 $adminmap-error-banner-margin;
+}
+
+.adminmap-input-container {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  z-index: $z-index-10;
+  pointer-events: none;
+}
+
+.adminmap-input-form {
+  position: relative;
+  width: 30vw;
+  min-width: 220px;
+  margin: 0 auto;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.85);
+  pointer-events: auto;
+}
+
+.adminmap-input-clear {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.adminmap-input {
+  width: 100%;
+  padding: 3px 24px 3px 6px !important;
+  border: 1px solid $form-element-border;
+  resize: none;
+  font-size: inherit;
+  line-height: 2;
+  background-color: $form-element-background;
+}
+
+.adminmap-suggestions-container {
+  border: 1px solid $form-element-border;
+  border-top: 0;
+  background-color: white;
+  font-family: $font-family;
+  list-style-type: none;
+}
+
+.adminmap-suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.adminmap-suggestion {
+  padding: 6px;
+  cursor: pointer;
+}
+
+.adminmap-suggestion[aria-selected="true"] {
+  background-color: $form-element-background;
+}
+
+/* Leaflet overrides */
+
+.leaflet-container {
+  background-color: $adminmap-dialog-background-color;
+  height: 100%;
+  font-family: $font-family;
+  font-size: inherit;
+}
+
+.leaflet-container .leaflet-control-attribution {
+  background: transparent;
+  margin: 0.25em;
+  text-shadow: 0 1px white;
+  pointer-events: none;
+  user-select: none;
+}
+
+.leaflet-container .leaflet-control-attribution a {
+  pointer-events: auto;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: $border-radius;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-tip-container {
+  bottom: -24px;
+  height: 24px;
+}
+
+.leaflet-popup-tip {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 50%;
+  bottom: 12px;
+  margin-left: -12px;
+  transform: rotateZ(45deg);
+  background: $info-bubble-background;
+  box-shadow: none;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  padding: 1em;
+  text-align: center;
+}
+
+.leaflet-control-zoom {
+  padding: 2px;
+  background-color: white;
+}
+
+.leaflet-left .leaflet-control {
+  margin-top: 12px;
+}
+
+.leaflet-top .leaflet-control {
+  margin-top: 12px;
+}
+
+.leaflet-touch .leaflet-bar,
+.leaflet-bar {
+  box-shadow: $medium-box-shadow;
+  border: 0;
+}
+
+.leaflet-touch .leaflet-control-zoom-in,
+.leaflet-touch .leaflet-control-zoom-out {
+  font-size: inherit;
+}
+
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  border: 0;
+  font-size: inherit;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  user-select: none;
+}
+
+.leaflet-bar a:first-child,
+.leaflet-touch .leaflet-bar a:first-child {
+  border-bottom: 1px solid #e7e7e7;
+}

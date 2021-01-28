@@ -9,7 +9,10 @@ exports.get = async function (req, res) {
 
   try {
     streetExtensionList = await StreetExtension.findAll({
-      order: [['updated_at', 'DESC']]
+      order: [['updated_at', 'DESC']],
+      include: [
+        { model: Street, attributes: ['id', 'namespaced_id', 'status', 'name', 'creator_id', 'data', 'created_at', 'updated_at', 'client_updated_at', 'creator_ip', 'original_street_id'] }
+      ]
     })
   } catch (err) {
     logger.error(err)
@@ -110,7 +113,10 @@ exports.find = async function (req, res) {
 
   const findExtensionWithStreetId = async function () {
     return StreetExtension.findOne({
-      where: { street_id: streetId }
+      where: { street_id: streetId },
+      include: [
+        { model: Street, attributes: ['id', 'namespaced_id', 'status', 'name', 'creator_id', 'data', 'created_at', 'updated_at', 'client_updated_at', 'creator_ip', 'original_street_id'] }
+      ]
     })
   }
 

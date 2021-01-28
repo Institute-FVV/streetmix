@@ -8,7 +8,11 @@ exports.get = async function (req, res) {
   let userExtensionList
 
   try {
-    userExtensionList = await UserExtension.findAll()
+    userExtensionList = await UserExtension.findAll({
+      include: [
+        { model: User, attributes: ['id', 'twitter_id', 'twitter_credentials', 'auth0_id', 'email', 'roles', 'profile_image_url', 'data', 'created_at', 'updated_at', 'last_street_id', 'flags'] }
+      ]
+    })
   } catch (err) {
     logger.error(err)
     res.status(500).json({ status: 500, msg: 'Could load extension data.' })
@@ -101,7 +105,10 @@ exports.find = async function (req, res) {
 
   const findExtensionWithUserId = async function () {
     return UserExtension.findOne({
-      where: { user_id: userId }
+      where: { user_id: userId },
+      include: [
+        { model: User, attributes: ['id', 'twitter_id', 'twitter_credentials', 'auth0_id', 'email', 'roles', 'profile_image_url', 'data', 'created_at', 'updated_at', 'last_street_id', 'flags'] }
+      ]
     })
   }
 

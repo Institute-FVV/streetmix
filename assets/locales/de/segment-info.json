@@ -17,7 +17,7 @@
     "bollard": "Poller",
     "dome": "Leitschwelle",
     "jersey-barrier": "",
-    "scooter": "Electro Scooter",
+    "scooter": "E-Scooter",
     "scooter-drop-zone": "E-Scooter Dropoff",
     "bike-lane": "Radstreifen",
     "parking-lane": "Parkstreifen",
@@ -39,20 +39,23 @@
     "streetcar": "Straßenbahn",
     "light-rail": "Stadtbahn",
     "transit-shelter": "Wartehäuschen",
-    "brt-station": "",
+    "brt-station": "Schnellbus Station",
     "brt-lane": "Schnellbus Linie",
     "temporary-barrier": "Temporäre Barriere",
     "inception-train": "Bahn aus dem Film \"Inception\"",
     "magic-carpet": "Fliegender Teppich",
-    "cape-stop": "Cape-stop",
-    "bike-road": "Fahrradstrasse",
+    "cape-stop": "Kaphaltestelle",
+    "bike-road": "Fahrradstraße",
     "loading-lane": "Ladezone",
-    "subway-shelter": "Metro Station",
+    "subway-shelter": "U-Bahn Station",
     "waste": "Müllcontainer",
     "trolley-bus-lane": "O-Bus Linie",
-    "shared-space": "Shared Space",
-    "pedestrian-zone": "Füssgänger Zone",
-    "other": "Anderes"
+    "shared-space": "Begegnungszone",
+    "pedestrian-zone": "Fußgänger Zone",
+    "other": "Anderes",
+    "takeaway": "Würstelstand",
+    "sidewalk-sloped": "Gehsteigabsenkung",
+    "statue": "Statue"
   },
   "descriptions": {
     "wayfinding-sign": {
@@ -106,8 +109,11 @@
     "wide": {
       "name": "Gebäude"
     },
+    "narrowSubway": {
+      "name": "Gebäude mit U-Bahn Station"
+    },
     "arcade": {
-      "name": ""
+      "name": "Arcade-Gebäude"
     }
   },
   "variant-icons": {

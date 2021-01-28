@@ -9,6 +9,7 @@ const POPUP_OFFSET = [0, -30]
 const LocationPopup = (props) => {
   const {
     label,
+    url,
     position,
     isEditable = false,
     isClearable = false,
@@ -26,7 +27,14 @@ const LocationPopup = (props) => {
       closeButton={false}
       closeOnClick={false}
     >
-      <div className="geotag-location-label">{label}</div>
+      <div className="geotag-location-label">
+        {label} <br />
+
+        { /* display url to street of the location */}
+        {url && (
+          <a target="_blank" href={url}>{url}</a>
+        )}
+      </div>
       {isEditable &&
         (isClearable ? (
           <div>
@@ -57,6 +65,7 @@ LocationPopup.propTypes = {
     lng: PropTypes.number
   }),
   label: PropTypes.string,
+  url: PropTypes.string,
   isEditable: PropTypes.bool,
   isClearable: PropTypes.bool,
   handleConfirm: PropTypes.func,

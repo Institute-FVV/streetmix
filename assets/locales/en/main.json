@@ -279,10 +279,17 @@
       "tos-link-label": "terms of service",
       "privacy-link-label": "privacy policy"
     },
+    "metadata-missing": {
+      "title": "Metadata missing for your project",
+      "description": "So far no meta data has been provided, please do not forget to fill out the metadata for your project using the metadata button on the top right side. You can update the provided data at any time."
+    },
     "admin": {
       "heading": "Saved streets with metadata within Streetmix",
       "noDataAvailable": "Sadly there are currently no data available, please contact the local support.",
-      "loading": "Datas are being loaded..."
+      "loading": "Data is being loaded..."
+    },
+    "adminMap": {
+      "loading": "Data is being loaded..."
     },
     "whatsnew": {
       "heading": "What’s new in Streetmix?"

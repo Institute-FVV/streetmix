@@ -13,6 +13,7 @@ import './MenuBar.scss'
 import { API_URL } from '../app/config'
 import USER_ROLES from '../../../app/data/user_roles'
 const axios = require('axios')
+let missingMetadataShowed = false
 
 MenuBar.propTypes = {
   onMenuDropdownClick: PropTypes.func.isRequired
@@ -110,9 +111,11 @@ function MenuBar (props) {
     return response.data
   }
 
+  // show missing metadata dialog if user is logged in, metadata is missing and user has not received the notification before
   if (streetId && user) {
     getch(streetId, 'GET', 'streetExtension').then((response) => {
-      if (!response) {
+      if (!response && !missingMetadataShowed) {
+        missingMetadataShowed = true
         dispatch(showDialog('METADATA_MISSING'))
       }
     })
@@ -139,12 +142,21 @@ function MenuBar (props) {
         </li>
         {/* Admin overview */}
         {isAdmin && (
-          <MenuBarItem
-            label="Admin"
-            translation="menu.item.admin"
-            url="#"
-            onClick={() => dispatch(showDialog('ADMIN'))}
-          />
+          <>
+            <MenuBarItem
+              label="Admin"
+              translation="menu.item.admin"
+              url="#"
+              onClick={() => dispatch(showDialog('ADMIN'))}
+            />
+
+            <MenuBarItem
+              label="AdminMap"
+              translation="menu.item.adminMap"
+              url="#"
+              onClick={() => dispatch(showDialog('ADMIN_MAP'))}
+            />
+          </>
         )}
         <MenuBarItem
           label="Help"

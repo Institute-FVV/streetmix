@@ -51,7 +51,8 @@
     "trolley-bus-lane": "Trolley-bus lane",
     "shared-space": "Shared space",
     "pedestrian-zone": "Pedestrian zone",
-    "other": "Other"
+    "other": "Other",
+    "statue": "Statue"
   },
   "descriptions": {
     "wayfinding-sign": {
@@ -101,6 +102,9 @@
     },
     "narrow": {
       "name": "Building"
+    },
+    "narrowSubway": {
+      "name": "Building with Metro Station"
     },
     "wide": {
       "name": "Building"
