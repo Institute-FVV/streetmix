@@ -79,7 +79,7 @@ export default class AdminMapDialog extends React.Component {
           streets.forEach(street => {
             markerLocations.push(street.Street.data.street.location.latlng)
             labels.push(street.Street.data.street.location.label)
-            urls.push(window.location.origin + '/' + street.Street.creatorId + '/' + street.Street.namespacedId)
+            urls.push(window.location.origin + '/' + street.Street.creator_id + '/' + street.Street.namespaced_id)
           })
 
           return {
@@ -117,10 +117,10 @@ export default class AdminMapDialog extends React.Component {
         }
       }
 
-      this.setState({ isLoading: true })
+      this.setState({ isLoading: false })
     } catch (error) {
       console.log(error)
-      this.setState({ isLoading: true })
+      this.setState({ isLoading: false })
       return ''
     }
 
@@ -144,6 +144,8 @@ export default class AdminMapDialog extends React.Component {
     const dpi = 1.0
     const tileUrl = dpi > 1 ? MAP_TILES_2X : MAP_TILES
 
+    console.log(this.state)
+    
     return (
       <Dialog>
         {(closeDialog) => (
