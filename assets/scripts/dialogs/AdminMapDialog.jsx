@@ -44,42 +44,49 @@ export default class AdminMapDialog extends React.Component {
   componentDidMount = () => {
     const that = this
 
-    this.loadData()
-      .then(function (response) {
-        if (response.mapCenter) {
-          that.setState({
-            mapCenter: response.mapCenter,
-            zoom: response.zoom,
-            markerLocations: response.markerLocations,
-            labels: response.labels,
-            urls: response.urls
-          })
-        }
-      })
+    this.loadData().then(function (response) {
+      if (response.mapCenter) {
+        that.setState({
+          mapCenter: response.mapCenter,
+          zoom: response.zoom,
+          markerLocations: response.markerLocations,
+          labels: response.labels,
+          urls: response.urls
+        })
+      }
+    })
   }
 
   loadData = async function () {
     // Determine initial map center, and what to display
     let mapCenter, zoom
-    let labels = []
-    let markerLocations = []
-    let urls = []
+    const labels = []
+    const markerLocations = []
+    const urls = []
 
     return this.fetch('', 'get', 'streetExtension')
-      .then(response => {
-        const streets = response.filter(element =>
-          element.Street.data.street.location !== null &&
-          element.Street.data.street.location.latlng !== null &&
-          element.Street.creator_id)
+      .then((response) => {
+        const streets = response.filter(
+          (element) =>
+            element.Street.data.street.location !== null &&
+            element.Street.data.street.location.latlng !== null &&
+            element.Street.creator_id
+        )
 
         if (streets.length > 0) {
           mapCenter = streets[0].Street.data.street.location.latlng
           zoom = MAP_LOCATION_ZOOM
 
-          streets.forEach(street => {
+          streets.forEach((street) => {
             markerLocations.push(street.Street.data.street.location.latlng)
             labels.push(street.Street.data.street.location.label)
-            urls.push(window.location.origin + '/' + street.Street.creator_id + '/' + street.Street.namespaced_id)
+            urls.push(
+              window.location.origin +
+                '/' +
+                street.Street.creator_id +
+                '/' +
+                street.Street.namespaced_id
+            )
           })
 
           return {
@@ -93,7 +100,7 @@ export default class AdminMapDialog extends React.Component {
           return {}
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error)
       })
   }
@@ -145,7 +152,7 @@ export default class AdminMapDialog extends React.Component {
     const tileUrl = dpi > 1 ? MAP_TILES_2X : MAP_TILES
 
     console.log(this.state)
-    
+
     return (
       <Dialog>
         {(closeDialog) => (
@@ -159,14 +166,13 @@ export default class AdminMapDialog extends React.Component {
                 useFlyTo={true}
               >
                 <TileLayer attribution={MAP_ATTRIBUTION} url={tileUrl} />
-                <ZoomControl
-                  zoomInTitle="Zoom out"
-                  zoomOutTitle="Zoom in"
-                />
+                <ZoomControl zoomInTitle="Zoom out" zoomOutTitle="Zoom in" />
 
-                {this.state.renderPopup && this.state.selectedMarker && (
+                {this.state.renderPopup && (
                   <LocationPopup
-                    position={this.state.markerLocations[this.state.selectedMarker]}
+                    position={
+                      this.state.markerLocations[this.state.selectedMarker]
+                    }
                     label={this.state.labels[this.state.selectedMarker]}
                     url={this.state.urls[this.state.selectedMarker]}
                     handleClear={(e) => {
@@ -175,14 +181,15 @@ export default class AdminMapDialog extends React.Component {
                   />
                 )}
 
-                {this.state.markerLocations.length > 0 && this.state.markerLocations.map((markerLocation, key) => (
-                  <Marker
-                    id={key}
-                    key={key}
-                    onclick={this.onMarkerClick}
-                    position={markerLocation}
-                  />
-                ))}
+                {this.state.markerLocations.length > 0 &&
+                  this.state.markerLocations.map((markerLocation, key) => (
+                    <Marker
+                      id={key}
+                      key={key}
+                      onclick={this.onMarkerClick}
+                      position={markerLocation}
+                    />
+                  ))}
               </Map>
             )}
 
