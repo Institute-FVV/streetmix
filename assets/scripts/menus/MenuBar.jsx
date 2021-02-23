@@ -138,7 +138,7 @@ function MenuBar (props) {
       <ul className="menu-bar-left">
         <li className="menu-bar-title">
           <img src={logo} alt="Streemix" className="menu-bar-logo" />
-          <h1>Streetmix - @TU-Wien</h1>
+          <h1>Streetmix - @FVV-TU-Vienna</h1>
         </li>
         {/* Admin overview */}
         {isAdmin && (
@@ -178,17 +178,23 @@ function MenuBar (props) {
                 onClick={handleClickUpgrade}
               />
             ) : (
+              /*
               <MenuBarItem
                 label="Donate"
                 translation="menu.contribute.donate"
                 url="https://opencollective.com/streetmix/"
               />
+              */
+              <></>
             )}
+
+            {/*
             <MenuBarItem
               label="Store"
               translation="menu.item.store"
               url="https://cottonbureau.com/people/streetmix"
             />
+            */}
           </>
         )}
       </ul>

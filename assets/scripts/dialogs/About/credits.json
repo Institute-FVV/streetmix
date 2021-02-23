@@ -1,4 +1,34 @@
 {
+  "fvv": [
+    {
+      "name": "Takeru Shibayama",
+      "title": "Project lead",
+      "mugshotFile": "shibayama.jpg",
+      "url": "https://www.linkedin.com/in/shibayama/",
+      "active": true      
+    },
+    {
+      "name": "Barbara Laa",
+      "title": "Art director, Illustrator",
+      "mugshotFile": "laa.jpg",
+      "url": "https://www.linkedin.com/in/barbaralaa/",
+      "active": true
+    },
+    {
+      "name": "James Levell",
+      "title": "Developer, Engineer",
+      "mugshotFile": "levell.jpg",
+      "url": "https://levell.ch",
+      "active": true
+    },
+    {
+      "name": "Ulrich Leth",
+      "title": "Expert support in traffic planning",
+      "mugshotFile": "leth.jpg",
+      "url": "https://www.linkedin.com/in/ulrich-leth-aab88541/",
+      "active": true
+    }
+  ],
   "team": [
     {
       "name": "Lou Huang",

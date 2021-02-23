@@ -30,7 +30,7 @@ function getDetails (props) {
     switch (ENV) {
       case 'development':
         return {
-          label: '@TU-Wien-DEV',
+          label: '@FVV-TU-Vienna-DEV',
           className: 'environment-label-tu-wien'
         }
       case 'staging':
@@ -50,7 +50,7 @@ function getDetails (props) {
         }
       default:
         return {
-          label: '@TU-Wien',
+          label: '@FVV-TU-Vienna',
           className: 'environment-label-tu-wien'
         }
     }

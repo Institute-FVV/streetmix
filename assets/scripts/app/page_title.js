@@ -30,7 +30,7 @@ export function updatePageTitle (street) {
 export function getPageTitle (street) {
   const streetName =
     street.name || formatMessage('street.default-name', 'Unnamed St')
-  return `${streetName} – Streetmix - @TU-Wien`
+  return `${streetName} – Streetmix - @FVV-TU-Vienna`
 }
 
 /**
@@ -40,5 +40,5 @@ export function getPageTitle (street) {
 export function getPageTitleWithAuthor (street) {
   const streetName =
     street.name || formatMessage('street.default-name', 'Unnamed St')
-  return `${streetName} (by ${street.creatorId}) – Streetmix - @TU-Wien`
+  return `${streetName} (by ${street.creatorId}) – Streetmix - @FVV-TU-Vienna`
 }

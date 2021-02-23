@@ -414,6 +414,7 @@
     "page-title": "{streetName} (by {author})"
   },
   "credits": {
+    "extension-team-heading": "This local adaptation for Austria made by",
     "core-team-heading": "Project team",
     "past-team-heading": "Past team members",
     "advisors": "Advisors",

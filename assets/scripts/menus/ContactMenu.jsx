@@ -11,6 +11,7 @@ function ContactMenu (props) {
 
   return (
     <Menu {...props}>
+      {/*
       <ExternalLink href="https://strt.mx/discord">
         <Icon icon="discord" />
         <FormattedMessage
@@ -18,13 +19,15 @@ function ContactMenu (props) {
           defaultMessage="Join Discord chat"
         />
       </ExternalLink>
-      <ExternalLink href="https://github.com/streetmix/streetmix/">
+      */}
+      <ExternalLink href="https://github.com/Institute-FVV/streetmix">
         <Icon icon="github" />
         <FormattedMessage
           id="menu.contact.github"
           defaultMessage="View source code on GitHub"
         />
       </ExternalLink>
+      {/*
       <a
         href="#"
         onClick={(e) => {
@@ -36,6 +39,7 @@ function ContactMenu (props) {
           defaultMessage="Subscribe to our newsletter"
         />
       </a>
+      */}
       {/* <ExternalLink
         href="https://forums.streetmix.net/"
       >

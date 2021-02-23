@@ -415,6 +415,7 @@
     "page-title": "{streetName} (von {author})"
   },
   "credits": {
+    "extension-team-heading": "",
     "core-team-heading": "",
     "past-team-heading": "",
     "advisors": "",

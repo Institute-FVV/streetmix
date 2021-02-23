@@ -62,6 +62,21 @@ function Credits (props) {
     <>
       <h2>
         <FormattedMessage
+          id="credits.extension-team-heading"
+          defaultMessage="This local adaptation for Austria made by"
+        />
+      </h2>
+
+      <div className="credits-team">
+        {CREDITS.fvv
+          .filter((person) => person.active)
+          .sort(alphabetizeNames)
+          .map((person) => (
+            <TeamMember {...person} key={person.name} />
+          ))}
+      </div>
+      <h2>
+        <FormattedMessage
           id="credits.core-team-heading"
           defaultMessage="Project team"
         />
@@ -159,6 +174,8 @@ function Credits (props) {
           </ul>
         </div>
       </div>
+      <h3>Disclaimer</h3>
+      <p>This tool is provided as is, and no support will be given. This tool is based on Streetmix, and terms and condition of Streetmix's developer may apply. Querying a large amount of data within a very short time, for example by automated means, is prohibited. Technische Universität Wien (TU Wien hereafter) retains the right to block the use of this geoencoding tool if such a high-intensity request is detected. TU Wien, the developers and any other person assume no responsibility for the accuracy of the data. The street cross-section represented in this programme serves for an information purpose. Should the actual street cross-section and the representation in this tool are different, the actual cross-section has precedence. In no event shall TU Wien, the developers and any other person be liable to any person for any damage or loss that may arise from the use of this geoencoding tool. Please be aware that the use of this tool will be deemed as agreeing to the terms of these conditions.</p>
     </>
   )
 }
