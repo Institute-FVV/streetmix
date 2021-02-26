@@ -7,7 +7,7 @@ import SignInButton from './SignInButton'
 import AvatarMenu from './AvatarMenu'
 import { doSignIn } from '../users/authentication'
 import { showDialog } from '../store/slices/dialogs'
-import logo from '../../images/logo_horizontal.svg'
+import logo from '../../images/logo_horizontal_fvv.svg'
 import './MenuBar.scss'
 
 import { API_URL } from '../app/config'
