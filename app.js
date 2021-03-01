@@ -81,7 +81,7 @@ const csp = {
       'http://localhost',
       "'unsafe-inline'",
       'fonts.googleapis.com',
-      'streetmix.fvv.tuwien.ac.at',
+      'streettuner.fvv.tuwien.ac.at',
       'checkout.stripe.com'
     ],
     scriptSrc: [
@@ -95,7 +95,7 @@ const csp = {
       'downloads.mailchimp.com.s3.amazonaws.com',
       'checkout.stripe.com',
       'plausible.io',
-      'streetmix.fvv.tuwien.ac.at',
+      'streettuner.fvv.tuwien.ac.at',
       (req, res) => "'nonce-" + res.locals.nonce.google_analytics + "'",
       (req, res) => "'nonce-" + res.locals.nonce.mixpanel + "'"
     ],
@@ -106,7 +106,7 @@ const csp = {
       'http://localhost:8000',
       'streetmix.github.io',
       'checkout.stripe.com',
-      'streetmix.fvv.tuwien.ac.at',
+      'streettuner.fvv.tuwien.ac.at',
       'https://platform.twitter.com'
     ],
     imgSrc: [
@@ -125,7 +125,7 @@ const csp = {
       'i2.wp.com',
       's.gravatar.com',
       '*.stripe.com',
-      'streetmix.fvv.tuwien.ac.at',
+      'streettuner.fvv.tuwien.ac.at',
       'i1.wp.com/cdn.auth0.com'
     ],
     fontSrc: ["'self'", 'fonts.gstatic.com'],
@@ -139,7 +139,7 @@ const csp = {
       'plausible.io',
       'fvv.eu.auth0.com',
       'checkout.stripe.com',
-      'streetmix.fvv.tuwien.ac.at',
+      'streettuner.fvv.tuwien.ac.at',
       'http://api.ipstack.com/',
       'https://pelias.fvv.tuwien.ac.at'
     ],
