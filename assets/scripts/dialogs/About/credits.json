@@ -1,8 +1,15 @@
 {
   "fvv": [
     {
-      "name": "Takeru Shibayama",
+      "name": "Günter Emberger",
       "title": "Project lead",
+      "mugshotFile": "emberger.jpg",
+      "url": "https://www.linkedin.com/in/shibayama/",
+      "active": true      
+    },
+    {
+      "name": "Takeru Shibayama",
+      "title": "Project manager",
       "mugshotFile": "shibayama.jpg",
       "url": "https://www.linkedin.com/in/shibayama/",
       "active": true      

@@ -30,7 +30,7 @@ export function updatePageTitle (street) {
 export function getPageTitle (street) {
   const streetName =
     street.name || formatMessage('street.default-name', 'Unnamed St')
-  return `${streetName} – Streetmix - @FVV-TU-Vienna`
+  return `${streetName} – streetTUner - TU Wien, Institut für Verkehrswissenschaften, Forschungsbereich Verkehrsplanung und Verkehrstechnik`
 }
 
 /**
@@ -40,5 +40,5 @@ export function getPageTitle (street) {
 export function getPageTitleWithAuthor (street) {
   const streetName =
     street.name || formatMessage('street.default-name', 'Unnamed St')
-  return `${streetName} (by ${street.creatorId}) – Streetmix - @FVV-TU-Vienna`
+  return `${streetName} (by ${street.creatorId}) – streetTUner - TU Wien, Institut für Verkehrswissenschaften, Forschungsbereich Verkehrsplanung und Verkehrstechnik`
 }

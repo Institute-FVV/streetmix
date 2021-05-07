@@ -21,6 +21,8 @@ export default class MetadataDialog extends React.Component {
       matriculationNumber: '',
 
       streetId: '',
+      streetname: '',
+      namespacedId: '',
       streetExtensionId: '',
       projectName: '',
       sectionStatus: '',
@@ -45,7 +47,9 @@ export default class MetadataDialog extends React.Component {
 
   componentDidMount = () => {
     const userId = Object.keys(store.getState().user.profileCache)[0]
+    const streetname = store.getState().street.name
     const streetId = store.getState().street.id
+    const namespacedId = store.getState().street.namespacedId
     let userEmail = store.getState().user.signInData.details
 
     // used for sending the user a confirmation email
@@ -57,7 +61,9 @@ export default class MetadataDialog extends React.Component {
       {
         userEmail: userEmail,
         userId: userId,
-        streetId: streetId
+        streetId: streetId,
+        namespacedId: namespacedId,
+        streetname: streetname
       },
       this.loadExtensionData
     )
@@ -175,7 +181,8 @@ export default class MetadataDialog extends React.Component {
       from: 'fvv.office@tuwien.ac.at',
       to: this.state.userEmail,
       subject: 'Sucessfull storage of the additional metadata',
-      message: 'Thank you very much for your submission.'
+      url: this.state.userId + '/' + this.state.namespacedId,
+      streetname: this.state.streetname
     }
 
     this.fetch('', 'POST', 'sendEmail', email)
@@ -318,7 +325,6 @@ export default class MetadataDialog extends React.Component {
                   name="fullName"
                   onChange={this.handleChange}
                   placeholder="John Doe"
-                  required={true}
                 />
 
                 <label
@@ -342,7 +348,6 @@ export default class MetadataDialog extends React.Component {
                   name="matriculationNumber"
                   onChange={this.handleChange}
                   placeholder="12345678"
-                  required={true}
                 />
 
                 <label
@@ -366,7 +371,6 @@ export default class MetadataDialog extends React.Component {
                   name="projectName"
                   onChange={this.handleChange}
                   placeholder="Project 1"
-                  required={true}
                 />
 
                 <label

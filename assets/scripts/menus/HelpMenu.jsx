@@ -9,6 +9,8 @@ import {
   ICON_ARROW_RIGHT,
   ICON_ARROW_LEFT
 } from '../ui/icons'
+import ExternalLink from '../ui/ExternalLink'
+import Icon from '../ui/Icon'
 import { registerKeypress, deregisterKeypress } from '../app/keypress'
 import { showDialog } from '../store/slices/dialogs'
 import './HelpMenu.scss'
@@ -38,7 +40,7 @@ function HelpMenu (props) {
       <a href="#" onClick={() => dispatch(showDialog('ABOUT'))}>
         <FormattedMessage
           id="menu.item.about"
-          defaultMessage="About Streetmix…"
+          defaultMessage="About streetTUner..."
         />
       </a>
       <a href="#" onClick={() => dispatch(showDialog('WHATS_NEW'))}>
@@ -47,6 +49,13 @@ function HelpMenu (props) {
           defaultMessage="What’s new in Streetmix? [en]&lrm;"
         />
       </a>
+      <ExternalLink href="https://github.com/Institute-FVV/streetmix">
+        <Icon icon="github" />
+        <FormattedMessage
+          id="menu.contact.github"
+          defaultMessage="View source code on GitHub"
+        />
+      </ExternalLink>
       <div className="help-menu-shortcuts">
         <p>
           <FormattedMessage

@@ -10,10 +10,11 @@ import { useSelector } from 'react-redux'
 import Dialog from './Dialog'
 import Credits from './About/Credits.jsx' // Without extension, test will erroneously import .json instead
 import ExternalLink from '../ui/ExternalLink'
-import logo from '../../images/logo_horizontal.svg'
+import logo from '../../images/logo_horizontal_fvv.svg'
 import numoLogo from '../../images/sponsors/numo.svg'
 import cfalogo from '../../images/sponsors/codeforamerica.png'
 import mozlogo from '../../images/sponsors/mozilla.svg'
+import fvvlogo from '../../images/sponsors/fvv.png'
 import './AboutDialog.scss'
 
 function AboutDialog (props) {
@@ -60,6 +61,19 @@ function AboutDialog (props) {
                   <li>
                     <ExternalLink href="https://codeforamerica.org/">
                       <img src={cfalogo} alt="Code for America" />
+                    </ExternalLink>
+                  </li>
+                </ul>
+                <h3>
+                  <FormattedMessage
+                    id="dialogs.about.adaptionImplementors"
+                    defaultMessage="Adaption Implementors"
+                  />
+                </h3>
+                <ul className="about-dialog-adaptionImplementors">
+                  <li>
+                    <ExternalLink href="https://www.fvv.tuwien.ac.at/home/">
+                      <img src={fvvlogo} alt="FVV Research Center" />
                     </ExternalLink>
                   </li>
                 </ul>

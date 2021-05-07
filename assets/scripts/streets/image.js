@@ -55,7 +55,7 @@ export function getStreetImage (
 
   const el = document.createElement('canvas')
   el.width = width * dpi
-  el.height = height * dpi
+  el.height = height * dpi + 18 // correct bigger picture
 
   const ctx = el.getContext('2d')
 

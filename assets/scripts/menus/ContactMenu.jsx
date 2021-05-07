@@ -11,6 +11,19 @@ function ContactMenu (props) {
 
   return (
     <Menu {...props}>
+      <ExternalLink href="https://www.fvv.tuwien.ac.at/home/">
+        <FormattedMessage
+          id="menu.contact.fvv"
+          defaultMessage="FVV institute"
+        />
+      </ExternalLink>
+      <a href="mailto:fvv.office@tuwien.ac.at">
+        <FormattedMessage
+          id="menu.contact.fvv-email"
+          defaultMessage="Send an email to FVV"
+        />
+      </a>
+
       {/*
       <ExternalLink href="https://strt.mx/discord">
         <Icon icon="discord" />
@@ -19,7 +32,6 @@ function ContactMenu (props) {
           defaultMessage="Join Discord chat"
         />
       </ExternalLink>
-      */}
       <ExternalLink href="https://github.com/Institute-FVV/streetmix">
         <Icon icon="github" />
         <FormattedMessage
@@ -27,7 +39,6 @@ function ContactMenu (props) {
           defaultMessage="View source code on GitHub"
         />
       </ExternalLink>
-      {/*
       <a
         href="#"
         onClick={(e) => {
