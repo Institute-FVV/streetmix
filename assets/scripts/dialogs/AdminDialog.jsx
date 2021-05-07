@@ -127,13 +127,16 @@ export default class AdminDialog extends React.Component {
         'userExtension',
         result.streetCreator
       )
-      result.userFullName = userExtension.fullName || ''
-      result.userMatriculationNumber = userExtension.matriculationNumber || ''
 
-      if(userExtension.User.roles) {
-        result.userRoles = userExtension.User.roles.join(', ')
-      } else {
-        result.userRoles = 'USER'
+      if (userExtension) {
+        result.userFullName = userExtension.fullName
+        result.userMatriculationNumber = userExtension.matriculationNumber
+
+        if (userExtension.User.roles) {
+          result.userRoles = userExtension.User.roles.join(', ')
+        } else {
+          result.userRoles = 'USER'
+        }
       }
 
       // add result to final array
@@ -152,7 +155,6 @@ export default class AdminDialog extends React.Component {
       return response.data
     } catch (error) {
       console.log(error)
-      throw error
     }
   }
 

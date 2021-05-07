@@ -2,7 +2,7 @@
   "menu": {
     "item": {
       "help": "Help",
-      "about": "About Streetmix…",
+      "about": "About streetTUner...",
       "contact": "Contact",
       "community": "Community",
       "contribute": "Contribute",
@@ -53,7 +53,9 @@
       "blog": "Visit Streetmix blog",
       "discord": "Join Discord chat",
       "slack": "Join Slack chat",
-      "newsletter": "Subscribe to our newsletter"
+      "newsletter": "Subscribe to our newsletter",
+      "fvv": "FVV institute",
+      "fvv-email": "Send an email to FVV"
     },
     "contribute": {
       "donate": "Donate",
@@ -183,6 +185,7 @@
       "view-source": "View source code",
       "partners": "Partners",
       "sponsors": "Sponsors",
+      "adaptionImplementors": "Adaption Implementors",
       "sponsored-by": "Streetmix is generously sponsored by:",
       "donate-link": "Support us financially",
       "github-link": "Contribute to open source",
@@ -255,7 +258,7 @@
       "tos-link-label": "terms of service",
       "privacy-link-label": "privacy policy",
       "loading-message": "Signing you in…",
-      "sent-message-with-email": "We’ve sent an email to {email}. Please follow the instructions there to continue signing in!",
+      "sent-message-with-email": "We’ve sent an email to {email}. It may take a few minutes until the sign-in e-mail reaches your mailbox. Please be patience… Please follow the instructions there to continue signing in!",
       "email-unreceived": "Didn’t receive it?",
       "resend-email": "Resend email"
     },
@@ -407,7 +410,7 @@
     "byline": "by {user}"
   },
   "export": {
-    "watermark": "Made with {streetmixWordmark}"
+    "watermark": "Created using {streetmixWordmark}"
   },
   "meta": {
     "description": "Design, remix, and share your neighborhood street – all in your browser! Add trees or bike paths, widen sidewalks or traffic lanes, learn how your decisions can impact your community.",

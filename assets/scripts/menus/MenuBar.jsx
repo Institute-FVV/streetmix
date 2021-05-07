@@ -137,8 +137,10 @@ function MenuBar (props) {
     <nav className="menu-bar">
       <ul className="menu-bar-left">
         <li className="menu-bar-title">
-          <img src={logo} alt="Streemix" className="menu-bar-logo" />
-          <h1>Streetmix - @FVV-TU-Vienna</h1>
+          <a href="https://www.fvv.tuwien.ac.at/" target="_blank">
+            <img src={logo} alt="Streemix" className="menu-bar-logo" />
+            <h1>streetTUner - TU Wien, Institut für Verkehrswissenschaften, Forschungsbereich Verkehrsplanung und Verkehrstechnik</h1>
+          </a>
         </li>
         {/* Admin overview */}
         {isAdmin && (

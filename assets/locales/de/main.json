@@ -2,7 +2,7 @@
   "menu": {
     "item": {
       "help": "Hilfe",
-      "about": "Über Streetmix...",
+      "about": "Über streetTUner...",
       "contact": "Kontakt",
       "community": "Community",
       "contribute": "Beitragen",
@@ -54,7 +54,9 @@
       "blog": "Streetmix Blog ansehen",
       "discord": "",
       "slack": "Slack Chat beitreten",
-      "newsletter": ""
+      "newsletter": "",
+      "fvv": "FVV Institute",
+      "fvv-email": "Email an FVV senden"
     },
     "contribute": {
       "donate": "Spenden",
@@ -184,6 +186,7 @@
       "view-source": "Quellcode ansehen",
       "partners": "",
       "sponsors": "",
+      "adaptionImplementors": "Adaption Implementors",
       "sponsored-by": "Streetmix wird großzügigerweise gesponsert von:",
       "donate-link": "Unterstütze uns finanziell",
       "github-link": "Trage zu Open Source bei",
@@ -256,7 +259,7 @@
       "tos-link-label": "Geschäftsbedingungen",
       "privacy-link-label": "Datenschutzrichtlinie",
       "loading-message": "Anmeldung läuft...",
-      "sent-message-with-email": "Wir haben ein E-Mail an {email} gesendet. Bitte folge der Anleitung darin, um dich anzumelden!",
+      "sent-message-with-email": "Wir haben eine E-Mail an {email} gesendet. Es kann ein paar Minuten dauern, bis die Anmelde-E-Mail Ihr Postfach erreicht. Bitte haben Sie etwas Geduld... Bitte folgen Sie dort den Anweisungen, um sich weiter anzumelden!",
       "email-unreceived": "Nicht bekommen?",
       "resend-email": "E-Mail nochmal senden"
     },
