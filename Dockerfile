@@ -44,13 +44,15 @@ RUN apt-get install curl -y
 RUN curl -L https://www.npmjs.com/install.sh | sh
 RUN apt-get install vim -y 
 RUN apt-get install net-tools -y
+RUN apt-get install python -y
+RUN apt-get install make -y
+RUN apt-get install build-essential -y
 
 # copy git project into image and install it, so migration can be executed
 # install some prerequists before, because the build fails otherwise
 COPY . ./
 RUN npm install -g sequelize
 RUN npm install -g sequelize-cli
-RUN npm install phantomjs-prebuilt@2.1.14 --ignore-scripts
 RUN npm install --only=production && npm cache clean --force --loglevel=error
 
 # copy init shell scripts to docker init
