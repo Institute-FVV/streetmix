@@ -134,7 +134,7 @@ function AboutDialog (props) {
                       </a>
                       <br />
                       <a
-                        href="https://streetmix.net/privacy-policy/"
+                        href="https://streettuner.fvv.tuwien.ac.at/privacy-policy"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
