@@ -123,7 +123,7 @@ function AboutDialog (props) {
                     </p>
                     <p>
                       <a
-                        href="https://streetmix.net/terms-of-service/"
+                        href="https://streettuner.fvv.tuwien.ac.at/terms-of-service/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
