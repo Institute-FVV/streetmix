@@ -128,7 +128,7 @@ export default class AdminDialog extends React.Component {
         result.streetCreator
       )
 
-      if (userExtension.fullName) {
+      if (userExtension && userExtension.fullName) {
         result.userFullName = userExtension.fullName
         result.userMatriculationNumber = userExtension.matriculationNumber
 
