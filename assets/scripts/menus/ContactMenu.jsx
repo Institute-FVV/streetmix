@@ -14,13 +14,13 @@ function ContactMenu (props) {
       <ExternalLink href="https://www.fvv.tuwien.ac.at/home/">
         <FormattedMessage
           id="menu.contact.fvv"
-          defaultMessage="FVV institute"
+          defaultMessage="TU Vienna - FVV"
         />
       </ExternalLink>
       <a href="mailto:fvv.office@tuwien.ac.at">
         <FormattedMessage
           id="menu.contact.fvv-email"
-          defaultMessage="Send an email to FVV"
+          defaultMessage="Send an e-mail to TU Vienna - FVV"
         />
       </a>
 
