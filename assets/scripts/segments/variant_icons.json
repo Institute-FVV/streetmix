@@ -271,6 +271,11 @@
       "id": "asphalt",
       "color": "#9b1f22",
       "title": "Sidewalk"
+    },
+    "green": {
+      "id": "asphalt",
+      "color": "#238a1a",
+      "title": "Green"
     }
   },
   "bike-road-elevation": {

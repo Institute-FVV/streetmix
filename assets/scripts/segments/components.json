@@ -940,29 +940,15 @@
       "owner": "FLEX",
       "zIndex": 20,
       "variants": {
-        "orientation|waste-positioning": {
-          "left": {
-            "front": {
-              "graphics": {
-                "left": "objects--box-front"
-              }
-            },
-            "sideways": {
-              "graphics": {
-                "left": "objects--box-side"
-              }
+        "waste-positioning": {
+          "front": {
+            "graphics": {
+              "center": "objects--box-front"
             }
           },
-          "right": {
-            "front": {
-              "graphics": {
-                "right": "objects--box-front"
-              }
-            },
-            "sideways": {
-              "graphics": {
-                "right": "objects--box-side"
-              }
+          "sideways": {
+            "graphics": {
+              "center": "objects--box-side"
             }
           }
         }

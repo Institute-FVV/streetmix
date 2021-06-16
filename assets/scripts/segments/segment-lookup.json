@@ -1625,7 +1625,7 @@
     },
     "variants": ["direction", "bike-asphalt"],
     "details": {
-      "inbound|regular": {
+      "inbound|black": {
         "components": {
           "lanes": [
             {
@@ -1650,7 +1650,7 @@
           ]
         }
       },
-      "outbound|regular": {
+      "outbound|black": {
         "components": {
           "lanes": [
             {
@@ -2164,9 +2164,9 @@
         "components": {
           "lanes": [
             {
-              "id": "sidewalk",
+              "id": "asphalt",
               "variants": {
-                "color": "asphalt"
+                "color": "regular"
               }
             }
           ],
@@ -2189,9 +2189,9 @@
         "components": {
           "lanes": [
             {
-              "id": "sidewalk",
+              "id": "asphalt",
               "variants": {
-                "color": "asphalt"
+                "color": "regular"
               }
             }
           ],
@@ -2488,9 +2488,9 @@
         "components": {
           "lanes": [
             {
-              "id": "sidewalk",
+              "id": "asphalt",
               "variants": {
-                "color": "asphalt"
+                "color": "regular"
               }
             }
           ],
@@ -2513,9 +2513,9 @@
         "components": {
           "lanes": [
             {
-              "id": "sidewalk",
+              "id": "asphalt",
               "variants": {
-                "color": "asphalt"
+                "color": "regular"
               }
             }
           ],
@@ -2812,9 +2812,9 @@
         "components": {
           "lanes": [
             {
-              "id": "sidewalk",
+              "id": "asphalt",
               "variants": {
-                "color": "asphalt"
+                "color": "regular"
               }
             }
           ],
@@ -2837,9 +2837,9 @@
         "components": {
           "lanes": [
             {
-              "id": "sidewalk",
+              "id": "asphalt",
               "variants": {
-                "color": "asphalt"
+                "color": "regular"
               }
             }
           ],
@@ -6673,9 +6673,9 @@
     "rules": {
       "minWidth": 4
     },
-    "variants": ["orientation", "waste-positioning"],
+    "variants": ["waste-positioning"],
     "details": {
-      "left|front": {
+      "front": {
         "components": {
           "lanes": [
             {
@@ -6689,13 +6689,13 @@
             {
               "id": "box",
               "variants": {
-                "orientation|waste-positioning": ["left", "front"]
+                "waste-positioning": ["front"]
               }
             }
           ]
         }
       },
-      "right|front": {
+      "sideways": {
         "components": {
           "lanes": [
             {
@@ -6709,47 +6709,7 @@
             {
               "id": "box",
               "variants": {
-                "orientation|waste-positioning": ["right", "front"]
-              }
-            }
-          ]
-        }
-      },
-      "left|sideways": {
-        "components": {
-          "lanes": [
-            {
-              "id": "sidewalk",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "objects": [
-            {
-              "id": "box",
-              "variants": {
-                "orientation|waste-positioning": ["left", "sideways"]
-              }
-            }
-          ]
-        }
-      },
-      "right|sideways": {
-        "components": {
-          "lanes": [
-            {
-              "id": "sidewalk",
-              "variants": {
-                "color": "regular"
-              }
-            }
-          ],
-          "objects": [
-            {
-              "id": "box",
-              "variants": {
-                "orientation|waste-positioning": ["right", "sideways"]
+                "waste-positioning": ["sideways"]
               }
             }
           ]
