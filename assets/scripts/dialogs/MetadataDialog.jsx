@@ -25,6 +25,7 @@ export default class MetadataDialog extends React.Component {
       namespacedId: '',
       streetExtensionId: '',
       projectName: '',
+      planDreamVision: false,
       sectionStatus: '',
       directionOfView: '',
       allowExternalChange: false,
@@ -37,6 +38,7 @@ export default class MetadataDialog extends React.Component {
     this.fullNameInputEl = React.createRef()
     this.matriculationNumberInputEl = React.createRef()
     this.projectNamenInputEl = React.createRef()
+    this.planDreamVisionInputEl = React.createRef()
     this.streetSectionSInputEl = React.createRef()
     this.allowExternalChangeInputEl = React.createRef()
     this.directionOfViewInputEl = React.createRef()
@@ -97,7 +99,8 @@ export default class MetadataDialog extends React.Component {
       this.setState({
         streetExtensionId: streetExtension.id,
         projectName: streetExtension.projectName,
-        sectionStatus: streetExtension.sectionStatus.split('T')[0],
+        planDreamVision: streetExtension.planDreamVision,
+        sectionStatus: streetExtension.sectionStatus ? streetExtension.sectionStatus.split('T')[0] : '',
         directionOfView: streetExtension.directionOfView,
         allowExternalChange: streetExtension.allowExternalChange,
         description: streetExtension.description
@@ -134,6 +137,7 @@ export default class MetadataDialog extends React.Component {
       projectName: this.state.projectName,
       directionOfView: this.state.directionOfView,
       sectionStatus: this.state.sectionStatus,
+      planDreamVision: this.state.planDreamVision,
       allowExternalChange: this.state.allowExternalChange,
       description: this.state.description
     }
@@ -195,7 +199,14 @@ export default class MetadataDialog extends React.Component {
 
     // implement switch of checkboxes
     if (target.type === 'checkbox') {
-      value = !(value === 'true')
+      value = value !== 'true'
+
+      // reset the sectoin status if checkbox checked
+      if (name === 'planDreamVision' && value) {
+        this.setState({
+          sectionStatus: ''
+        })
+      }
     }
 
     this.setState({
@@ -374,28 +385,52 @@ export default class MetadataDialog extends React.Component {
                 />
 
                 <label
-                  htmlFor="metadata-projectStatus-input"
+                  htmlFor="metadata-planDreamVision-input"
                   className="metadata-label"
                 >
                   <FormattedMessage
-                    id="dialogs.metadata.projectStatus-label"
-                    defaultMessage="Street section status as of"
+                    id="dialogs.metadata.planDreamVision-label"
+                    defaultMessage="Plan / dream vision"
                   />
                 </label>
 
                 <input
-                  type="date"
-                  id="metadata-projectStatus-input"
-                  ref={this.sectionStatusInputEl}
-                  value={this.state.sectionStatus}
-                  className={
-                    'metadata-input ' +
-                    (this.state.error ? 'metadata-input-error' : '')
-                  }
-                  name="sectionStatus"
+                  type="checkbox"
+                  id="metadata-planDreamVision-input"
+                  ref={this.planDreamVisionInputEl}
+                  value={this.state.planDreamVision}
+                  checked={this.state.planDreamVision}
+                  name="planDreamVision"
                   onChange={this.handleChange}
-                  required={true}
                 />
+
+                {!this.state.planDreamVision && (
+                  <>
+                    <label
+                      htmlFor="metadata-projectStatus-input"
+                      className="metadata-label"
+                    >
+                      <FormattedMessage
+                        id="dialogs.metadata.projectStatus-label"
+                        defaultMessage="Street section status as of"
+                      />
+                    </label>
+
+                    <input
+                      type="date"
+                      id="metadata-projectStatus-input"
+                      ref={this.sectionStatusInputEl}
+                      value={this.state.sectionStatus}
+                      className={
+                        'metadata-input ' +
+                        (this.state.error ? 'metadata-input-error' : '')
+                      }
+                      name="sectionStatus"
+                      onChange={this.handleChange}
+                      required={true}
+                    />
+                  </>
+                )}
 
                 <label
                   htmlFor="metadata-directionOfView-input"

@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       field: 'project_name'
     },
+    planDreamVision: {
+      type: DataTypes.BOOLEAN,
+      field: 'plan_dream_vision'
+    },
     sectionStatus: {
       type: DataTypes.DATE,
       field: 'section_status'

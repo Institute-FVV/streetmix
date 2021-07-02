@@ -47,6 +47,7 @@ exports.post = async function (req, res) {
 
     extension.streetId = body.streetId
     extension.projectName = body.projectName
+    extension.planDreamVision = body.planDreamVision
     extension.sectionStatus = body.sectionStatus
     extension.directionOfView = body.directionOfView
     extension.allowExternalChange = body.allowExternalChange
@@ -212,7 +213,8 @@ exports.put = async function (req, res) {
   async function updateStreetData (extension) {
     extension.streetId = body.streetId || extension.streetId
     extension.projectName = body.projectName || extension.projectName
-    extension.sectionStatus = body.sectionStatus || extension.sectionStatus
+    extension.planDreamVision = body.planDreamVision
+    extension.sectionStatus = body.sectionStatus || null
     extension.directionOfView =
       body.directionOfView || extension.directionOfView
     extension.allowExternalChange = body.allowExternalChange

@@ -272,6 +272,7 @@
       "matriculationNumber-label": "Matriculation number",
       "projectName-label": "Project name",
       "directionOfView-label": "Direction of view: looking towards ...",
+      "planDreamVision-label": "Plan / dream vision",
       "projectStatus-label": "Street section status as of",
       "note": "We will send you a confirmation of the saving of the metadata and a link to this project to your email.",
       "submit-invalid": "Oops! Seems the submission of your work did not work, please try again or contact local support",
