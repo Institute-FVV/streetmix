@@ -9,7 +9,8 @@ jest.mock('../../../../lib/auth0', () => {
   return {
     Authentication: () => ({
       logout: jest.fn()
-    })
+    }),
+    UserInfo: () => ({})
   }
 })
 

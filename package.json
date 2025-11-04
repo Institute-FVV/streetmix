@@ -8,8 +8,8 @@
   },
   "license": "BSD-3-Clause",
   "engines": {
-    "node": "14.x",
-    "npm": "6.x"
+    "node": ">=18.18.0",
+    "npm": ">=9.0.0"
   },
   "scripts": {
     "cypress:open": "cypress open",
@@ -111,7 +111,7 @@
     "@tippyjs/react": "4.2.0",
     "@types/react": "16.9.56",
     "async": "3.1.0",
-    "auth0": "2.28.0",
+    "auth0": "4.35.0",
     "auth0-js": "9.13.2",
     "autoprefixer": "9.8.6",
     "axios": "0.21.1",
