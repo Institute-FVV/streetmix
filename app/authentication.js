@@ -7,7 +7,8 @@ const secret = jwksRsa.expressJwtSecret({
   cache: true,
   rateLimit: true,
   jwksRequestsPerMinute: 5,
-  jwksUri: 'http://fvv.eu.auth0.com/.well-known/jwks.json'
+  // Auth0 requires TLS 1.2+; use HTTPS instead of HTTP for the JWKS endpoint
+  jwksUri: 'https://fvv.eu.auth0.com/.well-known/jwks.json'
 })
 
 const jwtCheck = jwt({
