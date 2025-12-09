@@ -2,8 +2,13 @@
 
 ## Scope
 
-The FVV is involved in the education of future civil engineers. During their studies the students are working with Streetmix to create a drawing of a section.  
-To adapt and extend the functionalities to the local requirements of FVV we have decided to extend the powerful planning software Streetmix.
+The FVV is involved in the education of future civil engineers. During their studies the students are working with Streetmix to create a drawing of a section.   To adapt and extend the functionalities to the local requirements of FVV we have decided to extend the powerful planning software Streetmix, and labeled it StreetTUner.
+
+## What is streetTUner?
+- TU Wien's FVV fork of Streetmix, used in coursework to design street cross-sections.
+- Adds Austrian-specific illustrations and a metadata flow so students can submit project details (name, matriculation number, status, description, etc.).
+- Adds Metadata dialog for student submissions; admin table/map views to review metadata, so teachers can access students' submissions.
+- Docker-first deploy with Postgres/PostGIS and passwordless email sign-in via Auth0.
 
 ## Introduced adaptation
 
@@ -12,6 +17,33 @@ The following main adaptations have been introduced.
 ### Dockerization
 
 The application was dockerized to provide easier management and deployment.
+
+#### Quick start (dev) with Docker (adjust env file as needed):
+```bash
+docker build -t streettuner-app -f Dockerfile .
+docker run -d --name streettuner --env-file .env -p 8000:8000 streettuner-app
+```
+
+#### Deployment (prod)
+- Container: `fvv-streetmix` on Docker network `fvv`.
+- Env file: `/srv/streetmix/.env`.
+- Current patched image: `fvv-streetmix:jwksfix` (JWKS HTTPS fix).
+- Restart (typical):
+  ```bash
+  sudo docker rm -f fvv-streetmix
+  sudo docker run -d --name fvv-streetmix \
+    --network fvv \
+    --env-file /srv/streetmix/.env \
+    --restart always \
+    fvv-streetmix:jwksfix
+  ```
+- Verify callback inside container:
+  ```bash
+  sudo docker exec fvv-streetmix node -e "const c=require('config');console.log(c.protocol + c.app_host_port + c.auth0.callback_path)"
+  ```
+
+### Auth0 / sign-in fix
+- Full checklist and restart recipe: `docs/sign-in-fix.md`.
 
 ### Added new illustration
 
